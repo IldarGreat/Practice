@@ -4,14 +4,9 @@ import  ru.ssau.tk.ildar.Practice.Person;
 class Main{
     public static void main(String[] args) {
         Person person=new Person();
-        person.getFirstName();
-        person.getLastName();
-        person.getPassportId();
-        person.setFirstName("Ильдар");
-        person.setSecondName("Идиятов");
-        person.setPassportId(9216);
-        person.getFirstName();
-        person.getLastName();
-        person.getPassportId();
+        Person personTwo=new Person(9234);
+        Person personThree=new Person("Валерия","Атапина");
+        Person personFour=new Person("Екатерина","Арьева",1342);
+        personFour.getLastName();
     }
 }
