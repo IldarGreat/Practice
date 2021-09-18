@@ -24,5 +24,13 @@ class Main{
 
         System.out.println("Length radius vector of the point:"+pointThree.length()); // Проверка нестатического метода length()
         System.out.println("Length radius vector of the point:"+Point.length(pointThree)); // Проверка статического! метода length()
+
+        pointThree=Point.opposite(pointThree);  // Проверяем метод opposite()
+        pointThree.getInformation(); System.out.println();
+
+        pointThree=Point.inverse(pointThree);  // Проверяем метод opposite()
+        pointThree.getInformation(); System.out.println();
+
+        pointOne=null;pointTwo=null;pointThree=null;
     }
 }

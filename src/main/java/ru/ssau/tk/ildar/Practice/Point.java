@@ -28,8 +28,8 @@ public class Point {
         System.out.println("Length radius vector of the point:"+length());
     }
     public static Point sum(Point pointOne,Point pointTwo){ // Статический метод суммы двух обьектов
-    Point pointNew = new Point(pointOne.getX()+pointTwo.getX(),pointOne.getY()+pointTwo.getY(),pointOne.getZ()+pointTwo.getZ());
-    return pointNew; // Возвращаем новосозданный обьект
+        Point pointNew = new Point(pointOne.getX()+pointTwo.getX(),pointOne.getY()+pointTwo.getY(),pointOne.getZ()+pointTwo.getZ());
+        return pointNew; // Возвращаем новосозданный обьект
     }
 
     public static Point subtract(Point pointOne,Point pointTwo){ // Статический метод разности двух обьектов
@@ -59,4 +59,15 @@ public class Point {
     public static double length(Point point){ // Статический! метод
         return point.length(); // Делегирование(перекладываем работу на нестатический метод length() )
     }
+
+    public static Point opposite(Point point){ // Статический метод создания противоположного обьекта
+        Point pointNew = new Point(point.getX()*(-1),point.getY()*(-1),point.getZ()*(-1));
+        return pointNew;
+    }
+
+    public static Point inverse(Point point){ // Статический метод , создающий обьект путем деления 1 на исходный
+        Point pointNew = new Point(1/point.getX(),1/point.getY(),1/point.getZ());
+        return pointNew;
+    }
+
 }
