@@ -1,12 +1,28 @@
 package ru.ssau.tk.ildar.Practice;
 import ru.ssau.tk.ildar.Practice.Point;
 class Main{
+
     public static void main(String[] args) {
-System.out.println("Сумма 24 и 34 = " + Point.sum(24,34));
-        System.out.println("Разность 14 и 34 = " + Point.substract(14,34));
-        System.out.println("Деления 22 на 3 = " + Point.divide(22,3));
-        System.out.println("Умножения 4 на 3 = " + Point.multiply(4,3));
-        Point point = new Point();
-        System.out.println( point.enlarge(point,4));
+        Point pointOne = new Point(1,4,5); // Создание обьекта
+        Point pointTwo = new Point(4,1,8); // Создание обьекта
+        Point pointThree ; // Создание ссылки
+
+        pointThree = Point.sum(pointOne,pointTwo); // Проверяем метод sum()
+        pointThree.getInformation(); System.out.println();
+
+        pointThree = Point.subtract(pointOne,pointTwo); // Проверяем метод subtract()
+        pointThree.getInformation(); System.out.println();
+
+        pointThree = Point.multiply(pointOne,pointTwo); // Проверяем метод multiply()
+        pointThree.getInformation(); System.out.println();
+
+        pointThree = Point.divide(pointOne,pointTwo); // Проверяем метод sum()
+        pointThree.getInformation(); System.out.println();
+
+        pointThree = Point.enlarge(pointThree,4); // Проверяем метод enlarge()
+        pointThree.getInformation(); System.out.println();
+
+        System.out.println("Length radius vector of the point:"+pointThree.length()); // Проверка нестатического метода length()
+        System.out.println("Length radius vector of the point:"+Point.length(pointThree)); // Проверка статического! метода length()
     }
 }
