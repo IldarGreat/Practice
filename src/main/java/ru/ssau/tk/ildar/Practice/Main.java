@@ -28,7 +28,13 @@ class Main{
         pointThree=Point.opposite(pointThree);  // Проверяем метод opposite()
         pointThree.getInformation(); System.out.println();
 
-        pointThree=Point.inverse(pointThree);  // Проверяем метод opposite()
+        pointThree=Point.inverse(pointThree);  // Проверяем метод inverse()
+        pointThree.getInformation(); System.out.println();
+
+        pointThree = Point.scalarProduct(pointOne,pointTwo); // Проверка скалярного произведения
+        pointThree.getInformation(); System.out.println();
+
+        pointThree = Point.vectorProduct(pointOne,pointTwo); // Проверка векторного произведения
         pointThree.getInformation(); System.out.println();
 
         pointOne=null;pointTwo=null;pointThree=null;
