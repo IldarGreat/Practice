@@ -37,6 +37,6 @@ class Main{
         pointThree = Point.vectorProduct(pointOne,pointTwo); // Проверка векторного произведения
         pointThree.getInformation(); System.out.println();
 
-        pointOne=null;pointTwo=null;pointThree=null;
+
     }
 }
