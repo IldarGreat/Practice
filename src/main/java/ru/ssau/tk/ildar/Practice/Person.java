@@ -14,11 +14,25 @@ public class Person {
         this.lastName="Unknown";
         this.passportId=0;
     }
-    public Person(String firstName,String lastName,int passportId){ // Конструктор
+
+    public Person(int passportId){  // Конструктор с одним параметром
+        this.firstName="Unknown";
+        this.lastName="Unknown";
+        this.passportId=passportId;
+    }
+
+    public Person(String firstName,String lastName){  // Конструктор с двумя параметрами
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.passportId=0;
+    }
+
+    public Person(String firstName,String lastName,int passportId){  // Конструктор с тремя параметрами
         this.firstName=firstName;
         this.lastName=lastName;
         this.passportId=passportId;
     }
+
 
     public void setFirstName(String firstName){
         this.firstName=firstName;
