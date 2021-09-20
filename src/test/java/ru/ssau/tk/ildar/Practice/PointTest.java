@@ -39,6 +39,6 @@ public class PointTest {
 
         Point pointThree=new Point(3,5,7); // Создадим обьекты с разностью координат болльше чем заданной точности
         Point pointFour = new Point(3.001,5.0002,7.04); // Не такая же по точности точка!
-        Assert.assertTrue(equalsApproximately(pointThree,pointFour)); // Все будет ок,поскольку используем assertFalse!
+        Assert.assertFalse(equalsApproximately(pointThree,pointFour)); // Все будет ок,поскольку используем assertFalse!
     }
 }
