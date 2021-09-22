@@ -1,16 +1,24 @@
 package ru.ssau.tk.ildar.Practice;
-import ru.ssau.tk.ildar.Practice.Point;
-class Main{
-    public static final double POSITIVE_INFINITY = 1.0 / 0.0; // Ввожу плюс бесконечность
-   public static final double NEGATIVE_INFINITY = -1.0 / 0.0; // Ввожу минус бесконечность
 
+class Main {
     public static void main(String[] args) {
-       double number=35;
 
-       IdenticalOperation checkIdentical = new IdenticalOperation();
-       SqrtOperation checkSqrt = new SqrtOperation();
-       TangentOperation checkTangent = new TangentOperation();
-        System.out.println("The number:"+checkIdentical.apply(number)+" sqrt:"+checkSqrt.apply(number)+" tan:"+ checkTangent.apply(POSITIVE_INFINITY));
-        System.out.println("Triple sqrt:"+checkSqrt.applyTriple(number)+" triple tan:"+ checkTangent.applyTriple(number));
+        NamedPoint namedPoint = new NamedPoint();
+        NamedPoint namedPointTwo = new NamedPoint(1,2,3);
+        NamedPoint namedPointThree = new NamedPoint(1,2,3,"Unknown");
+        namedPoint.setName("Ildar");
+        System.out.println(namedPoint.getName());
+        namedPointTwo.setName("Ildar");
+        System.out.println(namedPoint.getName());
+        namedPointThree.setName("Ildar");
+        System.out.println(namedPoint.getName());
+
+        Person person = new Person();
+        Person personTwo = new Person(1);
+        Person personThree = new Person("Ildar","Idiot");
+        Person personFour = new Person("Ildar","Idiot",1);
+        System.out.println(person.getFirstName()+personTwo.getFirstName()+personThree.getFirstName()+personFour.getFirstName());
+
+
     }
 }

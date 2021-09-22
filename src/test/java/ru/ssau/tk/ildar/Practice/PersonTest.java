@@ -1,70 +1,60 @@
 package ru.ssau.tk.ildar.Practice;
 
 import org.testng.Assert;
-import org.testng.annotations.*; // Импорт аннотации Test
+import org.testng.annotations.*;
 
 public class PersonTest {
     @Test
-    public static void testingGetFirstName(String firstName,Person person){  // Тестируем firstName
-        Assert.assertEquals(person.getFirstName(),firstName);
-    }
-
-    @Test
-    public static void testingGetLastName(String lastName,Person person){ // Тестируем lastName
-        Assert.assertEquals(person.getLastName(),lastName);
-    }
-
-    @Test
-    public static void testingGetPassportId(int passportId,Person person){ // Тестируем passportId
-        Assert.assertEquals(person.getPassportId(),passportId);
-    }
-
-    @Test
-    public static void testingWithoutParameterConstructor(Person person){  // Тестируем конструктор без параметров
-        Assert.assertEquals(person.getFirstName(),"Unknown");
-        Assert.assertEquals(person.getLastName(),"Unknown");
-        Assert.assertEquals(person.getPassportId(),0);
-    }
-
-    @Test
-    public static void testingOneParameterConstructor(Person person,int passportId){  // Тестируем конструктор с одним передаваемым параметром
-        Assert.assertEquals(person.getFirstName(),"Unknown");
-        Assert.assertEquals(person.getLastName(),"Unknown");
-        Assert.assertEquals(person.getPassportId(),passportId);
-    }
-
-    @Test
-    public static void testingTwoParameterConstructor(Person person,String firstName,String lastName){  // Тестируем конструктор с двумя передаваемыми параметрами
-        Assert.assertEquals(person.getFirstName(),firstName);
-        Assert.assertEquals(person.getLastName(),lastName);
-        Assert.assertEquals(person.getPassportId(),0);
-    }
-
-    @Test
-    public static void testingThreeParameterConstructor(Person person,String firstName,String lastName,int passportId){  // Тестируем конструктор с тремя передаваемыми параметрами
-        Assert.assertEquals(person.getFirstName(),firstName);
-        Assert.assertEquals(person.getLastName(),lastName);
-        Assert.assertEquals(person.getPassportId(),passportId);
-    }
-
-    public static void main(String[] args) {  // Запускаю с покрытием кода 33% classes
-        int passportId = 9216; // Их будем передавать и с ними же сравнивать
-        String firstName = "Ildar";
-        String lastName = "Idiyatov";
+    public static void testGetFirstName(){
         Person person = new Person();
+        person.setFirstName("Ildar");
+        Assert.assertEquals(person.getFirstName(),"Ildar");
+    }
 
-        PersonTest.testingWithoutParameterConstructor(person); // Тестируем конструктор без параметров
-        // тут ошибка , поскольку конструктор уже задает имя PersonTest.testingGetFirstName(null,person);  // Тестируем геттер с передачей null
+    @Test
+    public static void testGetLastName(){
+        Person person = new Person();
+        person.setLastName("Idiot");
+        Assert.assertEquals(person.getLastName(),"Idiot");
+    }
 
-        person.setFirstName(firstName); // Используем сеттер
-        PersonTest.testingGetFirstName(firstName,person); // Тестируем сеттер
+    @Test
+    public static void testGetPassportId(){
+        Person person = new Person();
+        person.setPassportId(1);
+        Assert.assertEquals(person.getPassportId(),1);
+    }
 
-        person.setLastName(lastName); // Используем сеттер
-        PersonTest.testingGetLastName(lastName,person); // Тестируем сеттер
+    @Test
+    public static void testWithoutParameterConstructor(){
+        Person person = new Person();
+        Assert.assertEquals(person.getFirstName(),"Unknown");
+        Assert.assertEquals(person.getLastName(),"Unknown");
+        Assert.assertEquals(person.getPassportId(),0);
+    }
 
-        person.setPassportId(passportId); // Используем сеттер
-        PersonTest.testingGetPassportId(passportId,person); // Тестируем сеттер
+    @Test
+    public static void testOneParameterConstructor(){
+        Person person = new Person(1);
+        Assert.assertEquals(person.getFirstName(),"Unknown");
+        Assert.assertEquals(person.getLastName(),"Unknown");
+        Assert.assertEquals(person.getPassportId(),1);
+    }
 
+    @Test
+    public static void testTwoParameterConstructor(){
+        Person person = new Person("Ildar","Idiot");
+        Assert.assertEquals(person.getFirstName(),"Ildar");
+        Assert.assertEquals(person.getLastName(),"Idiot");
+        Assert.assertEquals(person.getPassportId(),0);
+    }
+
+    @Test
+    public static void testThreeParameterConstructor(){
+        Person person = new Person("Ildar","Idiot",1);
+        Assert.assertEquals(person.getFirstName(),"Ildar");
+        Assert.assertEquals(person.getLastName(),"Idiot");
+        Assert.assertEquals(person.getPassportId(),1);
     }
 
 }
