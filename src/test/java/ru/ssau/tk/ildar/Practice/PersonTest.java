@@ -26,6 +26,15 @@ public class PersonTest {
     }
 
     @Test
+    public static void testGetGender(){
+        Person person = new Person();
+        person.setGender(Person.Gender.MALE);
+        Assert.assertEquals(person.getGender(), Person.Gender.MALE);
+        person.setGender(Person.Gender.FEMALE);
+        Assert.assertEquals(person.getGender(), Person.Gender.FEMALE);
+    }
+
+    @Test
     public static void testWithoutParameterConstructor(){
         Person person = new Person();
         Assert.assertEquals(person.getFirstName(),"Unknown");

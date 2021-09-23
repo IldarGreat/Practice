@@ -5,17 +5,9 @@ public class Person {
     private String lastName;
     private int passportId;
 
-    public String getFirstName() {
-        return this.firstName;
-    }
+    enum Gender {MALE, FEMALE}
 
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public int getPassportId() {
-        return this.passportId;
-    }
+    Gender gender;
 
     public Person() {
         this.firstName = "Unknown";
@@ -41,6 +33,30 @@ public class Person {
         this.passportId = passportId;
     }
 
+    public Person(String firstName, String lastName, int passportId,Gender gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.passportId = passportId;
+        this.gender = gender;
+    }
+
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public int getPassportId() {
+        return this.passportId;
+    }
+
+    public Gender getGender() {
+        return this.gender;
+    }
+
+    public void setGender(Gender gender) { this.gender = gender; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

@@ -3,31 +3,33 @@ package ru.ssau.tk.ildar.Practice;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
 
 public class SqrtOperationTest {
-    final static double someNumber =256;
-    public static final double POSITIVE_INFINITY = 1.0 / 0.0; // Ввожу плюс бесконечность
-    public static final double NEGATIVE_INFINITY = -1.0 / 0.0; // Ввожу минус бесконечность
 
-    SqrtOperation justTest = new SqrtOperation();
+    public static final double DELTA = 0.0001;
+    SqrtOperation sqrtObject = new SqrtOperation();
 
     @Test
     public void testApply()
     {
-        Assert.assertEquals(justTest.apply(someNumber),16);  // Просто проверим apply корень из 256 это 16
-        Assert.assertEquals(justTest.apply(POSITIVE_INFINITY),POSITIVE_INFINITY);  // Корень из бесконечности это бесконечность
-        Assert.assertEquals(justTest.apply(NEGATIVE_INFINITY),POSITIVE_INFINITY-POSITIVE_INFINITY);  // Корень из минус бесконечности должен быть Nan(POSITIVE_INFINITY-POSITIVE_INFINITY)
-        Assert.assertEquals(justTest.apply(POSITIVE_INFINITY-POSITIVE_INFINITY),POSITIVE_INFINITY-POSITIVE_INFINITY); // Корень от NaN это Nan
+        Assert.assertEquals(sqrtObject.apply(256),16.0,DELTA);
+        Assert.assertEquals(sqrtObject.apply(5),2.2360,DELTA);
+        Assert.assertEquals(sqrtObject.apply(-23.4),Double.NaN);
+        Assert.assertEquals(sqrtObject.apply(Double.POSITIVE_INFINITY),Double.POSITIVE_INFINITY);
+        Assert.assertEquals(sqrtObject.apply(Double.NEGATIVE_INFINITY),Double.NaN);
+        Assert.assertEquals(sqrtObject.apply(Double.NaN),Double.NaN);
     }
 
     @Test
     public void testApplyTriple()
     {
-        Assert.assertEquals(justTest.applyTriple(someNumber),2);  // Корень из корня корня 256 это 2
-        Assert.assertEquals(justTest.applyTriple(POSITIVE_INFINITY),POSITIVE_INFINITY);  // Корень из корня корня бесконечности это бесконечность
-        Assert.assertEquals(justTest.applyTriple(NEGATIVE_INFINITY),POSITIVE_INFINITY-POSITIVE_INFINITY);  // Корень из корня корня минус бесконечности должен быть Nan(POSITIVE_INFINITY-POSITIVE_INFINITY)
-        Assert.assertEquals(justTest.applyTriple(POSITIVE_INFINITY-POSITIVE_INFINITY),POSITIVE_INFINITY-POSITIVE_INFINITY);
+        Assert.assertEquals(sqrtObject.applyTriple(256),2,DELTA);
+        Assert.assertEquals(sqrtObject.apply(5),2.2360,DELTA);
+        Assert.assertEquals(sqrtObject.apply(13.0/7.0),1.3627,DELTA);
+        Assert.assertEquals(sqrtObject.apply(-321),Double.NaN);
+        Assert.assertEquals(sqrtObject.applyTriple(Double.POSITIVE_INFINITY),Double.POSITIVE_INFINITY);
+        Assert.assertEquals(sqrtObject.applyTriple(Double.NEGATIVE_INFINITY),Double.NaN);
+        Assert.assertEquals(sqrtObject.applyTriple(Double.NaN),Double.NaN);
     }
 
 }
