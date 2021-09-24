@@ -33,5 +33,14 @@ public class NamedPointTest {
         Assert.assertEquals(namedPoint.getName(), "Ildar");
     }
 
+    @Test
+    public void testReset(){
+        NamedPoint namedPoint = new NamedPoint();
+        namedPoint.reset();
+        Assert.assertEquals(namedPoint.getName(), "Absent");
+        namedPoint.setName("Ildar");
+        namedPoint.reset();
+        Assert.assertEquals(namedPoint.getName(), "Absent");
+    }
 
 }

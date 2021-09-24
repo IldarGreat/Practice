@@ -2,6 +2,7 @@ package ru.ssau.tk.ildar.Practice;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
+import static ru.ssau.tk.ildar.Practice.Gender.*;
 
 public class PersonTest {
     @Test
@@ -28,10 +29,10 @@ public class PersonTest {
     @Test
     public static void testGetGender(){
         Person person = new Person();
-        person.setGender(Person.Gender.MALE);
-        Assert.assertEquals(person.getGender(), Person.Gender.MALE);
-        person.setGender(Person.Gender.FEMALE);
-        Assert.assertEquals(person.getGender(), Person.Gender.FEMALE);
+        person.setGender(MALE);
+        Assert.assertEquals(person.getGender(), MALE);
+        person.setGender(FEMALE);
+        Assert.assertEquals(person.getGender(), FEMALE);
     }
 
     @Test

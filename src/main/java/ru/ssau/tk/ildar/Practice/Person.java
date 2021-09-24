@@ -5,7 +5,7 @@ public class Person {
     private String lastName;
     private int passportId;
 
-    enum Gender {MALE, FEMALE}
+
 
     Gender gender;
 

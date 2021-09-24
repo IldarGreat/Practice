@@ -1,6 +1,6 @@
 package ru.ssau.tk.ildar.Practice;
 
-public class NamedPoint extends Point {
+public class NamedPoint extends Point implements Resettable {
     String name;
 
     public NamedPoint(double x, double y, double z) {
@@ -15,6 +15,11 @@ public class NamedPoint extends Point {
     public NamedPoint() {
         super(0, 0, 0);
         this.name = "Origin";
+    }
+
+    @Override
+    public void reset(){
+        this.name = "Absent";
     }
 
     public String getName() {

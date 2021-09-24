@@ -1,4 +1,5 @@
 package ru.ssau.tk.ildar.Practice;
+import static ru.ssau.tk.ildar.Practice.Gender.*;
 
 class Main {
     public static void main(String[] args) {
@@ -17,9 +18,10 @@ class Main {
         Person personTwo = new Person(1);
         Person personThree = new Person("Ildar", "Idiot");
         Person personFour = new Person("Ildar", "Idiot", 1);
-        Person personFive = new Person("Ildar", "Idiot", 1, Person.Gender.MALE);
+        Person personFive = new Person("Ildar", "Idiot", 1, MALE);
         System.out.println(person.getFirstName() + personTwo.getFirstName() + personThree.getFirstName() + personFour.getFirstName() + personFive.getGender());
-        personFive.setGender(Person.Gender.FEMALE);
+        personFive.setGender(FEMALE);
+
 
     }
 }
