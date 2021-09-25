@@ -22,6 +22,18 @@ class Main {
         System.out.println(person.getFirstName() + personTwo.getFirstName() + personThree.getFirstName() + personFour.getFirstName() + personFive.getGender());
         personFive.setGender(FEMALE);
 
-
+        byte a=0;
+        GetType.printType(a);
+        GetType.printType((char) a);
+        GetType.printType((short) a);
+        GetType.printType((int) a);
+        GetType.printType((long) a);
+        GetType.printType((float) a);
+        GetType.printType((double) a);
+        GetType.printType(true);
+        GetType.printType(null);
+        GetType.printType(namedPoint);
+        GetType.printType("Fuck u");
+        GetType.printType(person);
     }
 }
