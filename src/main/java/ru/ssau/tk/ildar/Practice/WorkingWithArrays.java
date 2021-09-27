@@ -31,10 +31,24 @@ public class WorkingWithArrays {
         return array;
     }
 
-    public static int[] returningArrayWithReverseEvenNumbers(int dimension){
+    public static int[] returningArrayWithReverseEvenNumbers(int dimension) {
         int[] array = new int[dimension];
-        for(int element=dimension-1;element>=0;element--){
-            array[element]=element*2+2;
+        for (int element = dimension - 1; element >= 0; element--) {
+            array[element] = element * 2 + 2;
+        }
+        return array;
+    }
+
+    public static int fibonacciNumbers(int number) {
+        if (number < 1) return 0;
+        if (number == 1) return 1;
+        return fibonacciNumbers(number - 1) + fibonacciNumbers(number - 2);
+    }
+
+    public static int[] returningArrayWithFibonacciNumbers(int dimension) {
+        int[] array = new int[dimension];
+        for(int element=0;element<dimension;element++){
+            array[element]=fibonacciNumbers(element);
         }
         return array;
     }
@@ -48,5 +62,7 @@ public class WorkingWithArrays {
         showingTheResult(returningArrayWithOddNumbers(5));
         System.out.println();
         showingTheResult(returningArrayWithReverseEvenNumbers(10));
+        System.out.println();
+        showingTheResult(returningArrayWithFibonacciNumbers(8));
     }
 }

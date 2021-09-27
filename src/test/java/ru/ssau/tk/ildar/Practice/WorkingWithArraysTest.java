@@ -40,4 +40,25 @@ public class WorkingWithArraysTest {
         }
     }
 
+    @Test
+    public static void testfibonacciNumbers(){
+        Assert.assertEquals(fibonacciNumbers(1),1);
+        Assert.assertEquals(fibonacciNumbers(2),1);
+        Assert.assertEquals(fibonacciNumbers(3),2);
+        Assert.assertEquals(fibonacciNumbers(4),3);
+        Assert.assertEquals(fibonacciNumbers(5),5);
+        Assert.assertEquals(fibonacciNumbers(6),8);
+        Assert.assertEquals(fibonacciNumbers(7),13);
+        Assert.assertEquals(fibonacciNumbers(8),21);
+        Assert.assertEquals(fibonacciNumbers(9),34);
+    }
+
+    @Test
+    public static void testReturningArrayWithFibonacciNumbers(){
+        int[] array =returningArrayWithFibonacciNumbers(8);
+        for(int element=0;element<7;element++){
+            Assert.assertEquals(array[element],fibonacciNumbers(element));
+        }
+    }
+
 }
