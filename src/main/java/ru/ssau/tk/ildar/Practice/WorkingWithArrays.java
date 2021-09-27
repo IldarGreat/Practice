@@ -31,11 +31,22 @@ public class WorkingWithArrays {
         return array;
     }
 
+    public static int[] returningArrayWithReverseEvenNumbers(int dimension){
+        int[] array = new int[dimension];
+        for(int element=dimension-1;element>=0;element--){
+            array[element]=element*2+2;
+        }
+        return array;
+    }
+
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
         showingTheResult(returningArrayFilledWithOnes(7));
         System.out.println();
         showingTheResult(returningArrayWithOddNumbers(5));
+        System.out.println();
+        showingTheResult(returningArrayWithReverseEvenNumbers(10));
     }
 }

@@ -32,4 +32,12 @@ public class WorkingWithArraysTest {
         }
     }
 
+    @Test
+    public static void testReturningArrayWithReverseEvenNumbers(){
+        int[] array=returningArrayWithReverseEvenNumbers(10);
+        for(int element=0;element<10;element++){
+            Assert.assertEquals(array[element],element*2+2);
+        }
+    }
+
 }
