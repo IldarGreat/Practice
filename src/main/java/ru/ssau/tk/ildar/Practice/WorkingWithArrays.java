@@ -23,9 +23,19 @@ public class WorkingWithArrays {
         return array;
     }
 
+    public static int[] returningArrayWithOddNumbers(int dimension) {
+        int[] array = new int[dimension];
+        for (int element = 0; element < dimension; element++) {
+            array[element] = 2 * element + 1;
+        }
+        return array;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
         showingTheResult(returningArrayFilledWithOnes(7));
+        System.out.println();
+        showingTheResult(returningArrayWithOddNumbers(5));
     }
 }
