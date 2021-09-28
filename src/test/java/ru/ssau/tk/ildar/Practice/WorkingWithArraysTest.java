@@ -61,4 +61,11 @@ public class WorkingWithArraysTest {
         }
     }
 
+    @Test
+    public static void testReturningArrayFillerWithSquareIndex(){
+        int[] array = returningArrayFillerWithSquareIndex(10);
+        for(int element=0;element<10;element++){
+            Assert.assertEquals(array[element],element*element);
+        }
+    }
 }

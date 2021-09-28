@@ -53,6 +53,13 @@ public class WorkingWithArrays {
         return array;
     }
 
+    public static int[] returningArrayFillerWithSquareIndex(int dimension){
+        int[] array = new int[dimension];
+        for (int element=0;element<dimension;element++){
+            array[element]=element*element;
+        }
+        return array;
+    }
 
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
@@ -64,5 +71,7 @@ public class WorkingWithArrays {
         showingTheResult(returningArrayWithReverseEvenNumbers(10));
         System.out.println();
         showingTheResult(returningArrayWithFibonacciNumbers(8));
+        System.out.println();
+        showingTheResult(returningArrayFillerWithSquareIndex(10));
     }
 }
