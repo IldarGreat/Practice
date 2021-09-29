@@ -16,56 +16,65 @@ public class WorkingWithArraysTest {
 
     @Test
     public static void testReturningArrayFilledWithOnes() {
-        int[] array = returningArrayFilledWithOnes(10);
-        Assert.assertEquals(array[0], 2);
-        Assert.assertEquals(array[9], 2);
+        double[] array = returningArrayFilledWithOnes(10);
+        Assert.assertEquals(array[0], 2.0);
+        Assert.assertEquals(array[9], 2.0);
         for (int element = 1; element < 8; element++) {
-            Assert.assertEquals(array[element], 1);
+            Assert.assertEquals(array[element], 1.0);
         }
     }
 
     @Test
     public static void testReturningArrayWithOddNumbers() {
-        int[] array = returningArrayWithOddNumbers(10);
-        for (int element=0;element<10;element++) {
-            Assert.assertEquals(array[element], element*2+1);
+        double[] array = returningArrayWithOddNumbers(10);
+        for (int element = 0; element < 10; element++) {
+            Assert.assertEquals(array[element], (double) element * 2 + 1);
         }
     }
 
     @Test
-    public static void testReturningArrayWithReverseEvenNumbers(){
-        int[] array=returningArrayWithReverseEvenNumbers(10);
-        for(int element=0;element<10;element++){
-            Assert.assertEquals(array[element],element*2+2);
+    public static void testReturningArrayWithReverseEvenNumbers() {
+        double[] array = returningArrayWithReverseEvenNumbers(10);
+        for (int element = 0; element < 10; element++) {
+            Assert.assertEquals(array[element], (double) element * 2 + 2);
         }
     }
 
     @Test
-    public static void testfibonacciNumbers(){
-        Assert.assertEquals(fibonacciNumbers(1),1);
-        Assert.assertEquals(fibonacciNumbers(2),1);
-        Assert.assertEquals(fibonacciNumbers(3),2);
-        Assert.assertEquals(fibonacciNumbers(4),3);
-        Assert.assertEquals(fibonacciNumbers(5),5);
-        Assert.assertEquals(fibonacciNumbers(6),8);
-        Assert.assertEquals(fibonacciNumbers(7),13);
-        Assert.assertEquals(fibonacciNumbers(8),21);
-        Assert.assertEquals(fibonacciNumbers(9),34);
+    public static void testfibonacciNumbers() {
+        Assert.assertEquals(fibonacciNumbers(1), 1);
+        Assert.assertEquals(fibonacciNumbers(2), 1);
+        Assert.assertEquals(fibonacciNumbers(3), 2);
+        Assert.assertEquals(fibonacciNumbers(4), 3);
+        Assert.assertEquals(fibonacciNumbers(5), 5);
+        Assert.assertEquals(fibonacciNumbers(6), 8);
+        Assert.assertEquals(fibonacciNumbers(7), 13);
+        Assert.assertEquals(fibonacciNumbers(8), 21);
+        Assert.assertEquals(fibonacciNumbers(9), 34);
     }
 
     @Test
-    public static void testReturningArrayWithFibonacciNumbers(){
-        int[] array =returningArrayWithFibonacciNumbers(8);
-        for(int element=0;element<7;element++){
-            Assert.assertEquals(array[element],fibonacciNumbers(element));
+    public static void testReturningArrayWithFibonacciNumbers() {
+        double[] array = returningArrayWithFibonacciNumbers(8);
+        for (int element = 0; element < 7; element++) {
+            Assert.assertEquals(array[element], (double) fibonacciNumbers(element));
         }
     }
 
     @Test
-    public static void testReturningArrayFillerWithSquareIndex(){
-        int[] array = returningArrayFillerWithSquareIndex(10);
-        for(int element=0;element<10;element++){
-            Assert.assertEquals(array[element],element*element);
+    public static void testReturningArrayFillerWithSquareIndex() {
+        double[] array = returningArrayFillerWithSquareIndex(10);
+        for (int element = 0; element < 10; element++) {
+            Assert.assertEquals(array[element], (double) element * element);
         }
+    }
+
+    @Test
+    public static void testReturningArrayFilledWithEquationSolution() {
+        double[] arrayWithTwoSolution = returningArrayFilledWithEquationSolution(2, 6, 3);
+        Assert.assertEquals(arrayWithTwoSolution[0], -1.5);
+        Assert.assertEquals(arrayWithTwoSolution[1], 1.5);
+        double[] arrayWithOneSolution = returningArrayFilledWithEquationSolution(2, 4, 2);
+        Assert.assertEquals(arrayWithOneSolution[0], -1.0);
     }
 }

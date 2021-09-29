@@ -2,18 +2,18 @@ package ru.ssau.tk.ildar.Practice;
 
 public class WorkingWithArrays {
 
-    public static void showingTheResult(int[] array) {
-        for (int i : array) {
+    public static void showingTheResult(double[] array) {
+        for (double i : array) {
             System.out.println(i);
         }
     }
 
-    public static int[] returningArrayOfAGivenDimension(int dimension) {
-        return new int[dimension];
+    public static double[] returningArrayOfAGivenDimension(int dimension) {
+        return new double[dimension];
     }
 
-    public static int[] returningArrayFilledWithOnes(int dimension) {
-        int[] array = new int[dimension];
+    public static double[] returningArrayFilledWithOnes(int dimension) {
+        double[] array = new double[dimension];
         for (int i : new int[]{0, dimension - 1}) {
             array[i] = 2;
         }
@@ -23,16 +23,16 @@ public class WorkingWithArrays {
         return array;
     }
 
-    public static int[] returningArrayWithOddNumbers(int dimension) {
-        int[] array = new int[dimension];
+    public static double[] returningArrayWithOddNumbers(int dimension) {
+        double[] array = new double[dimension];
         for (int element = 0; element < dimension; element++) {
             array[element] = 2 * element + 1;
         }
         return array;
     }
 
-    public static int[] returningArrayWithReverseEvenNumbers(int dimension) {
-        int[] array = new int[dimension];
+    public static double[] returningArrayWithReverseEvenNumbers(int dimension) {
+        double[] array = new double[dimension];
         for (int element = dimension - 1; element >= 0; element--) {
             array[element] = element * 2 + 2;
         }
@@ -45,20 +45,27 @@ public class WorkingWithArrays {
         return fibonacciNumbers(number - 1) + fibonacciNumbers(number - 2);
     }
 
-    public static int[] returningArrayWithFibonacciNumbers(int dimension) {
-        int[] array = new int[dimension];
-        for(int element=0;element<dimension;element++){
-            array[element]=fibonacciNumbers(element);
+    public static double[] returningArrayWithFibonacciNumbers(int dimension) {
+        double[] array = new double[dimension];
+        for (int element = 0; element < dimension; element++) {
+            array[element] = fibonacciNumbers(element);
         }
         return array;
     }
 
-    public static int[] returningArrayFillerWithSquareIndex(int dimension){
-        int[] array = new int[dimension];
-        for (int element=0;element<dimension;element++){
-            array[element]=element*element;
+    public static double[] returningArrayFillerWithSquareIndex(int dimension) {
+        double[] array = new double[dimension];
+        for (int element = 0; element < dimension; element++) {
+            array[element] = element * element;
         }
         return array;
+    }
+
+    public static double[] returningArrayFilledWithEquationSolution(double a, double b, double c) {
+        if (a == 0) return new double[]{-c / b};
+        if (b * b == 4 * a * c) return new double[]{-b / (2 * a)};
+        if (b * b > 4 * a * c) return new double[]{-b / (2 * a), b / (2 * a)};
+        return new double[]{};
     }
 
     public static void main(String[] args) {
@@ -73,5 +80,7 @@ public class WorkingWithArrays {
         showingTheResult(returningArrayWithFibonacciNumbers(8));
         System.out.println();
         showingTheResult(returningArrayFillerWithSquareIndex(10));
+        System.out.println();
+        showingTheResult(returningArrayFilledWithEquationSolution(0, 5, 2));
     }
 }
