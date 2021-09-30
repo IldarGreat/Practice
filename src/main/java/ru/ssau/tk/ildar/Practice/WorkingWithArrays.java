@@ -68,6 +68,16 @@ public class WorkingWithArrays {
         return new double[]{};
     }
 
+    public static double[] returningArrayWithoutNumberDividedByThree(int dimension){
+        double[] array = new double[dimension];
+        double number=0;
+        for (int element=0;element<dimension;element++,number++){
+            if((number%3==0)&&(number!=0)) array[element]=++number;
+            else array[element]=number;
+        }
+        return array;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -82,5 +92,7 @@ public class WorkingWithArrays {
         showingTheResult(returningArrayFillerWithSquareIndex(10));
         System.out.println();
         showingTheResult(returningArrayFilledWithEquationSolution(0, 5, 2));
+        System.out.println();
+        showingTheResult(returningArrayWithoutNumberDividedByThree(10));
     }
 }

@@ -77,4 +77,12 @@ public class WorkingWithArraysTest {
         double[] arrayWithOneSolution = returningArrayFilledWithEquationSolution(2, 4, 2);
         Assert.assertEquals(arrayWithOneSolution[0], -1.0);
     }
+
+    @Test
+    public static void testReturningArrayWithoutNumberDividedByThree(){
+        double[] arrayWithoutThrees = returningArrayWithoutNumberDividedByThree(10);
+        Assert.assertEquals(arrayWithoutThrees[3],4.0);
+        Assert.assertEquals(arrayWithoutThrees[6],8.0);
+        Assert.assertEquals(arrayWithoutThrees[9],13.0);
+    }
 }
