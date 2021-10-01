@@ -78,6 +78,14 @@ public class WorkingWithArrays {
         return array;
     }
 
+    public static double[] returningArrayFilledArithmeticProgression(int dimension,int difference){
+        double[] array = new double[dimension];
+        for(int element=0;element<dimension;element++){
+            array[element]=element*difference;
+        }
+        return array;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -94,5 +102,7 @@ public class WorkingWithArrays {
         showingTheResult(returningArrayFilledWithEquationSolution(0, 5, 2));
         System.out.println();
         showingTheResult(returningArrayWithoutNumberDividedByThree(10));
+        System.out.println();
+        showingTheResult(returningArrayFilledArithmeticProgression(10,3));
     }
 }

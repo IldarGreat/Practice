@@ -85,4 +85,12 @@ public class WorkingWithArraysTest {
         Assert.assertEquals(arrayWithoutThrees[6],8.0);
         Assert.assertEquals(arrayWithoutThrees[9],13.0);
     }
+
+    @Test
+    public static void testReturningArrayFilledArithmeticProgression(){
+        double[] arrayWithArithmeticProgression=returningArrayFilledArithmeticProgression(15,6);
+        Assert.assertEquals(arrayWithArithmeticProgression[1],6.0);
+        Assert.assertEquals(arrayWithArithmeticProgression[7],42.0);
+        Assert.assertEquals(arrayWithArithmeticProgression[14],84.0);
+    }
 }
