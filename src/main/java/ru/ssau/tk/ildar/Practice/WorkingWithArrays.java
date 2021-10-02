@@ -1,6 +1,7 @@
 package ru.ssau.tk.ildar.Practice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class WorkingWithArrays {
 
@@ -109,6 +110,23 @@ public class WorkingWithArrays {
         for (int divider = (int) Math.sqrt(Math.abs(number)); divider > 0; divider--) {
             if (number % divider == 0) array.add(divider);
         }
+        Collections.reverse(array);
+        return array;
+    }
+
+    public static boolean isSimple(Integer number){
+        for(int divider=number-1;divider>1;divider--){
+            if(number%divider==0) return false;
+        }
+        return true;
+    }
+
+    public static ArrayList<Integer> returningArrayWithPrimeNumbers(int number){
+        ArrayList<Integer> array = new ArrayList<>();
+        for (int primeNumber=number;primeNumber>1;primeNumber--){
+           if(isSimple(primeNumber)) array.add(primeNumber);
+        }
+        Collections.reverse(array);
         return array;
     }
 
@@ -134,5 +152,7 @@ public class WorkingWithArrays {
         showingTheResult(returningArrayFilledGeometricProgression(10, 50, 0.5));
         System.out.println();
         showingTheResult(returningArrayWithIntegerDivisors(64));
+        System.out.println();
+        showingTheResult(returningArrayWithPrimeNumbers(55));
     }
 }

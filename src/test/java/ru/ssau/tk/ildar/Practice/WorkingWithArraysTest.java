@@ -107,7 +107,26 @@ public class WorkingWithArraysTest {
     @Test
     public static void testReturningArrayWithIntegerDivisors() {
         ArrayList<Integer> arrayWithIntegerDivisors = returningArrayWithIntegerDivisors(155);
-        Assert.assertEquals(arrayWithIntegerDivisors.get(0), Integer.valueOf(5));
-        Assert.assertEquals(arrayWithIntegerDivisors.get(1), Integer.valueOf(1));
+        Assert.assertEquals(arrayWithIntegerDivisors.get(0), Integer.valueOf(1));
+        Assert.assertEquals(arrayWithIntegerDivisors.get(1), Integer.valueOf(5));
+        ArrayList<Integer> arrayWithIntegerDivisorsTwo = returningArrayWithIntegerDivisors(-155);
+        Assert.assertEquals(arrayWithIntegerDivisorsTwo.get(1), Integer.valueOf(5));
+    }
+
+    @Test
+    public static void testIsSimple(){
+        Assert.assertFalse(isSimple(21));
+        Assert.assertFalse(isSimple(105));
+        Assert.assertFalse(isSimple(91));
+        Assert.assertTrue(isSimple(89));
+        Assert.assertTrue(isSimple(97));
+        Assert.assertTrue(isSimple(103));
+    }
+
+    @Test
+    public static void testReturningArrayWithPrimeNumbers(){
+        ArrayList<Integer> arrayWithPrimeNumbers = returningArrayWithPrimeNumbers(55);
+        Assert.assertEquals(arrayWithPrimeNumbers.get(3),Integer.valueOf(7));
+        Assert.assertEquals(arrayWithPrimeNumbers.get(5),Integer.valueOf(13));
     }
 }
