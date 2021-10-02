@@ -1,8 +1,16 @@
 package ru.ssau.tk.ildar.Practice;
 
+import java.util.ArrayList;
+
 public class WorkingWithArrays {
 
     public static void showingTheResult(double[] array) {
+        for (double i : array) {
+            System.out.println(i);
+        }
+    }
+
+    public static void showingTheResult(ArrayList<Integer> array) {
         for (double i : array) {
             System.out.println(i);
         }
@@ -68,30 +76,38 @@ public class WorkingWithArrays {
         return new double[]{};
     }
 
-    public static double[] returningArrayWithoutNumberDividedByThree(int dimension){
+    public static double[] returningArrayWithoutNumberDividedByThree(int dimension) {
         double[] array = new double[dimension];
-        double number=0;
-        for (int element=0;element<dimension;element++,number++){
-            if((number%3==0)&&(number!=0)) array[element]=++number;
-            else array[element]=number;
+        double number = 0;
+        for (int element = 0; element < dimension; element++, number++) {
+            if ((number % 3 == 0) && (number != 0)) array[element] = ++number;
+            else array[element] = number;
         }
         return array;
     }
 
-    public static double[] returningArrayFilledArithmeticProgression(int dimension,double firstElement,double difference){
+    public static double[] returningArrayFilledArithmeticProgression(int dimension, double firstElement, double difference) {
         double[] array = new double[dimension];
-        array[0]=firstElement;
-        for(int element=1;element<dimension;element++){
-            array[element]=array[element-1]+difference;
+        array[0] = firstElement;
+        for (int element = 1; element < dimension; element++) {
+            array[element] = array[element - 1] + difference;
         }
         return array;
     }
 
-    public static double[] returningArrayFilledGeometricProgression(int dimension,double firstElement,double denominator){
+    public static double[] returningArrayFilledGeometricProgression(int dimension, double firstElement, double denominator) {
         double[] array = new double[dimension];
-        array[0]=firstElement;
-        for(int element=1;element<dimension;element++,firstElement++){
-            array[element]=array[element-1]*denominator;
+        array[0] = firstElement;
+        for (int element = 1; element < dimension; element++, firstElement++) {
+            array[element] = array[element - 1] * denominator;
+        }
+        return array;
+    }
+
+    public static ArrayList<Integer> returningArrayWithIntegerDivisors(int number) {
+        ArrayList<Integer> array = new ArrayList<>();
+        for (int divider = (int) Math.sqrt(Math.abs(number)); divider > 0; divider--) {
+            if (number % divider == 0) array.add(divider);
         }
         return array;
     }
@@ -113,8 +129,10 @@ public class WorkingWithArrays {
         System.out.println();
         showingTheResult(returningArrayWithoutNumberDividedByThree(10));
         System.out.println();
-        showingTheResult(returningArrayFilledArithmeticProgression(10,3,3.5));
+        showingTheResult(returningArrayFilledArithmeticProgression(10, 3, 3.5));
         System.out.println();
-        showingTheResult(returningArrayFilledGeometricProgression(10,50,0.5));
+        showingTheResult(returningArrayFilledGeometricProgression(10, 50, 0.5));
+        System.out.println();
+        showingTheResult(returningArrayWithIntegerDivisors(64));
     }
 }

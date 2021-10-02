@@ -3,6 +3,8 @@ package ru.ssau.tk.ildar.Practice;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+
 import static ru.ssau.tk.ildar.Practice.WorkingWithArrays.*;
 
 
@@ -96,9 +98,16 @@ public class WorkingWithArraysTest {
 
     @Test
     public static void testReturningArrayFilledGeometricProgression() {
-        double[] arrayWithArithmeticProgression = returningArrayFilledGeometricProgression(5, 7.2, -6.0/7.0);
+        double[] arrayWithArithmeticProgression = returningArrayFilledGeometricProgression(5, 7.2, -6.0 / 7.0);
         Assert.assertEquals(arrayWithArithmeticProgression[0], 7.2);
         double[] arrayWithArithmeticProgressionTwo = returningArrayFilledGeometricProgression(5, 7.2, Double.POSITIVE_INFINITY);
         Assert.assertEquals(arrayWithArithmeticProgressionTwo[1], Double.POSITIVE_INFINITY);
+    }
+
+    @Test
+    public static void testReturningArrayWithIntegerDivisors() {
+        ArrayList<Integer> arrayWithIntegerDivisors = returningArrayWithIntegerDivisors(155);
+        Assert.assertEquals(arrayWithIntegerDivisors.get(0), Integer.valueOf(5));
+        Assert.assertEquals(arrayWithIntegerDivisors.get(1), Integer.valueOf(1));
     }
 }
