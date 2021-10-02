@@ -18,16 +18,25 @@ public class NamedPoint extends Point implements Resettable {
     }
 
     @Override
-    public void reset(){
+    public void reset() {
         this.name = "Absent";
     }
 
     public String getName() {
         return name;
     }
-    public double getX() { return super.getX();}
-    public double getY() { return super.getY();}
-    public double getZ() { return super.getZ();}
+
+    public double getX() {
+        return super.getX();
+    }
+
+    public double getY() {
+        return super.getY();
+    }
+
+    public double getZ() {
+        return super.getZ();
+    }
 
     public void setName(String name) {
         this.name = name;

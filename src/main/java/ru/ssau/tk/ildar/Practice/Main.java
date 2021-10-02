@@ -1,4 +1,5 @@
 package ru.ssau.tk.ildar.Practice;
+
 import static ru.ssau.tk.ildar.Practice.Gender.*;
 
 class Main {
@@ -22,18 +23,18 @@ class Main {
         System.out.println(person.getFirstName() + personTwo.getFirstName() + personThree.getFirstName() + personFour.getFirstName() + personFive.getGender());
         personFive.setGender(FEMALE);
 
-        byte a=0;
-        GetType.printType(a);
-        GetType.printType((char) a);
-        GetType.printType((short) a);
-        GetType.printType((int) a);
-        GetType.printType((long) a);
-        GetType.printType((float) a);
-        GetType.printType((double) a);
-        GetType.printType(true);
-        GetType.printType(null);
-        GetType.printType(namedPoint);
-        GetType.printType("Fuck u");
-        GetType.printType(person);
+        byte a = 0;
+        TypePrinter.printType(a);
+        TypePrinter.printType((char) a);
+        TypePrinter.printType((short) a);
+        TypePrinter.printType((int) a);
+        TypePrinter.printType((long) a);
+        TypePrinter.printType((float) a);
+        TypePrinter.printType((double) a);
+        TypePrinter.printType(true);
+        TypePrinter.printType(null);
+        TypePrinter.printType(namedPoint);
+        TypePrinter.printType("Fuck u");
+        TypePrinter.printType(person);
     }
 }

@@ -114,7 +114,7 @@ public class WorkingWithArraysTest {
     }
 
     @Test
-    public static void testIsSimple(){
+    public static void testIsSimple() {
         Assert.assertFalse(isSimple(21));
         Assert.assertFalse(isSimple(105));
         Assert.assertFalse(isSimple(91));
@@ -124,9 +124,18 @@ public class WorkingWithArraysTest {
     }
 
     @Test
-    public static void testReturningArrayWithPrimeNumbers(){
+    public static void testReturningArrayWithPrimeNumbers() {
         ArrayList<Integer> arrayWithPrimeNumbers = returningArrayWithPrimeNumbers(55);
-        Assert.assertEquals(arrayWithPrimeNumbers.get(3),Integer.valueOf(7));
-        Assert.assertEquals(arrayWithPrimeNumbers.get(5),Integer.valueOf(13));
+        Assert.assertEquals(arrayWithPrimeNumbers.get(3), Integer.valueOf(7));
+        Assert.assertEquals(arrayWithPrimeNumbers.get(5), Integer.valueOf(13));
+    }
+
+    @Test
+    public static void numberSignSubstitution() {
+        double[] arrayWithoutThrees = returningArrayWithoutNumberDividedByThree(10);
+        WorkingWithArrays.numberSignSubstitution(arrayWithoutThrees);
+        Assert.assertEquals(arrayWithoutThrees[3], -4.0);
+        Assert.assertEquals(arrayWithoutThrees[6], -8.0);
+        Assert.assertEquals(arrayWithoutThrees[9], -13.0);
     }
 }

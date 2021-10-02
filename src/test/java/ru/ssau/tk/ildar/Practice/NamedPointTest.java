@@ -34,7 +34,7 @@ public class NamedPointTest {
     }
 
     @Test
-    public void testReset(){
+    public void testReset() {
         NamedPoint namedPoint = new NamedPoint();
         namedPoint.reset();
         Assert.assertEquals(namedPoint.getName(), "Absent");

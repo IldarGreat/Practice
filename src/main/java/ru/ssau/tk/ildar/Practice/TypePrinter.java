@@ -1,6 +1,6 @@
 package ru.ssau.tk.ildar.Practice;
 
-public class GetType {
+public class TypePrinter {
     public static void printType(byte type) {
         System.out.println("byte");
     }

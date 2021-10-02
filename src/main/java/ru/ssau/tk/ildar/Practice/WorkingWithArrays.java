@@ -49,8 +49,12 @@ public class WorkingWithArrays {
     }
 
     public static int fibonacciNumbers(int number) {
-        if (number < 1) return 0;
-        if (number == 1) return 1;
+        if (number < 1) {
+            return 0;
+        }
+        if (number == 1) {
+            return 1;
+        }
         return fibonacciNumbers(number - 1) + fibonacciNumbers(number - 2);
     }
 
@@ -71,9 +75,15 @@ public class WorkingWithArrays {
     }
 
     public static double[] returningArrayFilledWithEquationSolution(double a, double b, double c) {
-        if (a == 0) return new double[]{-c / b};
-        if (b * b == 4 * a * c) return new double[]{-b / (2 * a)};
-        if (b * b > 4 * a * c) return new double[]{-b / (2 * a), b / (2 * a)};
+        if (a == 0) {
+            return new double[]{-c / b};
+        }
+        if (b * b == 4 * a * c) {
+            return new double[]{-b / (2 * a)};
+        }
+        if (b * b > 4 * a * c) {
+            return new double[]{-b / (2 * a), b / (2 * a)};
+        }
         return new double[]{};
     }
 
@@ -81,8 +91,9 @@ public class WorkingWithArrays {
         double[] array = new double[dimension];
         double number = 0;
         for (int element = 0; element < dimension; element++, number++) {
-            if ((number % 3 == 0) && (number != 0)) array[element] = ++number;
-            else array[element] = number;
+            if ((number % 3 == 0) && (number != 0)) {
+                array[element] = ++number;
+            } else array[element] = number;
         }
         return array;
     }
@@ -108,26 +119,38 @@ public class WorkingWithArrays {
     public static ArrayList<Integer> returningArrayWithIntegerDivisors(int number) {
         ArrayList<Integer> array = new ArrayList<>();
         for (int divider = (int) Math.sqrt(Math.abs(number)); divider > 0; divider--) {
-            if (number % divider == 0) array.add(divider);
+            if (number % divider == 0) {
+                array.add(divider);
+            }
         }
         Collections.reverse(array);
         return array;
     }
 
-    public static boolean isSimple(Integer number){
-        for(int divider=number-1;divider>1;divider--){
-            if(number%divider==0) return false;
+    public static boolean isSimple(Integer number) {
+        for (int divider = number - 1; divider > 1; divider--) {
+            if (number % divider == 0) {
+                return false;
+            }
         }
         return true;
     }
 
-    public static ArrayList<Integer> returningArrayWithPrimeNumbers(int number){
+    public static ArrayList<Integer> returningArrayWithPrimeNumbers(int number) {
         ArrayList<Integer> array = new ArrayList<>();
-        for (int primeNumber=number;primeNumber>1;primeNumber--){
-           if(isSimple(primeNumber)) array.add(primeNumber);
+        for (int primeNumber = number; primeNumber > 1; primeNumber--) {
+            if (isSimple(primeNumber)) {
+                array.add(primeNumber);
+            }
         }
         Collections.reverse(array);
         return array;
+    }
+
+    public static void numberSignSubstitution(double[] array) {
+        for (int element = 0; element < array.length; element++) {
+            array[element] = -array[element];
+        }
     }
 
     public static void main(String[] args) {
@@ -154,5 +177,9 @@ public class WorkingWithArrays {
         showingTheResult(returningArrayWithIntegerDivisors(64));
         System.out.println();
         showingTheResult(returningArrayWithPrimeNumbers(55));
+        System.out.println();
+        double[] arrayReverseSign = returningArrayFilledWithOnes(6);
+        numberSignSubstitution(arrayReverseSign);
+        showingTheResult(arrayReverseSign);
     }
 }
