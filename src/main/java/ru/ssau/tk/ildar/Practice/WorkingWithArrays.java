@@ -78,10 +78,20 @@ public class WorkingWithArrays {
         return array;
     }
 
-    public static double[] returningArrayFilledArithmeticProgression(int dimension,int difference){
+    public static double[] returningArrayFilledArithmeticProgression(int dimension,double firstElement,double difference){
         double[] array = new double[dimension];
-        for(int element=0;element<dimension;element++){
-            array[element]=element*difference;
+        array[0]=firstElement;
+        for(int element=1;element<dimension;element++){
+            array[element]=array[element-1]+difference;
+        }
+        return array;
+    }
+
+    public static double[] returningArrayFilledGeometricProgression(int dimension,double firstElement,double denominator){
+        double[] array = new double[dimension];
+        array[0]=firstElement;
+        for(int element=1;element<dimension;element++,firstElement++){
+            array[element]=array[element-1]*denominator;
         }
         return array;
     }
@@ -103,6 +113,8 @@ public class WorkingWithArrays {
         System.out.println();
         showingTheResult(returningArrayWithoutNumberDividedByThree(10));
         System.out.println();
-        showingTheResult(returningArrayFilledArithmeticProgression(10,3));
+        showingTheResult(returningArrayFilledArithmeticProgression(10,3,3.5));
+        System.out.println();
+        showingTheResult(returningArrayFilledGeometricProgression(10,50,0.5));
     }
 }

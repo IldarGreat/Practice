@@ -79,18 +79,26 @@ public class WorkingWithArraysTest {
     }
 
     @Test
-    public static void testReturningArrayWithoutNumberDividedByThree(){
+    public static void testReturningArrayWithoutNumberDividedByThree() {
         double[] arrayWithoutThrees = returningArrayWithoutNumberDividedByThree(10);
-        Assert.assertEquals(arrayWithoutThrees[3],4.0);
-        Assert.assertEquals(arrayWithoutThrees[6],8.0);
-        Assert.assertEquals(arrayWithoutThrees[9],13.0);
+        Assert.assertEquals(arrayWithoutThrees[3], 4.0);
+        Assert.assertEquals(arrayWithoutThrees[6], 8.0);
+        Assert.assertEquals(arrayWithoutThrees[9], 13.0);
     }
 
     @Test
-    public static void testReturningArrayFilledArithmeticProgression(){
-        double[] arrayWithArithmeticProgression=returningArrayFilledArithmeticProgression(15,6);
-        Assert.assertEquals(arrayWithArithmeticProgression[1],6.0);
-        Assert.assertEquals(arrayWithArithmeticProgression[7],42.0);
-        Assert.assertEquals(arrayWithArithmeticProgression[14],84.0);
+    public static void testReturningArrayFilledArithmeticProgression() {
+        double[] arrayWithArithmeticProgression = returningArrayFilledArithmeticProgression(15, 3.0, 6);
+        Assert.assertEquals(arrayWithArithmeticProgression[5], 33.0);
+        double[] arrayWithArithmeticProgressionTwo = returningArrayFilledArithmeticProgression(15, 3.0, -3.7);
+        Assert.assertEquals(arrayWithArithmeticProgressionTwo[7], -22.9);
+    }
+
+    @Test
+    public static void testReturningArrayFilledGeometricProgression() {
+        double[] arrayWithArithmeticProgression = returningArrayFilledGeometricProgression(5, 7.2, -6.0/7.0);
+        Assert.assertEquals(arrayWithArithmeticProgression[0], 7.2);
+        double[] arrayWithArithmeticProgressionTwo = returningArrayFilledGeometricProgression(5, 7.2, Double.POSITIVE_INFINITY);
+        Assert.assertEquals(arrayWithArithmeticProgressionTwo[1], Double.POSITIVE_INFINITY);
     }
 }
