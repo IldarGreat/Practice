@@ -3,7 +3,7 @@ package ru.ssau.tk.ildar.Practice;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class WorkingWithArrays {
+public class SpecialArrays {
 
     public static void showingTheResult(double[] array) {
         for (double i : array) {
@@ -78,11 +78,12 @@ public class WorkingWithArrays {
         if (a == 0) {
             return new double[]{-c / b};
         }
+        double discriminant = b * b - 4 * a * c;
         if (b * b == 4 * a * c) {
             return new double[]{-b / (2 * a)};
         }
         if (b * b > 4 * a * c) {
-            return new double[]{-b / (2 * a), b / (2 * a)};
+            return new double[]{-b - (Math.sqrt(discriminant)) / (2 * a), -b + (Math.sqrt(discriminant)) / (2 * a)};
         }
         return new double[]{};
     }
@@ -153,6 +154,15 @@ public class WorkingWithArrays {
         }
     }
 
+    public static double[] returningSymmetricArray(int dimension) {
+        double[] array = new double[dimension];
+        for (int element = 0; element <= dimension / 2; element++) {
+            array[element] = element + 1;
+            array[dimension - element - 1] = array[element];
+        }
+        return array;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -181,5 +191,7 @@ public class WorkingWithArrays {
         double[] arrayReverseSign = returningArrayFilledWithOnes(6);
         numberSignSubstitution(arrayReverseSign);
         showingTheResult(arrayReverseSign);
+        System.out.println();
+        showingTheResult(returningSymmetricArray(11));
     }
 }

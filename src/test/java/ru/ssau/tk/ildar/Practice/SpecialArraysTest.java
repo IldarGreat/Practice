@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
-import static ru.ssau.tk.ildar.Practice.WorkingWithArrays.*;
+import static ru.ssau.tk.ildar.Practice.SpecialArrays.*;
 
 
-public class WorkingWithArraysTest {
-
+public class SpecialArraysTest {
+    public static final double DELTA = 0.0001;
     @Test
     public static void testReturningArrayOfAGivenDimension() {
         Assert.assertEquals(returningArrayOfAGivenDimension(5).length, 5);
@@ -74,8 +74,8 @@ public class WorkingWithArraysTest {
     @Test
     public static void testReturningArrayFilledWithEquationSolution() {
         double[] arrayWithTwoSolution = returningArrayFilledWithEquationSolution(2, 6, 3);
-        Assert.assertEquals(arrayWithTwoSolution[0], -1.5);
-        Assert.assertEquals(arrayWithTwoSolution[1], 1.5);
+        Assert.assertEquals(arrayWithTwoSolution[0], -6.8660,DELTA);
+        Assert.assertEquals(arrayWithTwoSolution[1], -5.1339,DELTA);
         double[] arrayWithOneSolution = returningArrayFilledWithEquationSolution(2, 4, 2);
         Assert.assertEquals(arrayWithOneSolution[0], -1.0);
     }
@@ -133,9 +133,17 @@ public class WorkingWithArraysTest {
     @Test
     public static void numberSignSubstitution() {
         double[] arrayWithoutThrees = returningArrayWithoutNumberDividedByThree(10);
-        WorkingWithArrays.numberSignSubstitution(arrayWithoutThrees);
+        SpecialArrays.numberSignSubstitution(arrayWithoutThrees);
         Assert.assertEquals(arrayWithoutThrees[3], -4.0);
         Assert.assertEquals(arrayWithoutThrees[6], -8.0);
         Assert.assertEquals(arrayWithoutThrees[9], -13.0);
+    }
+
+    @Test
+    public static void testReturningSymmetricArray(){
+        double[] symmetricArray=returningSymmetricArray(21);
+        for(int element=0;element<symmetricArray.length;element++){
+            symmetricArray[element]=symmetricArray[symmetricArray.length-element-1];
+        }
     }
 }
