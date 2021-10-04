@@ -163,6 +163,13 @@ public class SpecialArrays {
         return array;
     }
 
+    public static boolean numberInTheArray(double[] array,double number){
+        for (double v : array) {
+            if (v == number) return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -193,5 +200,7 @@ public class SpecialArrays {
         showingTheResult(arrayReverseSign);
         System.out.println();
         showingTheResult(returningSymmetricArray(11));
+        System.out.println();
+        System.out.println(numberInTheArray(arrayReverseSign,1.0));
     }
 }

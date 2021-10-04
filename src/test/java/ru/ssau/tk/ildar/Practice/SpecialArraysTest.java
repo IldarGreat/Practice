@@ -146,4 +146,13 @@ public class SpecialArraysTest {
             symmetricArray[element]=symmetricArray[symmetricArray.length-element-1];
         }
     }
+
+    @Test
+    public static void testNumberInTheArray(){
+        double[] array = new double[] {4.5,Double.NaN,45.0/7.0,Double.POSITIVE_INFINITY};
+        Assert.assertTrue(numberInTheArray(array,4.5));
+        Assert.assertTrue(numberInTheArray(array,45.0/7.0));
+        Assert.assertTrue(numberInTheArray(array,Double.POSITIVE_INFINITY));
+        Assert.assertFalse(numberInTheArray(array,4.6));
+    }
 }
