@@ -161,4 +161,12 @@ public class SpecialArraysTest {
         Assert.assertTrue(nullInInteger(new Integer[]{2,3,null}));
         Assert.assertFalse(nullInInteger(new Integer[]{2,3,6,19}));
     }
+
+    @Test
+    public static void testNumberOfEvenNumbers(){
+        double[] array = new double[] { 1,2,3,4,5,6,7,10,15,16};
+        double[] infinityArray = new double[] {Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY};
+        Assert.assertEquals(numberOfEvenNumbers(array),5);
+        Assert.assertEquals(numberOfEvenNumbers(infinityArray),0);
+    }
 }

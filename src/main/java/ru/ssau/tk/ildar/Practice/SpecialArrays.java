@@ -177,6 +177,14 @@ public class SpecialArrays {
         return false;
     }
 
+    public static int numberOfEvenNumbers(double[] array){
+        int evenNumber=0;
+        for (double v : array) {
+            if (v % 2 == 0) evenNumber++;
+        }
+        return evenNumber;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -210,6 +218,6 @@ public class SpecialArrays {
         System.out.println();
         System.out.println(numberInTheArray(arrayReverseSign, 1.0));
         System.out.println(nullInInteger(new Integer[]{5, 3, null}));
-
+        System.out.println(numberOfEvenNumbers(new double[] {3,4,5,6}));
     }
 }
