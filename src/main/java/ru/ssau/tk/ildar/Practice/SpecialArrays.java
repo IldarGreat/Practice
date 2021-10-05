@@ -163,9 +163,16 @@ public class SpecialArrays {
         return array;
     }
 
-    public static boolean numberInTheArray(double[] array,double number){
+    public static boolean numberInTheArray(double[] array, double number) {
         for (double v : array) {
             if (v == number) return true;
+        }
+        return false;
+    }
+
+    public static boolean nullInInteger(Integer[] integerArray) {
+        for (Integer integer : integerArray) {
+            if (integer == null) return true;
         }
         return false;
     }
@@ -201,6 +208,8 @@ public class SpecialArrays {
         System.out.println();
         showingTheResult(returningSymmetricArray(11));
         System.out.println();
-        System.out.println(numberInTheArray(arrayReverseSign,1.0));
+        System.out.println(numberInTheArray(arrayReverseSign, 1.0));
+        System.out.println(nullInInteger(new Integer[]{5, 3, null}));
+
     }
 }

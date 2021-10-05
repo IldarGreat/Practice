@@ -155,4 +155,10 @@ public class SpecialArraysTest {
         Assert.assertTrue(numberInTheArray(array,Double.POSITIVE_INFINITY));
         Assert.assertFalse(numberInTheArray(array,4.6));
     }
+
+    @Test
+    public static void testNullInInteger(){
+        Assert.assertTrue(nullInInteger(new Integer[]{2,3,null}));
+        Assert.assertFalse(nullInInteger(new Integer[]{2,3,6,19}));
+    }
 }
