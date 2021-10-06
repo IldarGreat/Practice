@@ -194,6 +194,14 @@ public class SpecialArrays {
         return maxNumber;
     }
 
+    public static double sumElementsInEvenIndex(double[] array){
+        double sumElementInEvenIndex=0;
+        for (int element=0;element<array.length;element++){
+            if(element%2==0) sumElementInEvenIndex+=array[element];
+        }
+        return sumElementInEvenIndex;
+    }
+
 
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
@@ -230,5 +238,6 @@ public class SpecialArrays {
         System.out.println(nullInInteger(new Integer[]{5, 3, null}));
         System.out.println(numberOfEvenNumbers(new double[] {3,4,5,6}));
         System.out.println(maxNumber(new int[] {-1,56,-39,23,68,0}));
+        System.out.println(sumElementsInEvenIndex(new double[]{1,2,3,4,5,6,7}));
     }
 }

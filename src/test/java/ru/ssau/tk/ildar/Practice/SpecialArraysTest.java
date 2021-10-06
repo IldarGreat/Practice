@@ -176,4 +176,12 @@ public class SpecialArraysTest {
         Assert.assertEquals(maxNumber(new int[] {Integer.MAX_VALUE,343432,-23}),Integer.MAX_VALUE);
         Assert.assertNull(maxNumber(new int[]{}));
     }
+
+    @Test
+    public static void testSumElementsInEvenIndex(){
+        Assert.assertEquals(sumElementsInEvenIndex(new double[]{321,432,67,-31,-321,32,-67}),0.0);
+        Assert.assertEquals(sumElementsInEvenIndex(new double[]{Double.POSITIVE_INFINITY,23,12}),Double.POSITIVE_INFINITY);
+        Assert.assertEquals(sumElementsInEvenIndex(new double[]{Double.POSITIVE_INFINITY,0,Double.NEGATIVE_INFINITY}),Double.NaN);
+        Assert.assertEquals(sumElementsInEvenIndex(new double[] {}),0.0);
+    }
 }
