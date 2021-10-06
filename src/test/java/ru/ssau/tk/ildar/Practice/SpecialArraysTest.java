@@ -10,6 +10,7 @@ import static ru.ssau.tk.ildar.Practice.SpecialArrays.*;
 
 public class SpecialArraysTest {
     public static final double DELTA = 0.0001;
+
     @Test
     public static void testReturningArrayOfAGivenDimension() {
         Assert.assertEquals(returningArrayOfAGivenDimension(5).length, 5);
@@ -74,8 +75,8 @@ public class SpecialArraysTest {
     @Test
     public static void testReturningArrayFilledWithEquationSolution() {
         double[] arrayWithTwoSolution = returningArrayFilledWithEquationSolution(2, 6, 3);
-        Assert.assertEquals(arrayWithTwoSolution[0], -6.8660,DELTA);
-        Assert.assertEquals(arrayWithTwoSolution[1], -5.1339,DELTA);
+        Assert.assertEquals(arrayWithTwoSolution[0], -6.8660, DELTA);
+        Assert.assertEquals(arrayWithTwoSolution[1], -5.1339, DELTA);
         double[] arrayWithOneSolution = returningArrayFilledWithEquationSolution(2, 4, 2);
         Assert.assertEquals(arrayWithOneSolution[0], -1.0);
     }
@@ -140,53 +141,66 @@ public class SpecialArraysTest {
     }
 
     @Test
-    public static void testReturningSymmetricArray(){
-        double[] symmetricArray=returningSymmetricArray(21);
-        for(int element=0;element<symmetricArray.length;element++){
-            symmetricArray[element]=symmetricArray[symmetricArray.length-element-1];
+    public static void testReturningSymmetricArray() {
+        double[] symmetricArray = returningSymmetricArray(21);
+        for (int element = 0; element < symmetricArray.length; element++) {
+            symmetricArray[element] = symmetricArray[symmetricArray.length - element - 1];
         }
     }
 
     @Test
-    public static void testNumberInTheArray(){
-        double[] array = new double[] {4.5,Double.NaN,45.0/7.0,Double.POSITIVE_INFINITY};
-        Assert.assertTrue(numberInTheArray(array,4.5));
-        Assert.assertTrue(numberInTheArray(array,45.0/7.0));
-        Assert.assertTrue(numberInTheArray(array,Double.POSITIVE_INFINITY));
-        Assert.assertFalse(numberInTheArray(array,4.6));
+    public static void testNumberInTheArray() {
+        double[] array = new double[]{4.5, Double.NaN, 45.0 / 7.0, Double.POSITIVE_INFINITY};
+        Assert.assertTrue(numberInTheArray(array, 4.5));
+        Assert.assertTrue(numberInTheArray(array, 45.0 / 7.0));
+        Assert.assertTrue(numberInTheArray(array, Double.POSITIVE_INFINITY));
+        Assert.assertFalse(numberInTheArray(array, 4.6));
     }
 
     @Test
-    public static void testNullInInteger(){
-        Assert.assertTrue(nullInInteger(new Integer[]{2,3,null}));
-        Assert.assertFalse(nullInInteger(new Integer[]{2,3,6,19}));
+    public static void testNullInInteger() {
+        Assert.assertTrue(nullInInteger(new Integer[]{2, 3, null}));
+        Assert.assertFalse(nullInInteger(new Integer[]{2, 3, 6, 19}));
     }
 
     @Test
-    public static void testNumberOfEvenNumbers(){
-        double[] array = new double[] { 1,2,3,4,5,6,7,10,15,16};
-        double[] infinityArray = new double[] {Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY};
-        Assert.assertEquals(numberOfEvenNumbers(array),5);
-        Assert.assertEquals(numberOfEvenNumbers(infinityArray),0);
+    public static void testNumberOfEvenNumbers() {
+        double[] array = new double[]{1, 2, 3, 4, 5, 6, 7, 10, 15, 16};
+        double[] infinityArray = new double[]{Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY};
+        Assert.assertEquals(numberOfEvenNumbers(array), 5);
+        Assert.assertEquals(numberOfEvenNumbers(infinityArray), 0);
     }
 
     @Test
-    public static void testMaxNumber(){
-        Assert.assertEquals(maxNumber(new int[] {34,-2,0,324}),324);
-        Assert.assertEquals(maxNumber(new int[] {Integer.MAX_VALUE,343432,-23}),Integer.MAX_VALUE);
-        Assert.assertNull(maxNumber(new int[]{}));
+    public static void testMaxNumber() {
+        Assert.assertEquals(maxNumber(new int[]{34, -2, 0, 324}), 324);
+        Assert.assertEquals(maxNumber(new int[]{Integer.MAX_VALUE, 343432, -23}), Integer.MAX_VALUE);
     }
 
     @Test
-    public static void testSumElementsInEvenIndex(){
-        Assert.assertEquals(sumElementsInEvenIndex(new double[]{321,432,67,-31,-321,32,-67}),0.0);
-        Assert.assertEquals(sumElementsInEvenIndex(new double[]{Double.POSITIVE_INFINITY,23,12}),Double.POSITIVE_INFINITY);
-        Assert.assertEquals(sumElementsInEvenIndex(new double[]{Double.POSITIVE_INFINITY,0,Double.NEGATIVE_INFINITY}),Double.NaN);
-        Assert.assertEquals(sumElementsInEvenIndex(new double[] {}),0.0);
+    public static void testSumElementsInEvenIndex() {
+        Assert.assertEquals(sumElementsInEvenIndex(new double[]{321, 432, 67, -31, -321, 32, -67}), 0.0);
+        Assert.assertEquals(sumElementsInEvenIndex(new double[]{Double.POSITIVE_INFINITY, 23, 12}), Double.POSITIVE_INFINITY);
+        Assert.assertEquals(sumElementsInEvenIndex(new double[]{Double.POSITIVE_INFINITY, 0, Double.NEGATIVE_INFINITY}), Double.NaN);
+        Assert.assertEquals(sumElementsInEvenIndex(new double[]{}), 0.0);
     }
 
     @Test
-    public static void testIsNumbersDivisibleByTheFirstElementAreMore(){
-        Assert.assertTrue(isNumbersDivisibleByTheFirstElementAreMore(new int[]{2,64,128,12,9,6,3}));
+    public static void testIsNumbersDivisibleByTheFirstElementAreMore() {
+        Assert.assertTrue(isNumbersDivisibleByTheFirstElementAreMore(new int[]{2, 64, 128, 12, 9, 6, 3}));
+    }
+
+    @Test
+    public static void testIsArrayEmpty() {
+        int[] array = new int[10];
+        Assert.assertTrue(isArrayEmpty(new int[]{}));
+        Assert.assertTrue(isArrayEmpty(array));
+    }
+
+    @Test
+    public static void testMostCommonElement() {
+        Assert.assertEquals(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2}), 1.0);
+        Assert.assertEquals(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2, 3, 3, 3, 3, 3}), 3.0);
+        Assert.assertNull(mostCommonElement(new double[]{1, 2, 3, 4, 5}));
     }
 }

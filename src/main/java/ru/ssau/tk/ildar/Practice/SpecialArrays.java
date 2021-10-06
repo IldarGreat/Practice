@@ -177,34 +177,36 @@ public class SpecialArrays {
         return false;
     }
 
-    public static int numberOfEvenNumbers(double[] array){
-        int evenNumber=0;
+    public static int numberOfEvenNumbers(double[] array) {
+        int evenNumber = 0;
         for (double v : array) {
             if (v % 2 == 0) evenNumber++;
         }
         return evenNumber;
     }
 
-    public static Object maxNumber(int[] array){
-        if(array.length==0) return null;
-        int maxNumber=array[0];
+    public static int maxNumber(int[] array) {
+        if (array.length == 0) return 0;
+        int maxNumber = array[0];
         for (int i : array) {
             if (i > maxNumber) maxNumber = i;
         }
         return maxNumber;
     }
 
-    public static double sumElementsInEvenIndex(double[] array){
-        double sumElementInEvenIndex=0;
-        for (int element=0;element<array.length;element++){
-            if(element%2==0) {sumElementInEvenIndex+=array[element];}
+    public static double sumElementsInEvenIndex(double[] array) {
+        double sumElementInEvenIndex = 0;
+        for (int element = 0; element < array.length; element++) {
+            if (element % 2 == 0) {
+                sumElementInEvenIndex += array[element];
+            }
         }
         return sumElementInEvenIndex;
     }
 
-    public static boolean isNumbersDivisibleByTheFirstElementAreMore(int[] array){
-        int divideByTheFirst=0;
-        int divideByTheLast=0;
+    public static boolean isNumbersDivisibleByTheFirstElementAreMore(int[] array) {
+        int divideByTheFirst = 0;
+        int divideByTheLast = 0;
         for (int i : array) {
             if (i % array[0] == 0) {
                 divideByTheFirst++;
@@ -214,6 +216,36 @@ public class SpecialArrays {
             }
         }
         return divideByTheFirst > divideByTheLast;
+    }
+
+    public static boolean isArrayEmpty(int[] array) {
+        if (array.length == 0) {
+            return true;
+        }
+        for (int element = 1; element < array.length; element++) {
+            if (array[element - 1] != array[element] || array[element] != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static Object mostCommonElement(double[] array) {
+        int[] coincidences = new int[array.length];
+
+        for (int element = 0; element < array.length; element++) {
+            for (int interiorElement = element + 1; interiorElement < array.length; interiorElement++) {
+                if (array[element] == array[interiorElement]) {
+                    coincidences[element]++;
+                }
+            }
+        }
+        if (isArrayEmpty(coincidences)) return null;
+        for (int element = 0; element < coincidences.length; element++) {
+            if (coincidences[element] == maxNumber(coincidences))
+                return array[element];
+        }
+        return null;
     }
 
     public static void main(String[] args) {
@@ -249,9 +281,10 @@ public class SpecialArrays {
         System.out.println();
         System.out.println(numberInTheArray(arrayReverseSign, 1.0));
         System.out.println(nullInInteger(new Integer[]{5, 3, null}));
-        System.out.println(numberOfEvenNumbers(new double[] {3,4,5,6}));
-        System.out.println(maxNumber(new int[] {-1,56,-39,23,68,0}));
-        System.out.println(sumElementsInEvenIndex(new double[]{1,2,3,4,5,6,7}));
-        System.out.println(isNumbersDivisibleByTheFirstElementAreMore(new int[]{4,64,27}));
+        System.out.println(numberOfEvenNumbers(new double[]{3, 4, 5, 6}));
+        System.out.println(maxNumber(new int[]{-1, 56, -39, 23, 68, 0}));
+        System.out.println(sumElementsInEvenIndex(new double[]{1, 2, 3, 4, 5, 6, 7}));
+        System.out.println(isNumbersDivisibleByTheFirstElementAreMore(new int[]{4, 64, 27}));
+        System.out.println(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2, 1}));
     }
 }
