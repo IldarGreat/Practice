@@ -197,11 +197,24 @@ public class SpecialArrays {
     public static double sumElementsInEvenIndex(double[] array){
         double sumElementInEvenIndex=0;
         for (int element=0;element<array.length;element++){
-            if(element%2==0) sumElementInEvenIndex+=array[element];
+            if(element%2==0) {sumElementInEvenIndex+=array[element];}
         }
         return sumElementInEvenIndex;
     }
 
+    public static boolean isNumbersDivisibleByTheFirstElementAreMore(int[] array){
+        int divideByTheFirst=0;
+        int divideByTheLast=0;
+        for (int i : array) {
+            if (i % array[0] == 0) {
+                divideByTheFirst++;
+            }
+            if (i % array[array.length - 1] == 0) {
+                divideByTheLast++;
+            }
+        }
+        return divideByTheFirst > divideByTheLast;
+    }
 
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
@@ -239,5 +252,6 @@ public class SpecialArrays {
         System.out.println(numberOfEvenNumbers(new double[] {3,4,5,6}));
         System.out.println(maxNumber(new int[] {-1,56,-39,23,68,0}));
         System.out.println(sumElementsInEvenIndex(new double[]{1,2,3,4,5,6,7}));
+        System.out.println(isNumbersDivisibleByTheFirstElementAreMore(new int[]{4,64,27}));
     }
 }

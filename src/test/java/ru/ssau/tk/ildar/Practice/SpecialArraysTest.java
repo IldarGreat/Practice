@@ -184,4 +184,9 @@ public class SpecialArraysTest {
         Assert.assertEquals(sumElementsInEvenIndex(new double[]{Double.POSITIVE_INFINITY,0,Double.NEGATIVE_INFINITY}),Double.NaN);
         Assert.assertEquals(sumElementsInEvenIndex(new double[] {}),0.0);
     }
+
+    @Test
+    public static void testIsNumbersDivisibleByTheFirstElementAreMore(){
+        Assert.assertTrue(isNumbersDivisibleByTheFirstElementAreMore(new int[]{2,64,128,12,9,6,3}));
+    }
 }
