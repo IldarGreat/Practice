@@ -185,6 +185,16 @@ public class SpecialArrays {
         return evenNumber;
     }
 
+    public static Object maxNumber(int[] array){
+        if(array.length==0) return null;
+        int maxNumber=array[0];
+        for (int i : array) {
+            if (i > maxNumber) maxNumber = i;
+        }
+        return maxNumber;
+    }
+
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -219,5 +229,6 @@ public class SpecialArrays {
         System.out.println(numberInTheArray(arrayReverseSign, 1.0));
         System.out.println(nullInInteger(new Integer[]{5, 3, null}));
         System.out.println(numberOfEvenNumbers(new double[] {3,4,5,6}));
+        System.out.println(maxNumber(new int[] {-1,56,-39,23,68,0}));
     }
 }

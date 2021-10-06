@@ -169,4 +169,11 @@ public class SpecialArraysTest {
         Assert.assertEquals(numberOfEvenNumbers(array),5);
         Assert.assertEquals(numberOfEvenNumbers(infinityArray),0);
     }
+
+    @Test
+    public static void testMaxNumber(){
+        Assert.assertEquals(maxNumber(new int[] {34,-2,0,324}),324);
+        Assert.assertEquals(maxNumber(new int[] {Integer.MAX_VALUE,343432,-23}),Integer.MAX_VALUE);
+        Assert.assertNull(maxNumber(new int[]{}));
+    }
 }
