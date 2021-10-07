@@ -248,6 +248,15 @@ public class SpecialArrays {
         return null;
     }
 
+    public static int indexOfNumber(double[] array, double number) {
+        for (int element = 0; element < array.length; element++) {
+            if ((Math.abs(array[element]-number)<0.0001)) {
+                return element;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -286,5 +295,6 @@ public class SpecialArrays {
         System.out.println(sumElementsInEvenIndex(new double[]{1, 2, 3, 4, 5, 6, 7}));
         System.out.println(isNumbersDivisibleByTheFirstElementAreMore(new int[]{4, 64, 27}));
         System.out.println(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2, 1}));
+        System.out.println(indexOfNumber(new double[]{1, 2, 3, 6, 9}, 3));
     }
 }

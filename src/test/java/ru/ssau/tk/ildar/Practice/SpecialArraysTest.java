@@ -203,4 +203,10 @@ public class SpecialArraysTest {
         Assert.assertEquals(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2, 3, 3, 3, 3, 3}), 3.0);
         Assert.assertNull(mostCommonElement(new double[]{1, 2, 3, 4, 5}));
     }
+
+    @Test
+    public static void testIndexOfNumber() {
+        Assert.assertEquals((indexOfNumber(new double[]{3, 5, 7, 9}, 9.0)), 3);
+        Assert.assertEquals((indexOfNumber(new double[]{3, 5, 7, 9}, 10)), -1);
+    }
 }
