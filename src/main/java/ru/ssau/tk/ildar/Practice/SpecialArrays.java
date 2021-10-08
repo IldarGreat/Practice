@@ -194,6 +194,7 @@ public class SpecialArrays {
         return maxNumber;
     }
 
+
     public static double sumElementsInEvenIndex(double[] array) {
         double sumElementInEvenIndex = 0;
         for (int element = 0; element < array.length; element++) {
@@ -250,11 +251,31 @@ public class SpecialArrays {
 
     public static int indexOfNumber(double[] array, double number) {
         for (int element = 0; element < array.length; element++) {
-            if ((Math.abs(array[element]-number)<0.0001)) {
+            if ((Math.abs(array[element] - number) < 0.0001)) {
                 return element;
             }
         }
         return -1;
+    }
+
+    public static void swappingMinAndMax(double[] array) { // Не доделано!
+        if (array.length == 0|| array.length==1) {
+            return;
+        }
+
+        int indexMax = 0;
+        int indexMin = 0;
+        for (int element = 0; element < array.length; element++) {
+                if (array[0] < array[element]) {
+                    indexMax = element;
+                }
+                if (array[0] > array[element]) {
+                    indexMin = element;
+                }
+        }
+        double swap=array[indexMin];
+        array[indexMin]=array[indexMax];
+        array[indexMax]=swap;
     }
 
     public static void main(String[] args) {
@@ -296,5 +317,8 @@ public class SpecialArrays {
         System.out.println(isNumbersDivisibleByTheFirstElementAreMore(new int[]{4, 64, 27}));
         System.out.println(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2, 1}));
         System.out.println(indexOfNumber(new double[]{1, 2, 3, 6, 9}, 3));
+        double[] array = new double[] {1,3,6,4,3,6,7,1,3};
+        swappingMinAndMax(array);
+        showingTheResult(array);
     }
 }
