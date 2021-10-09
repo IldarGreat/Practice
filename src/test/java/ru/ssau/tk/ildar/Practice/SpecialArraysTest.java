@@ -226,4 +226,20 @@ public class SpecialArraysTest {
         Assert.assertEquals(array[3],3);
         Assert.assertEquals(array[4],-11);
     }
+
+    @Test
+    public static void testReturningBitwiseNegationArray(){
+        int[] array= new int[] {10,-11,0} ;
+        Assert.assertEquals(array[0],10);
+        Assert.assertEquals(array[1],-11);
+        Assert.assertEquals(array[2],0);
+        int[] secondArray=returningBitwiseNegationArray(array);
+        Assert.assertEquals(secondArray[0],-11);
+        Assert.assertEquals(secondArray[1],10);
+        Assert.assertEquals(secondArray[2],-1);
+        int[] ThirdArray=returningBitwiseNegationArray(secondArray);
+        Assert.assertEquals(ThirdArray[0],10);
+        Assert.assertEquals(ThirdArray[1],-11);
+        Assert.assertEquals(ThirdArray[2],0);
+    }
 }

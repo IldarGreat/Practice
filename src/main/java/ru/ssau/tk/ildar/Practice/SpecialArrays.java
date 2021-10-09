@@ -290,6 +290,11 @@ public class SpecialArrays {
         }
     }
 
+    public static int[] returningBitwiseNegationArray(int[] array){
+        bitwiseNegation(array);
+        return array;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -332,8 +337,11 @@ public class SpecialArrays {
         double[] array = new double[] {1,3,6,4,3,6,7,1,3,10};
         swappingMinAndMax(array);
         showingTheResult(array);
+        System.out.println();
         int[] arrayInt= new int[] {1,10,15,-23,-11};
         bitwiseNegation(arrayInt);
         showingTheResult(arrayInt);
+        System.out.println();
+        showingTheResult(returningBitwiseNegationArray(new int[] {10,-11,20,0}));
     }
 }
