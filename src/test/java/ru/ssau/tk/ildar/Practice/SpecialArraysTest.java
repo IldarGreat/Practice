@@ -209,4 +209,21 @@ public class SpecialArraysTest {
         Assert.assertEquals((indexOfNumber(new double[]{3, 5, 7, 9}, 9.0)), 3);
         Assert.assertEquals((indexOfNumber(new double[]{3, 5, 7, 9}, 10)), -1);
     }
+
+    @Test
+    public static void testBitwiseNegation(){
+        int[] array = new int[] { 10,-2,0,3,-11};
+        bitwiseNegation(array);
+        Assert.assertEquals(array[0],-11);
+        Assert.assertEquals(array[1],1);
+        Assert.assertEquals(array[2],-1);
+        Assert.assertEquals(array[3],-4);
+        Assert.assertEquals(array[4],10);
+        bitwiseNegation(array);
+        Assert.assertEquals(array[0],10);
+        Assert.assertEquals(array[1],-2);
+        Assert.assertEquals(array[2],0);
+        Assert.assertEquals(array[3],3);
+        Assert.assertEquals(array[4],-11);
+    }
 }

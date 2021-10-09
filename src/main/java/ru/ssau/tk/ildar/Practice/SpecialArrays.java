@@ -11,6 +11,12 @@ public class SpecialArrays {
         }
     }
 
+    public static void showingTheResult(int[] array) {
+        for (int i : array) {
+            System.out.println(i);
+        }
+    }
+
     public static void showingTheResult(ArrayList<Integer> array) {
         for (double i : array) {
             System.out.println(i);
@@ -278,6 +284,12 @@ public class SpecialArrays {
         array[indexMax]=swap;
     }
 
+    public static void bitwiseNegation(int[] array){
+        for (int element=0;element<array.length;element++){
+            array[element]=~array[element];
+        }
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -317,8 +329,11 @@ public class SpecialArrays {
         System.out.println(isNumbersDivisibleByTheFirstElementAreMore(new int[]{4, 64, 27}));
         System.out.println(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2, 1}));
         System.out.println(indexOfNumber(new double[]{1, 2, 3, 6, 9}, 3));
-        double[] array = new double[] {1,3,6,4,3,6,7,1,3};
+        double[] array = new double[] {1,3,6,4,3,6,7,1,3,10};
         swappingMinAndMax(array);
         showingTheResult(array);
+        int[] arrayInt= new int[] {1,10,15,-23,-11};
+        bitwiseNegation(arrayInt);
+        showingTheResult(arrayInt);
     }
 }
