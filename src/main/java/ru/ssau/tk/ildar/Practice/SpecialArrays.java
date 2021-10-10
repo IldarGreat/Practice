@@ -265,34 +265,53 @@ public class SpecialArrays {
     }
 
     public static void swappingMinAndMax(double[] array) { // Не доделано!
-        if (array.length == 0|| array.length==1) {
+        if (array.length == 0 || array.length == 1) {
             return;
         }
 
         int indexMax = 0;
         int indexMin = 0;
         for (int element = 0; element < array.length; element++) {
-                if (array[0] < array[element]) {
-                    indexMax = element;
-                }
-                if (array[0] > array[element]) {
-                    indexMin = element;
-                }
+            if (array[0] < array[element]) {
+                indexMax = element;
+            }
+            if (array[0] > array[element]) {
+                indexMin = element;
+            }
         }
-        double swap=array[indexMin];
-        array[indexMin]=array[indexMax];
-        array[indexMax]=swap;
+        double swap = array[indexMin];
+        array[indexMin] = array[indexMax];
+        array[indexMax] = swap;
     }
 
-    public static void bitwiseNegation(int[] array){
-        for (int element=0;element<array.length;element++){
-            array[element]=~array[element];
+    public static void bitwiseNegation(int[] array) {
+        for (int element = 0; element < array.length; element++) {
+            array[element] = ~array[element];
         }
     }
 
-    public static int[] returningBitwiseNegationArray(int[] array){
+    public static int[] returningBitwiseNegationArray(int[] array) {
         bitwiseNegation(array);
         return array;
+    }
+
+    public static int[] returningSumElementsOfArray(int[] array) {
+        int lengthNewArray;
+        if (array.length % 2 == 0) {
+            lengthNewArray = array.length / 2;
+            int[] newArray = new int[lengthNewArray];
+            for (int element = 0; element < newArray.length; element++) {
+                newArray[element] = array[element * 2] + array[element * 2 + 1];
+            }
+            return newArray;
+        }
+        lengthNewArray = array.length / 2 + 1;
+        int[] newArray = new int[lengthNewArray];
+        for (int element = 0; element < newArray.length - 1; element++) {
+            newArray[element] = array[element * 2] + array[element * 2 + 1];
+        }
+        newArray[lengthNewArray - 1] = array[array.length - 1];
+        return newArray;
     }
 
     public static void main(String[] args) {
@@ -334,14 +353,16 @@ public class SpecialArrays {
         System.out.println(isNumbersDivisibleByTheFirstElementAreMore(new int[]{4, 64, 27}));
         System.out.println(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2, 1}));
         System.out.println(indexOfNumber(new double[]{1, 2, 3, 6, 9}, 3));
-        double[] array = new double[] {1,3,6,4,3,6,7,1,3,10};
+        double[] array = new double[]{1, 3, 6, 4, 3, 6, 7, 1, 3, 10};
         swappingMinAndMax(array);
         showingTheResult(array);
         System.out.println();
-        int[] arrayInt= new int[] {1,10,15,-23,-11};
+        int[] arrayInt = new int[]{1, 10, 15, -23, -11};
         bitwiseNegation(arrayInt);
         showingTheResult(arrayInt);
         System.out.println();
-        showingTheResult(returningBitwiseNegationArray(new int[] {10,-11,20,0}));
+        showingTheResult(returningBitwiseNegationArray(new int[]{10, -11, 20, 0}));
+        System.out.println();
+        showingTheResult(returningSumElementsOfArray(new int[]{1, 2, 3, 4, 5, 6, 7}));
     }
 }

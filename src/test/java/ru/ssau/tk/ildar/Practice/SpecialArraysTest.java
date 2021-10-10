@@ -211,35 +211,47 @@ public class SpecialArraysTest {
     }
 
     @Test
-    public static void testBitwiseNegation(){
-        int[] array = new int[] { 10,-2,0,3,-11};
+    public static void testBitwiseNegation() {
+        int[] array = new int[]{10, -2, 0, 3, -11};
         bitwiseNegation(array);
-        Assert.assertEquals(array[0],-11);
-        Assert.assertEquals(array[1],1);
-        Assert.assertEquals(array[2],-1);
-        Assert.assertEquals(array[3],-4);
-        Assert.assertEquals(array[4],10);
+        Assert.assertEquals(array[0], -11);
+        Assert.assertEquals(array[1], 1);
+        Assert.assertEquals(array[2], -1);
+        Assert.assertEquals(array[3], -4);
+        Assert.assertEquals(array[4], 10);
         bitwiseNegation(array);
-        Assert.assertEquals(array[0],10);
-        Assert.assertEquals(array[1],-2);
-        Assert.assertEquals(array[2],0);
-        Assert.assertEquals(array[3],3);
-        Assert.assertEquals(array[4],-11);
+        Assert.assertEquals(array[0], 10);
+        Assert.assertEquals(array[1], -2);
+        Assert.assertEquals(array[2], 0);
+        Assert.assertEquals(array[3], 3);
+        Assert.assertEquals(array[4], -11);
     }
 
     @Test
-    public static void testReturningBitwiseNegationArray(){
-        int[] array= new int[] {10,-11,0} ;
-        Assert.assertEquals(array[0],10);
-        Assert.assertEquals(array[1],-11);
-        Assert.assertEquals(array[2],0);
-        int[] secondArray=returningBitwiseNegationArray(array);
-        Assert.assertEquals(secondArray[0],-11);
-        Assert.assertEquals(secondArray[1],10);
-        Assert.assertEquals(secondArray[2],-1);
-        int[] ThirdArray=returningBitwiseNegationArray(secondArray);
-        Assert.assertEquals(ThirdArray[0],10);
-        Assert.assertEquals(ThirdArray[1],-11);
-        Assert.assertEquals(ThirdArray[2],0);
+    public static void testReturningBitwiseNegationArray() {
+        int[] array = new int[]{10, -11, 0};
+        Assert.assertEquals(array[0], 10);
+        Assert.assertEquals(array[1], -11);
+        Assert.assertEquals(array[2], 0);
+        int[] secondArray = returningBitwiseNegationArray(array);
+        Assert.assertEquals(secondArray[0], -11);
+        Assert.assertEquals(secondArray[1], 10);
+        Assert.assertEquals(secondArray[2], -1);
+        int[] ThirdArray = returningBitwiseNegationArray(secondArray);
+        Assert.assertEquals(ThirdArray[0], 10);
+        Assert.assertEquals(ThirdArray[1], -11);
+        Assert.assertEquals(ThirdArray[2], 0);
+    }
+
+    @Test
+    public static void testReturningSumElementsOfArray() {
+        int[] array = returningSumElementsOfArray(new int[]{5, 8, 9, 10, 11, 20});
+        Assert.assertEquals(array[0], 13);
+        Assert.assertEquals(array[1], 19);
+        Assert.assertEquals(array[2], 31);
+        int[] arrayTwo = returningSumElementsOfArray(new int[]{5, 8, 9, 10, 11});
+        Assert.assertEquals(arrayTwo[0], 13);
+        Assert.assertEquals(arrayTwo[1], 19);
+        Assert.assertEquals(arrayTwo[2], 11);
     }
 }
