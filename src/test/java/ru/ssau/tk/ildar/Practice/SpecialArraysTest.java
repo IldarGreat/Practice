@@ -254,4 +254,16 @@ public class SpecialArraysTest {
         Assert.assertEquals(arrayTwo[1], 19);
         Assert.assertEquals(arrayTwo[2], 11);
     }
+
+    @Test
+    public static void testReturnBooleanArray() {
+        boolean[] booleanArray = returnBooleanArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+        Assert.assertTrue(booleanArray[0]);
+        Assert.assertFalse(booleanArray[1]);
+        Assert.assertTrue(booleanArray[2]);
+        Assert.assertFalse(booleanArray[3]);
+        Assert.assertTrue(booleanArray[4]);
+        Assert.assertFalse(booleanArray[5]);
+        Assert.assertTrue(booleanArray[6]);
+    }
 }

@@ -314,6 +314,14 @@ public class SpecialArrays {
         return newArray;
     }
 
+    public static boolean[] returnBooleanArray(int[] intArray){
+        boolean[] booleanArray=new boolean[intArray.length];
+        for(int element=0;element<intArray.length;element++){
+            booleanArray[element]= element % 2 == 0;
+        }
+        return booleanArray;
+    }
+
     public static void main(String[] args) {
         showingTheResult(returningArrayOfAGivenDimension(5));
         System.out.println();
@@ -364,5 +372,8 @@ public class SpecialArrays {
         showingTheResult(returningBitwiseNegationArray(new int[]{10, -11, 20, 0}));
         System.out.println();
         showingTheResult(returningSumElementsOfArray(new int[]{1, 2, 3, 4, 5, 6, 7}));
+        System.out.println();
+        boolean[] booleanArray = returnBooleanArray(new int[] {1,2,3,4,5,6,7,8});
+        System.out.println(booleanArray[0]);
     }
 }
