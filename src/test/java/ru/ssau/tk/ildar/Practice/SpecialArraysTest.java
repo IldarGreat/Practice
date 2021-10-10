@@ -211,6 +211,14 @@ public class SpecialArraysTest {
     }
 
     @Test
+    public static void testSwappingMinAndMax(){
+        double[] array = new double[] {5,7,1,8,3,6,0,2};
+        swappingMinAndMax(array);
+        Assert.assertEquals(array[3],0.0);
+        Assert.assertEquals(array[6],8.0);
+    }
+
+    @Test
     public static void testBitwiseNegation() {
         int[] array = new int[]{10, -2, 0, 3, -11};
         bitwiseNegation(array);
@@ -265,5 +273,12 @@ public class SpecialArraysTest {
         Assert.assertTrue(booleanArray[4]);
         Assert.assertFalse(booleanArray[5]);
         Assert.assertTrue(booleanArray[6]);
+    }
+
+    @Test
+    public static void testArrayLongToIntAndLongFromTwoInt(){
+        Assert.assertEquals(longFromTwoInt(arrayLongToInt(53219359L)),53219359L);
+        Assert.assertEquals(longFromTwoInt(arrayLongToInt(53432423423L)),53432423423L);
+        Assert.assertEquals(longFromTwoInt(arrayLongToInt(23536359L)),23536359L);
     }
 }

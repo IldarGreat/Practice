@@ -5,24 +5,6 @@ import java.util.Collections;
 
 public class SpecialArrays {
 
-    public static void showingTheResult(double[] array) {
-        for (double i : array) {
-            System.out.println(i);
-        }
-    }
-
-    public static void showingTheResult(int[] array) {
-        for (int i : array) {
-            System.out.println(i);
-        }
-    }
-
-    public static void showingTheResult(ArrayList<Integer> array) {
-        for (double i : array) {
-            System.out.println(i);
-        }
-    }
-
     public static double[] returningArrayOfAGivenDimension(int dimension) {
         return new double[dimension];
     }
@@ -265,23 +247,27 @@ public class SpecialArrays {
     }
 
     public static void swappingMinAndMax(double[] array) { // Не доделано!
-        if (array.length == 0 || array.length == 1) {
+        if(array.length==0){
             return;
         }
-
-        int indexMax = 0;
-        int indexMin = 0;
-        for (int element = 0; element < array.length; element++) {
-            if (array[0] < array[element]) {
-                indexMax = element;
+        double min=array[0];
+        double max=array[0];
+        double helper;
+        int indexMin;
+        int indexMax;
+        for (double v : array) {
+            if (min > v) {
+                min = v;
             }
-            if (array[0] > array[element]) {
-                indexMin = element;
+            if (max < v) {
+                max = v;
             }
         }
-        double swap = array[indexMin];
-        array[indexMin] = array[indexMax];
-        array[indexMax] = swap;
+        indexMin=indexOfNumber(array,min);
+        indexMax=indexOfNumber(array,max);
+        helper=array[indexMax];
+        array[indexMax]=array[indexMin];
+        array[indexMin]=helper;
     }
 
     public static void bitwiseNegation(int[] array) {
@@ -314,66 +300,19 @@ public class SpecialArrays {
         return newArray;
     }
 
-    public static boolean[] returnBooleanArray(int[] intArray){
-        boolean[] booleanArray=new boolean[intArray.length];
-        for(int element=0;element<intArray.length;element++){
-            booleanArray[element]= element % 2 == 0;
+    public static boolean[] returnBooleanArray(int[] intArray) {
+        boolean[] booleanArray = new boolean[intArray.length];
+        for (int element = 0; element < intArray.length; element++) {
+            booleanArray[element] = element % 2 == 0;
         }
         return booleanArray;
     }
 
-    public static void main(String[] args) {
-        showingTheResult(returningArrayOfAGivenDimension(5));
-        System.out.println();
-        showingTheResult(returningArrayFilledWithOnes(7));
-        System.out.println();
-        showingTheResult(returningArrayWithOddNumbers(5));
-        System.out.println();
-        showingTheResult(returningArrayWithReverseEvenNumbers(10));
-        System.out.println();
-        showingTheResult(returningArrayWithFibonacciNumbers(8));
-        System.out.println();
-        showingTheResult(returningArrayFillerWithSquareIndex(10));
-        System.out.println();
-        showingTheResult(returningArrayFilledWithEquationSolution(0, 5, 2));
-        System.out.println();
-        showingTheResult(returningArrayWithoutNumberDividedByThree(10));
-        System.out.println();
-        showingTheResult(returningArrayFilledArithmeticProgression(10, 3, 3.5));
-        System.out.println();
-        showingTheResult(returningArrayFilledGeometricProgression(10, 50, 0.5));
-        System.out.println();
-        showingTheResult(returningArrayWithIntegerDivisors(64));
-        System.out.println();
-        showingTheResult(returningArrayWithPrimeNumbers(55));
-        System.out.println();
-        double[] arrayReverseSign = returningArrayFilledWithOnes(6);
-        numberSignSubstitution(arrayReverseSign);
-        showingTheResult(arrayReverseSign);
-        System.out.println();
-        showingTheResult(returningSymmetricArray(11));
-        System.out.println();
-        System.out.println(numberInTheArray(arrayReverseSign, 1.0));
-        System.out.println(nullInInteger(new Integer[]{5, 3, null}));
-        System.out.println(numberOfEvenNumbers(new double[]{3, 4, 5, 6}));
-        System.out.println(maxNumber(new int[]{-1, 56, -39, 23, 68, 0}));
-        System.out.println(sumElementsInEvenIndex(new double[]{1, 2, 3, 4, 5, 6, 7}));
-        System.out.println(isNumbersDivisibleByTheFirstElementAreMore(new int[]{4, 64, 27}));
-        System.out.println(mostCommonElement(new double[]{1, 2, 1, 2, 1, 2, 1}));
-        System.out.println(indexOfNumber(new double[]{1, 2, 3, 6, 9}, 3));
-        double[] array = new double[]{1, 3, 6, 4, 3, 6, 7, 1, 3, 10};
-        swappingMinAndMax(array);
-        showingTheResult(array);
-        System.out.println();
-        int[] arrayInt = new int[]{1, 10, 15, -23, -11};
-        bitwiseNegation(arrayInt);
-        showingTheResult(arrayInt);
-        System.out.println();
-        showingTheResult(returningBitwiseNegationArray(new int[]{10, -11, 20, 0}));
-        System.out.println();
-        showingTheResult(returningSumElementsOfArray(new int[]{1, 2, 3, 4, 5, 6, 7}));
-        System.out.println();
-        boolean[] booleanArray = returnBooleanArray(new int[] {1,2,3,4,5,6,7,8});
-        System.out.println(booleanArray[0]);
+    public static int[] arrayLongToInt(long number) {
+        return new int[]{(int) (number >>> 32), (int) number};
+    }
+
+    public static long longFromTwoInt(int[] twoNumbers){
+        return ((long) twoNumbers[0] <<32) | twoNumbers[1];
     }
 }
