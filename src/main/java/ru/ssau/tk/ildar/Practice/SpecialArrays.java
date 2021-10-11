@@ -247,11 +247,11 @@ public class SpecialArrays {
     }
 
     public static void swappingMinAndMax(double[] array) { // Не доделано!
-        if(array.length==0){
+        if (array.length == 0) {
             return;
         }
-        double min=array[0];
-        double max=array[0];
+        double min = array[0];
+        double max = array[0];
         double helper;
         int indexMin;
         int indexMax;
@@ -263,11 +263,11 @@ public class SpecialArrays {
                 max = v;
             }
         }
-        indexMin=indexOfNumber(array,min);
-        indexMax=indexOfNumber(array,max);
-        helper=array[indexMax];
-        array[indexMax]=array[indexMin];
-        array[indexMin]=helper;
+        indexMin = indexOfNumber(array, min);
+        indexMax = indexOfNumber(array, max);
+        helper = array[indexMax];
+        array[indexMax] = array[indexMin];
+        array[indexMin] = helper;
     }
 
     public static void bitwiseNegation(int[] array) {
@@ -312,7 +312,18 @@ public class SpecialArrays {
         return new int[]{(int) (number >>> 32), (int) number};
     }
 
-    public static long longFromTwoInt(int[] twoNumbers){
-        return ((long) twoNumbers[0] <<32) | twoNumbers[1];
+    public static long longFromTwoInt(int[] twoNumbers) {
+        return ((long) twoNumbers[0] << 32) | twoNumbers[1];
+    }
+
+    public static double[] returningSpecialArray(int dimension, int indexOfStart) {
+        if (indexOfStart >= dimension) {
+            return null;
+        }
+        double[] array = new double[dimension];
+        for (int element = 0; element < dimension; element++) {
+            array[element + indexOfStart - (element + indexOfStart >= dimension ? dimension : 0)] = element + 1;
+        }
+        return array;
     }
 }

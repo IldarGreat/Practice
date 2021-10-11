@@ -211,11 +211,11 @@ public class SpecialArraysTest {
     }
 
     @Test
-    public static void testSwappingMinAndMax(){
-        double[] array = new double[] {5,7,1,8,3,6,0,2};
+    public static void testSwappingMinAndMax() {
+        double[] array = new double[]{5, 7, 1, 8, 3, 6, 0, 2};
         swappingMinAndMax(array);
-        Assert.assertEquals(array[3],0.0);
-        Assert.assertEquals(array[6],8.0);
+        Assert.assertEquals(array[3], 0.0);
+        Assert.assertEquals(array[6], 8.0);
     }
 
     @Test
@@ -276,9 +276,14 @@ public class SpecialArraysTest {
     }
 
     @Test
-    public static void testArrayLongToIntAndLongFromTwoInt(){
-        Assert.assertEquals(longFromTwoInt(arrayLongToInt(53219359L)),53219359L);
-        Assert.assertEquals(longFromTwoInt(arrayLongToInt(53432423423L)),53432423423L);
-        Assert.assertEquals(longFromTwoInt(arrayLongToInt(23536359L)),23536359L);
+    public static void testArrayLongToIntAndLongFromTwoInt() {
+        Assert.assertEquals(longFromTwoInt(arrayLongToInt(53219359L)), 53219359L);
+        Assert.assertEquals(longFromTwoInt(arrayLongToInt(53432423423L)), 53432423423L);
+        Assert.assertEquals(longFromTwoInt(arrayLongToInt(23536359L)), 23536359L);
+    }
+
+    @Test
+    public static void testReturningSpecialArray() {
+        Assert.assertEquals(returningSpecialArray(10, 7), new double[]{4, 5, 6, 7, 8, 9, 10, 1, 2, 3});
     }
 }
