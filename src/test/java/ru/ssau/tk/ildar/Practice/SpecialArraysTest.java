@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static ru.ssau.tk.ildar.Practice.SpecialArrays.*;
 
@@ -285,5 +286,13 @@ public class SpecialArraysTest {
     @Test
     public static void testReturningSpecialArray() {
         Assert.assertEquals(returningSpecialArray(10, 7), new double[]{4, 5, 6, 7, 8, 9, 10, 1, 2, 3});
+    }
+
+    @Test
+    public static void testReturningDoubleArray() {
+        int[][] array = returningDoubleArray(3);
+        Assert.assertEquals(Objects.requireNonNull(array)[0], new int[]{1, 2, 3});
+        Assert.assertEquals(array[1], new int[]{4, 5});
+        Assert.assertEquals(array[2], new int[]{6});
     }
 }

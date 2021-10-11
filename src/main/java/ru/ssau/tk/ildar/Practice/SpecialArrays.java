@@ -2,6 +2,7 @@ package ru.ssau.tk.ildar.Practice;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 public class SpecialArrays {
 
@@ -326,4 +327,20 @@ public class SpecialArrays {
         }
         return array;
     }
+
+    public static int[][] returningDoubleArray(int dimension) {
+        if (dimension <= 0) {
+            return null;
+        }
+        int[][] doubleArray = new int[dimension][];
+        int numberInElement = 1;
+        for (int index = 0; index < dimension; index++) {
+            doubleArray[index] = new int[dimension - index];
+            for (int indexOfIndex = 0; indexOfIndex < (dimension - index); indexOfIndex++, numberInElement++) {
+                doubleArray[index][indexOfIndex] = numberInElement;
+            }
+        }
+        return doubleArray;
+    }
+
 }
