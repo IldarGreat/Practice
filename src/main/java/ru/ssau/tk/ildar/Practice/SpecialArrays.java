@@ -351,4 +351,10 @@ public class SpecialArrays {
         }
         Arrays.sort(array);
     }
+
+    public static void printStringArray(String[] array){
+        for(String elementString : array){
+            System.out.println(elementString);
+        }
+    }
 }

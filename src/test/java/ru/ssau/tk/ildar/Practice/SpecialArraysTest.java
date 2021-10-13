@@ -315,4 +315,10 @@ public class SpecialArraysTest {
         Assert.assertEquals(arrayTwo[4],3.0/7.0,DELTA);
         Assert.assertEquals(arrayTwo[5],Double.NaN);
     }
+
+    @Test
+    public static void testPrintStringArray(){
+        String[] array = new String[] {"One","Two","Three","Four","Five"};
+        printStringArray(array);
+    }
 }
