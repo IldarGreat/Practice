@@ -295,4 +295,24 @@ public class SpecialArraysTest {
         Assert.assertEquals(array[1], new int[]{4, 5});
         Assert.assertEquals(array[2], new int[]{6});
     }
+
+    @Test
+    public static void testSortWithoutNaN(){
+        double[] arrayOne = new double[] {-32.2,0.0,-123.2,53.7,3.0/7.0};
+        sortWithoutNaN(arrayOne);
+        Assert.assertEquals(arrayOne[0],-123.2);
+        Assert.assertEquals(arrayOne[1],-32.2);
+        Assert.assertEquals(arrayOne[2],0.0);
+        Assert.assertEquals(arrayOne[3],3.0/7.0,DELTA);
+        Assert.assertEquals(arrayOne[4],53.7);
+
+        double[] arrayTwo = new double[] {-32.2,0.0,-123.2,53.7,3.0/7.0,Double.NaN};
+        sortWithoutNaN(arrayTwo);
+        Assert.assertEquals(arrayTwo[0],-32.2);
+        Assert.assertEquals(arrayTwo[1],0.0);
+        Assert.assertEquals(arrayTwo[2],-123.2);
+        Assert.assertEquals(arrayTwo[3],53.7);
+        Assert.assertEquals(arrayTwo[4],3.0/7.0,DELTA);
+        Assert.assertEquals(arrayTwo[5],Double.NaN);
+    }
 }

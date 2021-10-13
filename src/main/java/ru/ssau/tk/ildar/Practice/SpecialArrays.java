@@ -1,8 +1,8 @@
 package ru.ssau.tk.ildar.Practice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.Objects;
 
 public class SpecialArrays {
 
@@ -343,4 +343,12 @@ public class SpecialArrays {
         return doubleArray;
     }
 
+    public static void sortWithoutNaN(double[] array){
+        for (double v : array) {
+            if (Double.isNaN(v)){
+                return;
+            }
+        }
+        Arrays.sort(array);
+    }
 }
