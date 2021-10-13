@@ -343,18 +343,31 @@ public class SpecialArrays {
         return doubleArray;
     }
 
-    public static void sortWithoutNaN(double[] array){
+    public static void sortWithoutNaN(double[] array) {
         for (double v : array) {
-            if (Double.isNaN(v)){
+            if (Double.isNaN(v)) {
                 return;
             }
         }
         Arrays.sort(array);
     }
 
-    public static void printStringArray(String[] array){
-        for(String elementString : array){
+    public static void printStringArray(String[] array) {
+        for (String elementString : array) {
             System.out.println(elementString);
         }
+    }
+
+    public static double multiplicationAllElements(double[] array) {
+        if (array.length == 0) {
+            return 0;
+        }
+        double result = 1;
+        for (double element : array) {
+            if (!Double.isNaN(element) && !Double.isInfinite(element) && element != 0) {
+                result *= element;
+            }
+        }
+        return result;
     }
 }

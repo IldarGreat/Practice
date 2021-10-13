@@ -321,4 +321,9 @@ public class SpecialArraysTest {
         String[] array = new String[] {"One","Two","Three","Four","Five"};
         printStringArray(array);
     }
+
+    @Test
+    public static void testMultiplicationAllElements(){
+        Assert.assertEquals(multiplicationAllElements(new double[]{3.0,4.0,7.0,0,Double.NaN,Double.POSITIVE_INFINITY}),84.0);
+    }
 }
