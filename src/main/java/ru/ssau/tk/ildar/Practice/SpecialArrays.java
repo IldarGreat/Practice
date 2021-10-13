@@ -370,4 +370,12 @@ public class SpecialArrays {
         }
         return result;
     }
+
+    public static void myToHexString(int[] array) {
+        Integer[] wrapperArray = new Integer[array.length];
+        for (int element = 0; element < array.length; element++) {
+            wrapperArray[element] = array[element];
+        }
+        Arrays.stream(wrapperArray).forEach(element -> System.out.println(Integer.toHexString(element)));
+    }
 }

@@ -297,33 +297,38 @@ public class SpecialArraysTest {
     }
 
     @Test
-    public static void testSortWithoutNaN(){
-        double[] arrayOne = new double[] {-32.2,0.0,-123.2,53.7,3.0/7.0};
+    public static void testSortWithoutNaN() {
+        double[] arrayOne = new double[]{-32.2, 0.0, -123.2, 53.7, 3.0 / 7.0};
         sortWithoutNaN(arrayOne);
-        Assert.assertEquals(arrayOne[0],-123.2);
-        Assert.assertEquals(arrayOne[1],-32.2);
-        Assert.assertEquals(arrayOne[2],0.0);
-        Assert.assertEquals(arrayOne[3],3.0/7.0,DELTA);
-        Assert.assertEquals(arrayOne[4],53.7);
+        Assert.assertEquals(arrayOne[0], -123.2);
+        Assert.assertEquals(arrayOne[1], -32.2);
+        Assert.assertEquals(arrayOne[2], 0.0);
+        Assert.assertEquals(arrayOne[3], 3.0 / 7.0, DELTA);
+        Assert.assertEquals(arrayOne[4], 53.7);
 
-        double[] arrayTwo = new double[] {-32.2,0.0,-123.2,53.7,3.0/7.0,Double.NaN};
+        double[] arrayTwo = new double[]{-32.2, 0.0, -123.2, 53.7, 3.0 / 7.0, Double.NaN};
         sortWithoutNaN(arrayTwo);
-        Assert.assertEquals(arrayTwo[0],-32.2);
-        Assert.assertEquals(arrayTwo[1],0.0);
-        Assert.assertEquals(arrayTwo[2],-123.2);
-        Assert.assertEquals(arrayTwo[3],53.7);
-        Assert.assertEquals(arrayTwo[4],3.0/7.0,DELTA);
-        Assert.assertEquals(arrayTwo[5],Double.NaN);
+        Assert.assertEquals(arrayTwo[0], -32.2);
+        Assert.assertEquals(arrayTwo[1], 0.0);
+        Assert.assertEquals(arrayTwo[2], -123.2);
+        Assert.assertEquals(arrayTwo[3], 53.7);
+        Assert.assertEquals(arrayTwo[4], 3.0 / 7.0, DELTA);
+        Assert.assertEquals(arrayTwo[5], Double.NaN);
     }
 
     @Test
-    public static void testPrintStringArray(){
-        String[] array = new String[] {"One","Two","Three","Four","Five"};
+    public static void testPrintStringArray() {
+        String[] array = new String[]{"One", "Two", "Three", "Four", "Five"};
         printStringArray(array);
     }
 
     @Test
-    public static void testMultiplicationAllElements(){
-        Assert.assertEquals(multiplicationAllElements(new double[]{3.0,4.0,7.0,0,Double.NaN,Double.POSITIVE_INFINITY}),84.0);
+    public static void testMultiplicationAllElements() {
+        Assert.assertEquals(multiplicationAllElements(new double[]{3.0, 4.0, 7.0, 0, Double.NaN, Double.POSITIVE_INFINITY}), 84.0);
+    }
+
+    @Test
+    public static void testMyToHexString() {
+        myToHexString(new int[]{-4,2,7,9,2,5,-7});
     }
 }
