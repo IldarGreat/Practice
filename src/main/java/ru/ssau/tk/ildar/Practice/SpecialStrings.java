@@ -24,4 +24,14 @@ public class SpecialStrings {
         return true;
     }
 
+    public static boolean isDifferentRegister(String stringOne,String stringTwo){
+        if(stringOne==null || stringTwo==null){
+            return false;
+        }
+        if(stringOne.equalsIgnoreCase(stringTwo)){
+            return !stringOne.equals(stringTwo);
+        }
+        return false;
+    }
+
 }
