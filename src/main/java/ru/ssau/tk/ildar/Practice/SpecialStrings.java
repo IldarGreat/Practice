@@ -24,14 +24,28 @@ public class SpecialStrings {
         return true;
     }
 
-    public static boolean isDifferentRegister(String stringOne,String stringTwo){
-        if(stringOne==null || stringTwo==null){
+    public static boolean isDifferentRegister(String stringOne, String stringTwo) {
+        if (stringOne == null || stringTwo == null) {
             return false;
         }
-        if(stringOne.equalsIgnoreCase(stringTwo)){
+        if (stringOne.equalsIgnoreCase(stringTwo)) {
             return !stringOne.equals(stringTwo);
         }
         return false;
     }
 
+    public static void screeningStudy() {
+        int i = 0;
+        System.out.println("Символ\t№" + ++i);
+        System.out.println("Символ\b№" + ++i);
+        System.out.println("Символ\n№" + ++i);
+        System.out.println("Символ\r№" + ++i);
+        System.out.println("Символ\'№" + ++i);
+        System.out.println("Символ\"№" + ++i);
+        System.out.println("Символ\\№" + ++i);
+    }
+
+    public static void main(String[] args) {
+        screeningStudy();
+    }
 }
