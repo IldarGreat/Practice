@@ -17,4 +17,9 @@ public class SpecialStringsTest {
         System.out.println();
         SpecialStrings.byteArrayOutput("А это Русские слова!");
     }
+
+    @Test
+    public static void showComparisonExample(){
+        SpecialStrings.comparisonExample();
+    }
 }

@@ -16,4 +16,15 @@ public class SpecialStrings {
             System.out.println(b);
         }
     }
+
+    public static void comparisonExample(){
+        String stringOne = "Example";
+        String stringTwo = new String(stringOne);
+        if(stringOne==stringTwo){
+            System.out.println("Comparable via ==");
+        }
+        if(stringOne.equals(stringTwo)){
+            System.out.println("Comparable via equals");
+        }
+    }
 }
