@@ -27,12 +27,19 @@ public class SpecialStringsTest {
     }
 
     @Test
-    public static void testIsDifferentRegister(){
-        Assert.assertFalse(SpecialStrings.isDifferentRegister(null,null));
-        Assert.assertFalse(SpecialStrings.isDifferentRegister("string",null));
-        Assert.assertFalse(SpecialStrings.isDifferentRegister("string","string"));
-        Assert.assertFalse(SpecialStrings.isDifferentRegister("string","stringTwo"));
-        Assert.assertTrue(SpecialStrings.isDifferentRegister("string","String"));
-        Assert.assertTrue(SpecialStrings.isDifferentRegister("StRiNg","sTrInG"));
+    public static void testIsDifferentRegister() {
+        Assert.assertFalse(SpecialStrings.isDifferentRegister(null, null));
+        Assert.assertFalse(SpecialStrings.isDifferentRegister("string", null));
+        Assert.assertFalse(SpecialStrings.isDifferentRegister("string", "string"));
+        Assert.assertFalse(SpecialStrings.isDifferentRegister("string", "stringTwo"));
+        Assert.assertTrue(SpecialStrings.isDifferentRegister("string", "String"));
+        Assert.assertTrue(SpecialStrings.isDifferentRegister("StRiNg", "sTrInG"));
+    }
+
+    @Test
+    public static void testFirstOccurrenceOfAString() {
+        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAString("firsLast", "Last"), 4);
+        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAString("firsLastBad", "Bad"), 8);
+        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAString("firsLast", "last"), -1);
     }
 }

@@ -34,18 +34,7 @@ public class SpecialStrings {
         return false;
     }
 
-    public static void screeningStudy() {
-        int i = 0;
-        System.out.println("Символ\t№" + ++i);
-        System.out.println("Символ\b№" + ++i);
-        System.out.println("Символ\n№" + ++i);
-        System.out.println("Символ\r№" + ++i);
-        System.out.println("Символ\'№" + ++i);
-        System.out.println("Символ\"№" + ++i);
-        System.out.println("Символ\\№" + ++i);
-    }
-
-    public static void main(String[] args) {
-        screeningStudy();
+    public static int firstOccurrenceOfAString(String stringOne, String stringTwo) {
+        return stringOne.indexOf(stringTwo);
     }
 }
