@@ -1,5 +1,6 @@
 package ru.ssau.tk.ildar.Practice;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SpecialStringsTest {
@@ -19,7 +20,9 @@ public class SpecialStringsTest {
     }
 
     @Test
-    public static void showComparisonExample(){
-        SpecialStrings.comparisonExample();
+    public static void testIsPalindrome() {
+        Assert.assertFalse(SpecialStrings.isPalindrome("Its Not"));
+        Assert.assertTrue(SpecialStrings.isPalindrome("madam"));
+        Assert.assertTrue(SpecialStrings.isPalindrome("level"));
     }
 }

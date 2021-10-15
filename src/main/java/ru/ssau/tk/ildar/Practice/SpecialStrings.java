@@ -1,7 +1,5 @@
 package ru.ssau.tk.ildar.Practice;
 
-import java.nio.charset.StandardCharsets;
-
 public class SpecialStrings {
 
     public static void characterByCharacterOutput(String string) {
@@ -17,14 +15,13 @@ public class SpecialStrings {
         }
     }
 
-    public static void comparisonExample(){
-        String stringOne = "Example";
-        String stringTwo = new String(stringOne);
-        if(stringOne==stringTwo){
-            System.out.println("Comparable via ==");
+    public static boolean isPalindrome(String string) {
+        for (int charInString = 0; charInString < string.length() / 2; charInString++) {
+            if (string.charAt(charInString) != string.charAt(string.length() - charInString - 1)) {
+                return false;
+            }
         }
-        if(stringOne.equals(stringTwo)){
-            System.out.println("Comparable via equals");
-        }
+        return true;
     }
+
 }
