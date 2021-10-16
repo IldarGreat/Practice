@@ -39,6 +39,10 @@ public class SpecialStrings {
     }
 
     public static int firstOccurrenceOfAStringAfterHalf(String stringOne, String stringTwo) {
-        return stringOne.indexOf(stringTwo,stringOne.length()/2);
+        return stringOne.indexOf(stringTwo, stringOne.length() / 2);
+    }
+
+    public static int lastOccurrenceInTheFirstHalfOfTheString(String stringOne, String stringTwo) {
+        return stringOne.lastIndexOf(stringTwo, stringOne.length() / 2);
     }
 }
