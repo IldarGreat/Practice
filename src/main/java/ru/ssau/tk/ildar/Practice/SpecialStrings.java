@@ -37,4 +37,8 @@ public class SpecialStrings {
     public static int firstOccurrenceOfAString(String stringOne, String stringTwo) {
         return stringOne.indexOf(stringTwo);
     }
+
+    public static int firstOccurrenceOfAStringAfterHalf(String stringOne, String stringTwo) {
+        return stringOne.indexOf(stringTwo,stringOne.length()/2);
+    }
 }

@@ -42,4 +42,10 @@ public class SpecialStringsTest {
         Assert.assertEquals(SpecialStrings.firstOccurrenceOfAString("firsLastBad", "Bad"), 8);
         Assert.assertEquals(SpecialStrings.firstOccurrenceOfAString("firsLast", "last"), -1);
     }
+
+    @Test
+    public static void testFirstOccurrenceOfAStringAfterHalf(){
+        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAStringAfterHalf("FirstAndFirst","First"),8);
+        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAStringAfterHalf("FirstAndSecond","First"),-1);
+    }
 }
