@@ -54,4 +54,10 @@ public class SpecialStringsTest {
         Assert.assertEquals(SpecialStrings.lastOccurrenceInTheFirstHalfOfTheString("FirstAndSecond","First"),0);
         Assert.assertEquals(SpecialStrings.lastOccurrenceInTheFirstHalfOfTheString("FirstAnd","Second"),-1);
     }
+
+    @Test
+    public static void testNumberOfDefinedLines(){
+        Assert.assertEquals(SpecialStrings.numberOfDefinedLines(new String[] {"FirstAndLast"},"First","Last"),1);
+        Assert.assertEquals(SpecialStrings.numberOfDefinedLines(new String[] {"FirstAndLast","FirstAndFuckingLast","WhatTheFuck"},"First","Last"),2);
+    }
 }

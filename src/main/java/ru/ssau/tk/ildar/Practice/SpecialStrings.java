@@ -45,4 +45,14 @@ public class SpecialStrings {
     public static int lastOccurrenceInTheFirstHalfOfTheString(String stringOne, String stringTwo) {
         return stringOne.lastIndexOf(stringTwo, stringOne.length() / 2);
     }
+
+    public static int numberOfDefinedLines(String[] stringArray,String prefixString , String postfixString){
+        int count=0;
+        for (String s : stringArray) {
+            if (s.startsWith(prefixString) && s.endsWith(postfixString)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
