@@ -44,20 +44,27 @@ public class SpecialStringsTest {
     }
 
     @Test
-    public static void testFirstOccurrenceOfAStringAfterHalf(){
-        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAStringAfterHalf("FirstAndFirst","First"),8);
-        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAStringAfterHalf("FirstAndSecond","First"),-1);
+    public static void testFirstOccurrenceOfAStringAfterHalf() {
+        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAStringAfterHalf("FirstAndFirst", "First"), 8);
+        Assert.assertEquals(SpecialStrings.firstOccurrenceOfAStringAfterHalf("FirstAndSecond", "First"), -1);
     }
 
     @Test
-    public static void testLastOccurrenceInTheFirstHalfOfTheString(){
-        Assert.assertEquals(SpecialStrings.lastOccurrenceInTheFirstHalfOfTheString("FirstAndSecond","First"),0);
-        Assert.assertEquals(SpecialStrings.lastOccurrenceInTheFirstHalfOfTheString("FirstAnd","Second"),-1);
+    public static void testLastOccurrenceInTheFirstHalfOfTheString() {
+        Assert.assertEquals(SpecialStrings.lastOccurrenceInTheFirstHalfOfTheString("FirstAndSecond", "First"), 0);
+        Assert.assertEquals(SpecialStrings.lastOccurrenceInTheFirstHalfOfTheString("FirstAnd", "Second"), -1);
     }
 
     @Test
-    public static void testNumberOfDefinedLines(){
-        Assert.assertEquals(SpecialStrings.numberOfDefinedLines(new String[] {"FirstAndLast"},"First","Last"),1);
-        Assert.assertEquals(SpecialStrings.numberOfDefinedLines(new String[] {"FirstAndLast","FirstAndFuckingLast","WhatTheFuck"},"First","Last"),2);
+    public static void testNumberOfDefinedLines() {
+        Assert.assertEquals(SpecialStrings.numberOfDefinedLines(new String[]{"FirstAndLast"}, "First", "Last"), 1);
+        Assert.assertEquals(SpecialStrings.numberOfDefinedLines(new String[] {"  FirstAndLast  "},"First","Last"),0);
+        Assert.assertEquals(SpecialStrings.numberOfDefinedLines(new String[]{"FirstAndLast", "FirstAndFuckingLast", "WhatTheFuck"}, "First", "Last"), 2);
+    }
+
+    @Test
+    public static void testNumberOfDefinedLinesWithoutSpaces() {
+        Assert.assertEquals(SpecialStrings.numberOfDefinedLinesWithoutSpaces(new String[]{"  FirstAndLast  "}, "First", "Last"), 1);
+        Assert.assertEquals(SpecialStrings.numberOfDefinedLinesWithoutSpaces(new String[]{"  FirstAndRust  "}, "First", "Last"), 0);
     }
 }

@@ -55,4 +55,15 @@ public class SpecialStrings {
         }
         return count;
     }
+
+    public static int numberOfDefinedLinesWithoutSpaces(String[] stringArray,String prefixString , String postfixString){
+        int count=0;
+        for (String s : stringArray) {
+            if (s.trim().startsWith(prefixString) && s.trim().endsWith(postfixString)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
