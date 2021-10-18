@@ -23,20 +23,10 @@ public class PointTest {
         return !(Math.abs(pointOne.getZ() - pointTwo.getZ()) > accuracy);
     }
 
-    public static void main(String[] args) {
-
-        Assert.assertTrue(equalsApproximately(1, 1.000001));
-        Assert.assertFalse(equalsApproximately(1, 0.5));
-
-        /* Тут словим ошибку , поскольку разность их будет больше чем заданная точка
-         Assert.assertTrue(equalsApproximately(1, 1.0001));
-         */
-
-        /* Тут словим ошибку , поскольку разность их будет меньше чем заданная точка
-         Assert.assertFalse(equalsApproximately(1, 1.00000001));
-         */
-
-        Assert.assertTrue(equalsApproximately(new Point(3, 5, 7), new Point(3.0000001, 5.000002, 7.000004)));
-        Assert.assertFalse(equalsApproximately(new Point(3, 5, 7), new Point(3.001, 5.0002, 7.04)));
+    @Test
+    public static void testToString() {
+        Point point = new Point(3.2,4.2,-1.5);
+        Assert.assertEquals(point.toString(),"[3.2,4.2,-1.5]");
     }
 }
+
