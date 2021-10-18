@@ -332,16 +332,4 @@ public class SpecialArraysTest {
         myToHexString(new int[]{-4,2,7,9,2,5,-7});
     }
 
-    @Test
-    public static void showObjectDescription(){
-        Person person = new Person("Ildar","King");
-        System.out.println(SpecialStrings.objectDescription(person));
-        Point point = new Point(1,2,3);
-        System.out.println(SpecialStrings.objectDescription(point));
-        NamedPoint namedPoint = new NamedPoint(1,2,3,"Point");
-        System.out.println(SpecialStrings.objectDescription(namedPoint));
-        Matrix matrix = new Matrix(1,1);
-        matrix.setAt(0,0,1);
-        System.out.println(SpecialStrings.objectDescription(matrix));
-    }
 }

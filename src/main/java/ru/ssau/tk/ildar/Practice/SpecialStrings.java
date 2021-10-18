@@ -76,21 +76,33 @@ public class SpecialStrings {
         return result;
     }
 
-    public static String mySubstring(String string,int from,int to){
-        if(from<0){
-            from=0;
+    public static String mySubstring(String string, int from, int to) {
+        if (from < 0) {
+            from = 0;
         }
-        if(to> string.length()){
-            to=string.length();
+        if (to > string.length()) {
+            to = string.length();
         }
-        if(to<=from){
+        if (to <= from) {
             return "";
         }
-        return string.substring(from,to);
+        return string.substring(from, to);
     }
 
-    public static String objectDescription(Object object){
+    public static String objectDescription(Object object) {
         return "Описание объекта: " + object;
+    }
+
+    public static String[] mySplit(String string) {
+        String[] arrayString = string.split(" ");
+        for (int element = 0; element < arrayString.length; element++) {
+            if (arrayString[element].length() == 1) {
+                arrayString[element] = arrayString[element].toUpperCase();
+            } else {
+                arrayString[element] = arrayString[element].substring(0, 1).toUpperCase() + arrayString[element].substring(1);
+            }
+        }
+        return arrayString;
     }
 
 }
