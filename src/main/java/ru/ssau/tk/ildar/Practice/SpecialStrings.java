@@ -105,4 +105,8 @@ public class SpecialStrings {
         return arrayString;
     }
 
+    public static String concatenationIntoOneLine(String[] strings) {
+        return String.join(",", strings);
+    }
+
 }

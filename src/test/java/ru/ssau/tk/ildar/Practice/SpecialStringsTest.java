@@ -97,4 +97,9 @@ public class SpecialStringsTest {
     public static void testMySplit(){
         Assert.assertEquals(SpecialStrings.mySplit("Today I think that I am king"),new String[] {"Today","I","Think","That","I","Am","King"});
     }
+
+    @Test
+    public static void testConcatenationIntoOneLine(){
+        Assert.assertEquals(SpecialStrings.concatenationIntoOneLine(new String[] {"Today","I","Think","That","I","Am","King"}),"Today,I,Think,That,I,Am,King");
+    }
 }
