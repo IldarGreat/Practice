@@ -46,8 +46,8 @@ public class SpecialStrings {
         return stringOne.lastIndexOf(stringTwo, stringOne.length() / 2);
     }
 
-    public static int numberOfDefinedLines(String[] stringArray,String prefixString , String postfixString){
-        int count=0;
+    public static int numberOfDefinedLines(String[] stringArray, String prefixString, String postfixString) {
+        int count = 0;
         for (String s : stringArray) {
             if (s.startsWith(prefixString) && s.endsWith(postfixString)) {
                 count++;
@@ -56,14 +56,24 @@ public class SpecialStrings {
         return count;
     }
 
-    public static int numberOfDefinedLinesWithoutSpaces(String[] stringArray,String prefixString , String postfixString){
-        int count=0;
+    public static int numberOfDefinedLinesWithoutSpaces(String[] stringArray, String prefixString, String postfixString) {
+        int count = 0;
         for (String s : stringArray) {
             if (s.trim().startsWith(prefixString) && s.trim().endsWith(postfixString)) {
                 count++;
             }
         }
         return count;
+    }
+
+    public static String tripleReplacement(String stringOne, String stringTwo, String stringThree) {
+        String result = stringOne;
+        int count = 0;
+        while (result.contains(stringTwo) && count < 100) {
+            result = result.replaceAll(stringTwo, stringThree);
+            count++;
+        }
+        return result;
     }
 
 }
