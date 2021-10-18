@@ -89,4 +89,8 @@ public class SpecialStrings {
         return string.substring(from,to);
     }
 
+    public static String objectDescription(Object object){
+        return "Описание объекта: " + object;
+    }
+
 }
