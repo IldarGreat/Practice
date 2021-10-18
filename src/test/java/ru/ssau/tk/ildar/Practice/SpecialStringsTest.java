@@ -73,4 +73,10 @@ public class SpecialStringsTest {
         Assert.assertEquals(SpecialStrings.tripleReplacement("FirstSecondFirstSecondFirst","First",""),"SecondSecond");
         Assert.assertEquals(SpecialStrings.tripleReplacement("I think this person are stupid","stupid","smart"),"I think this person are smart");
     }
+
+    @Test
+    public static void testMySubstring(){
+        Assert.assertEquals(SpecialStrings.mySubstring("Welcome to the hell",15,19),"hell");
+        Assert.assertEquals(SpecialStrings.mySubstring("Its cum zone",-13,7),"Its cum");
+    }
 }
