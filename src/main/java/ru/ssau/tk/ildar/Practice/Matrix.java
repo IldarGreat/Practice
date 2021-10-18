@@ -32,4 +32,17 @@ public class Matrix {
     public int getRows() {
         return rows;
     }
+
+    @Override
+    public String toString(){
+        String stringMatrix= "";
+        for(int columns=0;columns<this.columns;columns++){
+            for(int rows=0;rows<this.rows;rows++){
+                stringMatrix+=getAt(columns, rows)+",";
+            }
+            stringMatrix+=";\n";
+        }
+        return stringMatrix;
+    }
+
 }
