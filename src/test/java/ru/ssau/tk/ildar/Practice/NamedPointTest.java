@@ -43,4 +43,14 @@ public class NamedPointTest {
         Assert.assertEquals(namedPoint.getName(), "Absent");
     }
 
+    @Test
+    public static void testToString() {
+        NamedPoint namedPointOne = new NamedPoint();
+        Assert.assertEquals(namedPointOne.toString(), "Origin:[0.0,0.0,0.0]");
+        NamedPoint namedPointTwo = new NamedPoint(1, 2, 3);
+        Assert.assertEquals(namedPointTwo.toString(), "[1.0,2.0,3.0]");
+        NamedPoint namedPointThree = new NamedPoint(3, 4.6, -2.1, "Ildar");
+        Assert.assertEquals(namedPointThree.toString(), "Ildar:[3.0,4.6,-2.1]");
+    }
+
 }
