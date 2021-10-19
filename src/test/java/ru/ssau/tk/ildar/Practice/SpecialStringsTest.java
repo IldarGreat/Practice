@@ -70,36 +70,41 @@ public class SpecialStringsTest {
 
     @Test
     public static void testTripleReplacement() {
-        Assert.assertEquals(SpecialStrings.tripleReplacement("FirstSecondFirstSecondFirst","First",""),"SecondSecond");
-        Assert.assertEquals(SpecialStrings.tripleReplacement("I think this person are stupid","stupid","smart"),"I think this person are smart");
+        Assert.assertEquals(SpecialStrings.tripleReplacement("FirstSecondFirstSecondFirst", "First", ""), "SecondSecond");
+        Assert.assertEquals(SpecialStrings.tripleReplacement("I think this person are stupid", "stupid", "smart"), "I think this person are smart");
     }
 
     @Test
-    public static void testMySubstring(){
-        Assert.assertEquals(SpecialStrings.mySubstring("Welcome to the hell",15,19),"hell");
-        Assert.assertEquals(SpecialStrings.mySubstring("Its cum zone",-13,7),"Its cum");
+    public static void testMySubstring() {
+        Assert.assertEquals(SpecialStrings.mySubstring("Welcome to the hell", 15, 19), "hell");
+        Assert.assertEquals(SpecialStrings.mySubstring("Its cum zone", -13, 7), "Its cum");
     }
 
     @Test
-    public static void showObjectDescription(){
-        Person person = new Person("Ildar","King");
+    public static void showObjectDescription() {
+        Person person = new Person("Ildar", "King");
         System.out.println(SpecialStrings.objectDescription(person));
-        Point point = new Point(1,2,3);
+        Point point = new Point(1, 2, 3);
         System.out.println(SpecialStrings.objectDescription(point));
-        NamedPoint namedPoint = new NamedPoint(1,2,3,"Point");
+        NamedPoint namedPoint = new NamedPoint(1, 2, 3, "Point");
         System.out.println(SpecialStrings.objectDescription(namedPoint));
-        Matrix matrix = new Matrix(1,1);
-        matrix.setAt(0,0,1);
+        Matrix matrix = new Matrix(1, 1);
+        matrix.setAt(0, 0, 1);
         System.out.println(SpecialStrings.objectDescription(matrix));
     }
 
     @Test
-    public static void testMySplit(){
-        Assert.assertEquals(SpecialStrings.mySplit("Today I think that I am king"),new String[] {"Today","I","Think","That","I","Am","King"});
+    public static void testMySplit() {
+        Assert.assertEquals(SpecialStrings.mySplit("Today I think that I am king"), new String[]{"Today", "I", "Think", "That", "I", "Am", "King"});
     }
 
     @Test
-    public static void testConcatenationIntoOneLine(){
-        Assert.assertEquals(SpecialStrings.concatenationIntoOneLine(new String[] {"Today","I","Think","That","I","Am","King"}),"Today,I,Think,That,I,Am,King");
+    public static void testConcatenationIntoOneLine() {
+        Assert.assertEquals(SpecialStrings.concatenationIntoOneLine(new String[]{"Today", "I", "Think", "That", "I", "Am", "King"}), "Today,I,Think,That,I,Am,King");
+    }
+
+    @Test
+    public static void testSpecialModification() {
+        Assert.assertEquals(SpecialStrings.specialModification("Hi there"), "e6e4t2i0");
     }
 }

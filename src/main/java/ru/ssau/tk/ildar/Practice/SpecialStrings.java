@@ -109,4 +109,15 @@ public class SpecialStrings {
         return String.join(",", strings);
     }
 
+    public static String specialModification(String string){
+        StringBuilder stringBuilder = new StringBuilder(string);
+        for(int element = 0; element<stringBuilder.length(); element++){
+            if(element%2==0){
+                stringBuilder.replace(element,element+1, Integer.toString(element));
+            }
+        }
+        stringBuilder.reverse();
+        return stringBuilder.toString();
+    }
+
 }
