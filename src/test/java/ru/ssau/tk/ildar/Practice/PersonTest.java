@@ -69,15 +69,16 @@ public class PersonTest {
     }
 
     @Test
-    public static void testToString(){
+    public static void testToString() {
         Person person = new Person("Ildar", "Idiot", 1);
-        Assert.assertEquals(person.toString(),"Ildar Idiot");
+        Assert.assertEquals(person.toString(), "Ildar Idiot");
     }
 
     @Test
-    public static void testStaticToString(){
-        Assert.assertEquals(Person.staticToString(new Person("Ildar","King")),"Ildar King");
-        Assert.assertThrows(NullPointerException.class,()->Person.staticToString(null));
+    public static void testStaticToString() {
+        Assert.assertEquals(Person.staticToString(new Person("Ildar", "King")), "Ildar King");
+        Assert.assertThrows(NullPointerException.class, () -> Person.staticToString(null));
+
     }
 
 
