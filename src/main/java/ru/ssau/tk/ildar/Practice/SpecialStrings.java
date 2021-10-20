@@ -1,5 +1,8 @@
 package ru.ssau.tk.ildar.Practice;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+
 public class SpecialStrings {
 
     public static void characterByCharacterOutput(String string) {
@@ -133,7 +136,11 @@ public class SpecialStrings {
         return stringBuilder.toString();
     }
 
+    public static String changeEncoding(String string, Charset encodingOne,Charset encodingTwo){
+        return new String(string.getBytes(encodingOne),encodingTwo);
+    }
+
     public static void main(String[] args) {
-        System.out.println(java.nio.charset.Charset.defaultCharset());
+        System.out.println(changeEncoding("Hi,there!", StandardCharsets.UTF_8,StandardCharsets.UTF_16));
     }
 }
