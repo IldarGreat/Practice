@@ -112,6 +112,5 @@ public class SpecialStringsTest {
     public static void testWriteDownTheNumbers(){
         Assert.assertEquals(SpecialStrings.writeDownTheNumbers(5),"0 1 2 3 4");
         Assert.assertNull(SpecialStrings.writeDownTheNumbers(-1));
-        System.out.println(SpecialStrings.writeDownTheNumbers(10000));
     }
 }

@@ -132,4 +132,8 @@ public class SpecialStrings {
         stringBuilder.deleteCharAt(stringBuilder.length()-1);
         return stringBuilder.toString();
     }
+
+    public static void main(String[] args) {
+        System.out.println(java.nio.charset.Charset.defaultCharset());
+    }
 }
