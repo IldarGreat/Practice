@@ -113,4 +113,12 @@ public class SpecialStringsTest {
         Assert.assertEquals(SpecialStrings.writeDownTheNumbers(5),"0 1 2 3 4");
         Assert.assertNull(SpecialStrings.writeDownTheNumbers(-1));
     }
+
+    @Test
+    public static void testReturnChars(){
+        Assert.assertEquals(SpecialStrings.returnChars(new String[] {"apple","banana","watermelon"},2),new String[]{"p","n","t"});
+        Assert.assertThrows(NullPointerException.class,()->SpecialStrings.returnChars(null,2));
+        Assert.assertThrows(NullPointerException.class,()->SpecialStrings.returnChars(new String[] {"apple","banana",null},2));
+        Assert.assertThrows(StringIndexOutOfBoundsException.class,()->SpecialStrings.returnChars(new String[] {"apple","banana","watermelon"},6));
+    }
 }

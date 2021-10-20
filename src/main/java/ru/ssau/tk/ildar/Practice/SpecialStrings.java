@@ -140,7 +140,17 @@ public class SpecialStrings {
         return new String(string.getBytes(encodingOne),encodingTwo);
     }
 
+    public static String[] returnChars(String[] arrayString,int index){
+        String[] result = new String[arrayString.length];
+        for(int element=0;element<arrayString.length;element++){
+            result[element]= arrayString[element].charAt(index)+"";
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         System.out.println(changeEncoding("Hi,there!", StandardCharsets.UTF_8,StandardCharsets.UTF_16));
     }
+
+
 }
