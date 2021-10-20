@@ -74,5 +74,11 @@ public class PersonTest {
         Assert.assertEquals(person.toString(),"Ildar Idiot");
     }
 
+    @Test
+    public static void testStaticToString(){
+        Assert.assertEquals(Person.staticToString(new Person("Ildar","King")),"Ildar King");
+        Assert.assertThrows(NullPointerException.class,()->Person.staticToString(null));
+    }
+
 
 }
