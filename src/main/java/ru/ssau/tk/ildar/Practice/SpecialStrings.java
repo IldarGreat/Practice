@@ -120,4 +120,16 @@ public class SpecialStrings {
         return stringBuilder.toString();
     }
 
+    public static String writeDownTheNumbers(int number){
+        if(number<0){
+            return null;
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int element=0;element<number;element++){
+            stringBuilder.append(element);
+            stringBuilder.append(" ");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        return stringBuilder.toString();
+    }
 }

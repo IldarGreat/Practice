@@ -107,4 +107,11 @@ public class SpecialStringsTest {
     public static void testSpecialModification() {
         Assert.assertEquals(SpecialStrings.specialModification("Hi there"), "e6e4t2i0");
     }
+
+    @Test
+    public static void testWriteDownTheNumbers(){
+        Assert.assertEquals(SpecialStrings.writeDownTheNumbers(5),"0 1 2 3 4");
+        Assert.assertNull(SpecialStrings.writeDownTheNumbers(-1));
+        System.out.println(SpecialStrings.writeDownTheNumbers(10000));
+    }
 }
