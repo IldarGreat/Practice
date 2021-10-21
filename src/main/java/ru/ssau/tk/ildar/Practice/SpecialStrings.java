@@ -152,6 +152,10 @@ public class SpecialStrings {
         return strings[string].charAt(index);
     }
 
+    public static int stringsDivideIntoInt(String numberOne,String numberTwo){
+        return Integer.parseInt(numberOne)/Integer.parseInt(numberTwo);
+    }
+
     public static void main(String[] args) {
         System.out.println(changeEncoding("Hi,there!", StandardCharsets.UTF_8,StandardCharsets.UTF_16));
     }

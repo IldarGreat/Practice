@@ -130,4 +130,11 @@ public class SpecialStringsTest {
         Assert.assertThrows(StringIndexOutOfBoundsException.class,()->SpecialStrings.charInStringArray(new String[] {"One","Two","Three"},1,4));
         Assert.assertThrows(ArrayIndexOutOfBoundsException.class,()->SpecialStrings.charInStringArray(new String[] {"One","Two","Three"},4,4));
     }
+
+    @Test
+    public static void testStringsDivideIntoInt(){
+        Assert.assertEquals(SpecialStrings.stringsDivideIntoInt("12","6"),2);
+        Assert.assertThrows(NumberFormatException.class,()->SpecialStrings.stringsDivideIntoInt("1f2","6"));
+        Assert.assertThrows(ArithmeticException.class,()->SpecialStrings.stringsDivideIntoInt("12","0"));
+    }
 }
