@@ -119,6 +119,15 @@ public class SpecialStringsTest {
         Assert.assertEquals(SpecialStrings.returnChars(new String[] {"apple","banana","watermelon"},2),new String[]{"p","n","t"});
         Assert.assertThrows(NullPointerException.class,()->SpecialStrings.returnChars(null,2));
         Assert.assertThrows(NullPointerException.class,()->SpecialStrings.returnChars(new String[] {"apple","banana",null},2));
-        Assert.assertThrows(StringIndexOutOfBoundsException.class,()->SpecialStrings.returnChars(new String[] {"apple","banana","watermelon"},6));
+        Assert.assertThrows(StringIndexOutOfBoundsException.class,()->
+        SpecialStrings.returnChars(new String[] {"apple","banana","watermelon"},6));
+    }
+
+    @Test
+    public static void testCharInStringArray(){
+        Assert.assertEquals(SpecialStrings.charInStringArray(new String[] {"One","Two","Three"},1,1),'w');
+        Assert.assertThrows(ArrayIndexOutOfBoundsException.class,()->SpecialStrings.charInStringArray(new String[] {"One","Two","Three"},4,1));
+        Assert.assertThrows(StringIndexOutOfBoundsException.class,()->SpecialStrings.charInStringArray(new String[] {"One","Two","Three"},1,4));
+        Assert.assertThrows(ArrayIndexOutOfBoundsException.class,()->SpecialStrings.charInStringArray(new String[] {"One","Two","Three"},4,4));
     }
 }

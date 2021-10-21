@@ -148,6 +148,10 @@ public class SpecialStrings {
         return result;
     }
 
+    public static char charInStringArray(String[] strings,int string,int index){
+        return strings[string].charAt(index);
+    }
+
     public static void main(String[] args) {
         System.out.println(changeEncoding("Hi,there!", StandardCharsets.UTF_8,StandardCharsets.UTF_16));
     }
