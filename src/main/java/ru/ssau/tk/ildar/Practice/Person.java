@@ -76,7 +76,7 @@ public class Person {
         return firstName + " " + lastName;
     }
 
-    public static String staticToString(Person person){
+    public static String staticToString(Person person) {
         return person.toString();
     }
 }
