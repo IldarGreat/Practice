@@ -1,10 +1,12 @@
 package ru.ssau.tk.ildar.Practice;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
+    private static final long serialVersionUID = -7822293195986214031L;
     private String firstName;
     private String lastName;
     private int passportId;
-
 
     Gender gender;
 
