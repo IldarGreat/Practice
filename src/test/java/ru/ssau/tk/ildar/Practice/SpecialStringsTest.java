@@ -2,6 +2,8 @@ package ru.ssau.tk.ildar.Practice;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import ru.ssau.tk.ildar.Practice.matrices.*;
+import ru.ssau.tk.ildar.Practice.points.*;
 
 public class SpecialStringsTest {
 
