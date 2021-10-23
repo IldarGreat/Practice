@@ -3,8 +3,11 @@ package ru.ssau.tk.ildar.Practice;
 public class Matrices {
 
     public static Matrix sum(Matrix matrixOne, Matrix matrixTwo) {
-        if (matrixOne.getColumns() != matrixTwo.getColumns() || matrixOne.getRows() != matrixTwo.getRows()) {
-            return null;
+        if (matrixOne.getColumns() != matrixTwo.getColumns()) {
+            throw new IncompatibleDimensionsException("Dimension of the columns the first matrix is " + matrixOne.getColumns() + ",the second is " + matrixTwo.getColumns());
+        }
+        if (matrixOne.getRows() != matrixTwo.getRows()) {
+            throw new IncompatibleDimensionsException("Dimension of the rows the first matrix is " + matrixOne.getRows() + ",the second is " + matrixTwo.getRows());
         }
         Matrix newMatrix = new Matrix(matrixOne.getColumns(), matrixOne.getRows());
         for (int column = 0; column < newMatrix.getColumns(); column++) {
@@ -17,7 +20,7 @@ public class Matrices {
 
     public static Matrix multiplication(Matrix matrixOne, Matrix matrixTwo) {
         if (matrixOne.getColumns() != matrixTwo.getRows()) {
-            return null;
+            throw new IncompatibleDimensionsException("Dimension columns of the first matrix (" + matrixOne.getColumns() + ") does not coincide the dimension rows (" + matrixTwo.getRows() + ") of the second matrix");
         }
         Matrix newMatrix = new Matrix(matrixOne.getRows(), matrixTwo.getColumns());
         for (int row = 0; row < newMatrix.getColumns(); row++) {

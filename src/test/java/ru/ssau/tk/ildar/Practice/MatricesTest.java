@@ -35,7 +35,8 @@ public class MatricesTest {
         Assert.assertEquals(newMatrix.getAt(1, 1), -1.0);
         Assert.assertEquals(newMatrix.getAt(1, 2), 78.0);
 
-        Assert.assertNull(sum(new Matrix(1, 2), new Matrix(2, 3)));
+        Assert.assertThrows(IncompatibleDimensionsException.class, () -> sum(new Matrix(1, 2), new Matrix(2, 3)));
+
     }
 
     @Test
@@ -77,7 +78,8 @@ public class MatricesTest {
         Assert.assertEquals(newMatrix.getAt(0, 1), 43.0); /* 19 22 */
         Assert.assertEquals(newMatrix.getAt(1, 0), 22.0); /* 43 50 */
         Assert.assertEquals(newMatrix.getAt(1, 1), 50.0);
-        Assert.assertNull(multiplication(new Matrix(3, 2), new Matrix(3, 2)));
+
+        Assert.assertThrows(IncompatibleDimensionsException.class, () -> multiplication(new Matrix(3, 2), new Matrix(3, 2)));
     }
 
 }
