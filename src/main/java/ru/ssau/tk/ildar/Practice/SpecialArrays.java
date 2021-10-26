@@ -247,7 +247,7 @@ public class SpecialArrays {
         return -1;
     }
 
-    public static void swappingMinAndMax(double[] array) { // Не доделано!
+    public static void swappingMinAndMax(double[] array) {
         if (array.length == 0) {
             return;
         }

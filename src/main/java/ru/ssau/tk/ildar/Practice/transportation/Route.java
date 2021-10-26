@@ -3,7 +3,6 @@ package ru.ssau.tk.ildar.Practice.transportation;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 public class Route implements Iterable<Location> {
     private final List<Location> locations = new ArrayList<>();
@@ -36,7 +35,6 @@ public class Route implements Iterable<Location> {
         return locations.get(locations.size() - 1);
     }
 
-
     @Override
     public Iterator<Location> iterator() {
         return new Iterator<>() {
@@ -55,5 +53,8 @@ public class Route implements Iterable<Location> {
                 return getLocation(element++);
             }
         };
+    }
+    public void remove(Location location){
+        locations.remove(location);
     }
 }

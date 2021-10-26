@@ -56,4 +56,34 @@ public class RouteTest {
         Assert.assertEquals(size, 3);
     }
 
+    @Test
+    public static void removeTest(){
+        Location locationOne = new Location();
+        Location locationTwo = new Location();
+        Location locationThree = new Location();
+        Location locationFour = new Location();
+        locationOne.setId(1);
+        locationTwo.setId(2);
+        locationThree.setId(3);
+        locationFour.setId(1);
+        locationOne.setName("Russia");
+        locationTwo.setName("Some village");
+        locationThree.setName("Dungeon");
+        locationFour.setName("London");
+        route.add(locationOne);
+        route.add(locationTwo);
+        route.add(locationThree);
+        route.add(locationFour);
+        route.remove(locationFour);
+        Assert.assertEquals(route.getLocation(0).getId(),2);
+        Assert.assertEquals(route.getLocation(1).getId(),3);
+        Assert.assertEquals(route.getLocation(2).getId(),1);
+        Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(3));
+        route.remove(locationFour);
+        Assert.assertEquals(route.getLocation(0).getId(),2);
+        Assert.assertEquals(route.getLocation(1).getId(),3);
+        Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(2));
+        Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(3));
+    }
+
 }
