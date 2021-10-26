@@ -1,9 +1,10 @@
 package ru.ssau.tk.ildar.Practice.transportation;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Route {
+public class Route implements Iterable<Location> {
     private final List<Location> locations = new ArrayList<>();
 
     public List<Location> getLocations() {
@@ -26,5 +27,32 @@ public class Route {
         locations.remove(index);
     }
 
+    public Location getFirstLocation() {
+        return locations.get(0);
+    }
 
+    public Location getLastLocation() {
+        return locations.get(locations.size() - 1);
+    }
+
+
+    @Override
+    public Iterator<Location> iterator() {
+        return new Iterator<>() {
+            int element = 0;
+
+            @Override
+            public boolean hasNext() {
+                return element < locations.size();
+            }
+
+            @Override
+            public Location next() {
+                if (!hasNext()) {
+                    throw new ArrayIndexOutOfBoundsException();
+                }
+                return getLocation(element++);
+            }
+        };
+    }
 }
