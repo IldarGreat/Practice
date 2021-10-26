@@ -1,5 +1,7 @@
 package ru.ssau.tk.ildar.Practice.transportation;
 
+import java.util.Objects;
+
 public class Location {
     private int id;
     private String name;
@@ -36,5 +38,17 @@ public class Location {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return id == location.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

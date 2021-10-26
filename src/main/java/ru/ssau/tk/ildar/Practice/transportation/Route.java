@@ -3,6 +3,7 @@ package ru.ssau.tk.ildar.Practice.transportation;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class Route implements Iterable<Location> {
     private final List<Location> locations = new ArrayList<>();
