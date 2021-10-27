@@ -57,7 +57,7 @@ public class RouteTest {
     }
 
     @Test
-    public static void removeTest(){
+    public static void removeTest() {
         Location locationOne = new Location();
         Location locationTwo = new Location();
         Location locationThree = new Location();
@@ -75,15 +75,58 @@ public class RouteTest {
         route.add(locationThree);
         route.add(locationFour);
         route.remove(locationFour);
-        Assert.assertEquals(route.getLocation(0).getId(),2);
-        Assert.assertEquals(route.getLocation(1).getId(),3);
-        Assert.assertEquals(route.getLocation(2).getId(),1);
+        Assert.assertEquals(route.getLocation(0).getId(), 2);
+        Assert.assertEquals(route.getLocation(1).getId(), 3);
+        Assert.assertEquals(route.getLocation(2).getId(), 1);
         Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(3));
         route.remove(locationFour);
-        Assert.assertEquals(route.getLocation(0).getId(),2);
-        Assert.assertEquals(route.getLocation(1).getId(),3);
+        Assert.assertEquals(route.getLocation(0).getId(), 2);
+        Assert.assertEquals(route.getLocation(1).getId(), 3);
         Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(2));
         Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(3));
+    }
+
+    @Test
+    public static void testEquals() {
+        Location locationOne = new Location();
+        Location locationTwo = new Location();
+        Location locationThree = new Location();
+        Location locationFour = new Location();
+        locationOne.setId(1);
+        locationTwo.setId(2);
+        locationThree.setId(3);
+        locationFour.setId(4);
+        locationOne.setName("Russia");
+        locationTwo.setName("Some village");
+        locationThree.setName("Dungeon");
+        locationFour.setName("London");
+        route.add(locationOne);
+        route.add(locationTwo);
+        route.add(locationThree);
+        route.add(locationFour);
+        Route routeTwo = new Route();
+        Location locationSix = new Location();
+        Location locationSeven = new Location();
+        Location locationEight = new Location();
+        Location locationNine = new Location();
+        locationSix.setId(1);
+        locationSeven.setId(2);
+        locationEight.setId(3);
+        locationNine.setId(4);
+        locationOne.setName("Africa");
+        locationTwo.setName("Town");
+        locationThree.setName("America");
+        locationFour.setName("San Andreas");
+        routeTwo.add(locationSix);
+        routeTwo.add(locationSeven);
+        routeTwo.add(locationEight);
+        routeTwo.add(locationNine);
+        Assert.assertEquals(routeTwo, route);
+        routeTwo.add(locationEight);
+        Assert.assertNotEquals(routeTwo, route);
+        routeTwo.remove(locationSix);
+        routeTwo.add(locationSix);
+        Assert.assertNotEquals(routeTwo, route);
     }
 
 }
