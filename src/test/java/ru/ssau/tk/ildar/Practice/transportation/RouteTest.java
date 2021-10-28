@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static ru.ssau.tk.ildar.Practice.transportation.SettlementType.*;
+import static ru.ssau.tk.ildar.Practice.transportation.WaypointType.*;
+
 public class RouteTest {
     public static Route route = new Route();
     public static Location locationOne = new Location();
@@ -127,6 +130,37 @@ public class RouteTest {
         routeTwo.remove(locationSix);
         routeTwo.add(locationSix);
         Assert.assertNotEquals(routeTwo, route);
+    }
+
+    @Test
+    public static void testToString() {
+        Settlement locationOne = new Settlement();
+        Settlement locationTwo = new Settlement();
+        Waypoint locationThree = new Waypoint();
+        Waypoint locationFour = new Waypoint();
+        locationOne.setSettlementType(CITY);
+        locationOne.setName("Kazan");
+        locationOne.setLatitude(55.47);
+        locationOne.setLongitude(49.6);
+        route.add(locationOne);
+        locationTwo.setSettlementType(VILLAGE);
+        locationTwo.setName("KFC");
+        locationTwo.setLatitude(53.09);
+        locationTwo.setLongitude(48.28);
+        route.add(locationTwo);
+        locationThree.setSettlement(CITY);
+        locationThree.setType(DEPOT);
+        locationThree.setName("Florida");
+        locationThree.setLatitude(32.09);
+        locationThree.setLongitude(43.28);
+        route.add(locationThree);
+        locationFour.setSettlement(VILLAGE);
+        locationFour.setType(WAREHOUSE);
+        locationFour.setName("America");
+        locationFour.setLatitude(30.09);
+        locationFour.setLongitude(41.28);
+        route.add(locationFour);
+        System.out.println(route);
     }
 
 }
