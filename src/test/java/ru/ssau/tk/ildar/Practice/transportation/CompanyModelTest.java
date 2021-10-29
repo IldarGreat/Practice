@@ -158,4 +158,20 @@ public class CompanyModelTest {
         Assert.assertTrue(companyModel.getAllRoutes().contains(routeTwo));
         System.out.println(locationOne);
     }
+
+    @Test
+    public static void testAssignRoute() {
+        CompanyModel companyModel = new CompanyModel();
+        Waypoint waypoint = new Waypoint();
+        waypoint.setId(41241);
+        Settlement settlement = new Settlement();
+        settlement.setId(314523);
+        Route route = new Route();
+        route.add(waypoint);
+        route.add(settlement);
+        Driver driver = new Driver();
+        driver.setId(54364);
+        companyModel.assignRoute(driver, route);
+        Assert.assertEquals(companyModel.getDriverRouteMap().get(driver), route);
+    }
 }
