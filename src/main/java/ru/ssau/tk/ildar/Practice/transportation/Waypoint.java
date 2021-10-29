@@ -2,13 +2,13 @@ package ru.ssau.tk.ildar.Practice.transportation;
 
 public class Waypoint extends Location {
     private WaypointType type;
-    private SettlementType settlement;
+    private Settlement settlement;
 
-    public SettlementType getSettlement() {
+    public Settlement getSettlement() {
         return settlement;
     }
 
-    public void setSettlement(SettlementType settlement) {
+    public void setSettlement(Settlement settlement) {
         this.settlement = settlement;
     }
 
@@ -22,6 +22,6 @@ public class Waypoint extends Location {
 
     @Override
     public String toString() {
-        return settlement.toString() + " " + type.toString() + " " + getName() + " " + getLatitude() + " " + getLongitude();
+        return "Settlement info:" + settlement + " Waypoint info:" + type.toString() + " " + getName() + " " + getLatitude() + " " + getLongitude();
     }
 }

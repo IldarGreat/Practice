@@ -138,6 +138,11 @@ public class RouteTest {
         Settlement locationTwo = new Settlement();
         Waypoint locationThree = new Waypoint();
         Waypoint locationFour = new Waypoint();
+        Settlement settlement = new Settlement();
+        settlement.setSettlementType(CITY);
+        settlement.setName("Unknown");
+        settlement.setLatitude(0);
+        settlement.setLongitude(0);
         locationOne.setSettlementType(CITY);
         locationOne.setName("Kazan");
         locationOne.setLatitude(55.47);
@@ -148,13 +153,13 @@ public class RouteTest {
         locationTwo.setLatitude(53.09);
         locationTwo.setLongitude(48.28);
         route.add(locationTwo);
-        locationThree.setSettlement(CITY);
+        locationThree.setSettlement(settlement);
         locationThree.setType(DEPOT);
         locationThree.setName("Florida");
         locationThree.setLatitude(32.09);
         locationThree.setLongitude(43.28);
         route.add(locationThree);
-        locationFour.setSettlement(VILLAGE);
+        locationFour.setSettlement(settlement);
         locationFour.setType(WAREHOUSE);
         locationFour.setName("America");
         locationFour.setLatitude(30.09);

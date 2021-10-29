@@ -10,7 +10,12 @@ public class WaypointTest {
     @Test
     public static void testToString() {
         Waypoint locationOne = new Waypoint();
-        locationOne.setSettlement(VILLAGE);
+        Settlement settlement = new Settlement();
+        settlement.setSettlementType(CITY);
+        settlement.setName("Unknown");
+        settlement.setLatitude(0);
+        settlement.setLongitude(0);
+        locationOne.setSettlement(settlement);
         locationOne.setType(DEPOT);
         locationOne.setName("Samara");
         locationOne.setLatitude(53.12);
