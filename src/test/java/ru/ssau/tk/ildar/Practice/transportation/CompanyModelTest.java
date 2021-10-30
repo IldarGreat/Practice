@@ -11,10 +11,230 @@ import static ru.ssau.tk.ildar.Practice.transportation.WaypointType.*;
 
 
 public class CompanyModelTest {
-    public static CompanyModel companyModel = new CompanyModel();
+    Settlement settlementOne = new Settlement();
+    Settlement settlementTwo = new Settlement();
+    Settlement settlementThree = new Settlement();
+    Settlement settlementFour = new Settlement();
+    Settlement settlementFive = new Settlement();
+    Settlement settlementSix = new Settlement();
+    Settlement settlementSeven = new Settlement();
+    Settlement settlementEight = new Settlement();
+    Settlement settlementNine = new Settlement();
+    Settlement settlementTen = new Settlement();
+    Waypoint waypointOne = new Waypoint();
+    Waypoint waypointTwo = new Waypoint();
+    Waypoint waypointThree = new Waypoint();
+    Waypoint waypointFour = new Waypoint();
+    Waypoint waypointFive = new Waypoint();
+    Waypoint waypointSix = new Waypoint();
+    Waypoint waypointSeven = new Waypoint();
+    Waypoint waypointEight = new Waypoint();
+    Waypoint waypointNine = new Waypoint();
+    Waypoint waypointTen = new Waypoint();
+    Route routeOne = new Route();
+    Route routeTwo = new Route();
+    Route routeThree = new Route();
+    Route routeFour = new Route();
+    Route routeFive = new Route();
+    Driver driverOne = new Driver();
+    Driver driverTwo = new Driver();
+    Driver driverThree = new Driver();
+    Driver driverFour = new Driver();
+    Driver driverFive = new Driver();
+    Date dateOne = new Date(51278651L);
+    Date dateTwo = new Date(51273578L);
+    Date dateThree = new Date(51243256L);
+    Date dateFour = new Date(51412234L);
+    Date dateFive = new Date(51242141L);
+
+    public CompanyModelTest() {
+        settlementOne.setSettlementType(CITY);
+        settlementTwo.setSettlementType(CITY);
+        settlementThree.setSettlementType(CITY);
+        settlementFour.setSettlementType(CITY);
+        settlementFive.setSettlementType(CITY);
+        settlementSix.setSettlementType(VILLAGE);
+        settlementSeven.setSettlementType(VILLAGE);
+        settlementEight.setSettlementType(VILLAGE);
+        settlementNine.setSettlementType(VILLAGE);
+        settlementTen.setSettlementType(VILLAGE);
+
+        settlementOne.setSettlement(2345021);
+        settlementTwo.setSettlement(234021);
+        settlementThree.setSettlement(123574);
+        settlementFour.setSettlement(1457831);
+        settlementFive.setSettlement(2332421);
+        settlementSix.setSettlement(367);
+        settlementSeven.setSettlement(2332);
+        settlementEight.setSettlement(1262);
+        settlementNine.setSettlement(1523);
+        settlementTen.setSettlement(158);
+
+        settlementOne.setName("Kazan");
+        settlementTwo.setName("Moscow");
+        settlementThree.setName("Samara");
+        settlementFour.setName("Leningrad");
+        settlementFive.setName("Minsk");
+        settlementSix.setName("Kinerma");
+        settlementSeven.setName("Sabanche");
+        settlementEight.setName("Kimja");
+        settlementNine.setName("Viatskoe");
+        settlementTen.setName("Desyatnikovo");
+
+        settlementOne.setLatitude(55.7887400);
+        settlementTwo.setLatitude(55.7522200);
+        settlementThree.setLatitude(53.2000700);
+        settlementFour.setLatitude(59.9386300);
+        settlementFive.setLatitude(53.9000000);
+        settlementSix.setLatitude(61.5266685);
+        settlementSeven.setLatitude(54.9179655);
+        settlementEight.setLatitude(65.3415);
+        settlementNine.setLatitude(57.865556);
+        settlementTen.setLatitude(51.2500);
+
+        settlementOne.setLongitude(49.1221400);
+        settlementTwo.setLongitude(37.6155600);
+        settlementThree.setLongitude(50.1500000);
+        settlementFour.setLongitude(30.3141300);
+        settlementFive.setLongitude(27.5666700);
+        settlementSix.setLongitude(32.8251877);
+        settlementSeven.setLongitude(52.0887275);
+        settlementEight.setLongitude(44.3616);
+        settlementNine.setLongitude(40.263889);
+        settlementTen.setLongitude(42.324889);
+
+        settlementOne.setId(1);
+        settlementTwo.setId(2);
+        settlementThree.setId(3);
+        settlementFour.setId(4);
+        settlementFive.setId(5);
+        settlementSix.setId(6);
+        settlementSeven.setId(7);
+        settlementEight.setId(8);
+        settlementNine.setId(9);
+        settlementTen.setId(10);
+
+        waypointOne.setType(WAREHOUSE);
+        waypointTwo.setType(WAREHOUSE);
+        waypointThree.setType(WAREHOUSE);
+        waypointFour.setType(DEPOT);
+        waypointFive.setType(WAREHOUSE);
+        waypointSix.setType(DEPOT);
+        waypointSeven.setType(WAREHOUSE);
+        waypointEight.setType(DEPOT);
+        waypointNine.setType(WAREHOUSE);
+        waypointTen.setType(EMPTY);
+
+        waypointOne.setSettlement(settlementOne);
+        waypointTwo.setSettlement(settlementTwo);
+        waypointThree.setSettlement(settlementThree);
+        waypointFour.setSettlement(settlementFour);
+        waypointFive.setSettlement(settlementFive);
+        waypointSix.setSettlement(settlementSix);
+        waypointSeven.setSettlement(settlementSeven);
+        waypointEight.setSettlement(settlementEight);
+        waypointNine.setSettlement(settlementNine);
+        waypointTen.setSettlement(settlementTen);
+
+        waypointOne.setName("A boss");
+        waypointTwo.setName("Rock");
+        waypointThree.setName("Sick");
+        waypointFour.setName("Cocks");
+        waypointFive.setName("Papers");
+        waypointSix.setName("Hugo");
+        waypointSeven.setName("Lois");
+        waypointEight.setName("A brand");
+        waypointNine.setName("War");
+        waypointTen.setName("Hero");
+
+        waypointOne.setLatitude(55.793218);
+        waypointTwo.setLatitude(55.6728172);
+        waypointThree.setLatitude(53.8769);
+        waypointFour.setLatitude(58.32189);
+        waypointFive.setLatitude(53.7897899);
+        waypointSix.setLatitude(61.4232132);
+        waypointSeven.setLatitude(54.8732168);
+        waypointEight.setLatitude(65.232141);
+        waypointNine.setLatitude(57.7832718);
+        waypointTen.setLatitude(51.4321);
+
+        waypointOne.setLongitude(49.0321321);
+        waypointTwo.setLongitude(37.5123128);
+        waypointThree.setLongitude(50.892321);
+        waypointFour.setLongitude(30.231232);
+        waypointFive.setLongitude(27.6666666);
+        waypointSix.setLongitude(32.7872312);
+        waypointSeven.setLongitude(52.1432432);
+        waypointEight.setLongitude(44.232414);
+        waypointNine.setLongitude(40.123124);
+        waypointTen.setLongitude(42.512312);
+
+        waypointOne.setId(11);
+        waypointTwo.setId(12);
+        waypointThree.setId(13);
+        waypointFour.setId(14);
+        waypointFive.setId(15);
+        waypointSix.setId(16);
+        waypointSeven.setId(17);
+        waypointEight.setId(18);
+        waypointNine.setId(19);
+        waypointTen.setId(20);
+
+        routeOne.add(settlementOne);
+        routeOne.add(waypointOne);
+        routeOne.add(settlementNine);
+        routeOne.add(waypointNine);
+
+        routeTwo.add(settlementEight);
+        routeTwo.add(settlementTwo);
+        routeTwo.add(waypointTwo);
+
+        routeThree.add(settlementFive);
+        routeThree.add(waypointFive);
+        routeThree.add(settlementTwo);
+        routeThree.add(settlementSix);
+        routeThree.add(waypointSix);
+        routeThree.add(settlementNine);
+
+        routeFour.add(settlementNine);
+        routeFour.add(waypointNine);
+        routeFour.add(settlementThree);
+        routeFour.add(waypointThree);
+        routeFour.add(settlementFive);
+
+        routeFive.add(settlementEight);
+        routeFive.add(waypointEight);
+        routeFive.add(settlementFive);
+        routeFive.add(settlementEight);
+        routeFive.add(settlementFive);
+        routeFive.add(settlementThree);
+        routeFive.add(settlementSeven);
+        routeFive.add(waypointSeven);
+
+        driverOne.setName("Jake");
+        driverTwo.setName("Tom");
+        driverThree.setName("John");
+        driverFour.setName("Clara");
+        driverFive.setName("Miss");
+
+        driverOne.setGender(MALE);
+        driverTwo.setGender(MALE);
+        driverThree.setGender(MALE);
+        driverFour.setGender(FEMALE);
+        driverFive.setGender(FEMALE);
+
+        driverOne.setLicenseExpirationDate(dateOne);
+        driverTwo.setLicenseExpirationDate(dateTwo);
+        driverThree.setLicenseExpirationDate(dateThree);
+        driverFour.setLicenseExpirationDate(dateFour);
+        driverFive.setLicenseExpirationDate(dateFive);
+    }
+
+    // Отсюда тесты делались до создания огромной модели данных компании по грузоперевозке(Внизу комментарий,показывающий где они закончились)
 
     @Test
     public void testGetAllLocations() {
+        CompanyModel companyModel = new CompanyModel();
         Location locationOne = new Location();
         Location locationTwo = new Location();
         Location locationThree = new Location();
@@ -34,6 +254,7 @@ public class CompanyModelTest {
 
     @Test
     public void testGetAllRoutes() {
+        CompanyModel companyModel = new CompanyModel();
         Location locationOne = new Location();
         locationOne.setId(1);
         Location locationTwo = new Location();
@@ -60,6 +281,7 @@ public class CompanyModelTest {
 
     @Test
     public void testGetAllDrivers() {
+        CompanyModel companyModel = new CompanyModel();
         Driver driverOne = new Driver();
         driverOne.setId(1);
         Driver driverTwo = new Driver();
@@ -174,4 +396,7 @@ public class CompanyModelTest {
         companyModel.assignRoute(driver, route);
         Assert.assertEquals(companyModel.getDriverRouteMap().get(driver), route);
     }
+
+    // Здесь закончились тесты без использования огромной модели данных
+
 }
