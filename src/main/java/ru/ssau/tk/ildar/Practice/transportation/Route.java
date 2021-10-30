@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public final class Route implements Iterable<Location> {
     private final List<Location> locations = new ArrayList<>();
+    public static final double EARTH_RADIUS = 6371.0;
 
     public List<Location> getLocations() {
         return locations;
@@ -83,4 +84,32 @@ public final class Route implements Iterable<Location> {
         return String.valueOf(stringBuilder);
     }
 
+    private double degreeToRad(double degree) {
+        return degree * Math.PI / 180.0;
+    }
+
+    public double length() {
+        if (locations.size() < 2) {
+            return 0;
+        }
+        double length = 0.0;
+        for (int element = 0; element < locations.size() - 1; element++) {
+            double latitudeOne;
+            double longitudeOne;
+            double latitudeTwo;
+            double longitudeTwo;
+            latitudeOne = locations.get(element).getLatitude();
+            longitudeOne = locations.get(element).getLongitude();
+            latitudeTwo = locations.get(element + 1).getLatitude();
+            longitudeTwo = locations.get(element + 1).getLongitude();
+            double dLatitude = degreeToRad(latitudeOne - latitudeTwo);
+            double dLongitude = degreeToRad(longitudeOne - longitudeTwo);
+            double a = Math.sin(dLatitude / 2d) * Math.sin(dLatitude / 2d) +
+                    Math.cos(degreeToRad(latitudeOne)) * Math.cos(degreeToRad(latitudeTwo)) *
+                            Math.sin(dLongitude / 2d) * Math.sin(dLongitude / 2d);
+            double c = 2d * Math.atan2(Math.sqrt(a), Math.sqrt(1d - a));
+            length = length + EARTH_RADIUS * c;
+        }
+        return length;
+    }
 }

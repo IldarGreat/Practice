@@ -168,4 +168,11 @@ public class RouteTest {
         System.out.println(route);
     }
 
+    @Test
+    public static void testLength() {
+        CompanyModelTest ildarCorporation = new CompanyModelTest();
+        System.out.println(ildarCorporation.routeOne.length());
+        System.out.println(ildarCorporation.routeTwo.length());
+        System.out.println(ildarCorporation.routeFive.length());
+    }
 }
