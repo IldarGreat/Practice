@@ -3,9 +3,7 @@ package ru.ssau.tk.ildar.Practice.transportation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import static ru.ssau.tk.ildar.Practice.transportation.SettlementType.*;
 import static ru.ssau.tk.ildar.Practice.transportation.WaypointType.*;
@@ -174,5 +172,20 @@ public class RouteTest {
         System.out.println(ildarCorporation.routeOne.length());
         System.out.println(ildarCorporation.routeTwo.length());
         System.out.println(ildarCorporation.routeFive.length());
+    }
+
+    @Test
+    public static void testCompareTo() {
+        CompanyModelTest ildarCorporation = new CompanyModelTest();
+        List<Route> routeList = new ArrayList<>();
+        routeList.add(ildarCorporation.routeTwo);
+        routeList.add(ildarCorporation.routeThree);
+        routeList.add(ildarCorporation.routeOne);
+        routeList.add(ildarCorporation.routeFive);
+        routeList.add(ildarCorporation.routeFour);
+        Collections.sort(routeList);
+        for (Route route : routeList) {
+            System.out.println(route.length());
+        }
     }
 }

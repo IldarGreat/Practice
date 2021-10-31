@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public final class Route implements Iterable<Location> {
+public final class Route implements Iterable<Location>, Comparable<Route> {
     private final List<Location> locations = new ArrayList<>();
     public static final double EARTH_RADIUS = 6371.0;
 
@@ -111,5 +111,13 @@ public final class Route implements Iterable<Location> {
             length = length + EARTH_RADIUS * c;
         }
         return length;
+    }
+
+    @Override
+    public int compareTo(Route object) {
+        if (object == null) {
+            throw new NullPointerException();
+        }
+        return Double.compare(length(), object.length());
     }
 }
