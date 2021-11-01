@@ -188,4 +188,20 @@ public class RouteTest {
             System.out.println(route.length());
         }
     }
+
+    @Test
+    public static void testComparator() {
+        CompanyModelTest ildarCorporation = new CompanyModelTest();
+        List<Route> routeList = new ArrayList<>();
+        routeList.add(ildarCorporation.routeTwo);
+        routeList.add(ildarCorporation.routeThree);
+        routeList.add(ildarCorporation.routeOne);
+        routeList.add(ildarCorporation.routeFive);
+        routeList.add(ildarCorporation.routeFour);
+        Comparator<Route> comparator = Route.byLengthComparator;
+        routeList.sort(comparator);
+        for (Route route : routeList) {
+            System.out.println(route.length());
+        }
+    }
 }

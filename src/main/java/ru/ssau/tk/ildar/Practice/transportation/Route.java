@@ -1,9 +1,6 @@
 package ru.ssau.tk.ildar.Practice.transportation;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public final class Route implements Iterable<Location>, Comparable<Route> {
     private final List<Location> locations = new ArrayList<>();
@@ -120,4 +117,6 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
         }
         return Double.compare(length(), object.length());
     }
+
+    public static Comparator<Route> byLengthComparator = Route::compareTo;
 }
