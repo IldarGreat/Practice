@@ -397,6 +397,30 @@ public class CompanyModelTest {
         Assert.assertEquals(companyModel.getDriverRouteMap().get(driver), route);
     }
 
+    @Test
+    public void testSort() {
+        List<Settlement> settlements = new ArrayList<>();
+        settlements.add(settlementTen);
+        settlements.add(settlementTwo);
+        settlements.add(settlementSix);
+        settlements.add(settlementEight);
+        settlements.add(settlementNine);
+        settlements.add(settlementOne);
+        settlements.add(settlementThree);
+        settlements.add(settlementFive);
+        settlements.add(settlementFour);
+        settlements.add(settlementSeven);
+        CompanyModel.sort(settlements, Comparator.comparingInt(Settlement::getSettlement));
+        for (Settlement settlement : settlements) {
+            System.out.println(settlement.getSettlement());
+        }
+        System.out.println();
+        CompanyModel.sort(settlements, Comparator.comparingDouble(Location::getLongitude));
+        for (Settlement settlement : settlements) {
+            System.out.println(settlement.getLongitude());
+        }
+    }
+
     // Здесь закончились тесты без использования огромной модели данных
 
 }
