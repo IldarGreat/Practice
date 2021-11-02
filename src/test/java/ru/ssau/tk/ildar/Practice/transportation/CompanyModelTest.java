@@ -415,9 +415,9 @@ public class CompanyModelTest {
             System.out.println(settlement.getSettlement());
         }
         System.out.println();
-        CompanyModel.sort(settlements, Comparator.comparingDouble(Location::getLongitude));
+        CompanyModel.sort(settlements, new EquatorComparator());
         for (Settlement settlement : settlements) {
-            System.out.println(settlement.getLongitude());
+            System.out.println(settlement.getLatitude());
         }
     }
 
