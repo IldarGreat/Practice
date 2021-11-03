@@ -77,4 +77,5 @@ public class CompanyModel {
     public static void sort(List<Settlement> settlements, Comparator<? super Settlement> comparator) {
         settlements.sort(comparator);
     }
+
 }
