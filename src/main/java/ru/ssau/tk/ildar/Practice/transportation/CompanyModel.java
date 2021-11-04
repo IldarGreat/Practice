@@ -78,4 +78,7 @@ public class CompanyModel {
         settlements.sort(comparator);
     }
 
+    public static void sortByName(List<? extends Location> locations) {
+        locations.sort(Comparator.comparing(Location::getName));
+    }
 }

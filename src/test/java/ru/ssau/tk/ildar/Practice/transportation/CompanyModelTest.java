@@ -421,6 +421,37 @@ public class CompanyModelTest {
         }
     }
 
+    @Test
+    public void testSortByName() {
+        List<Location> locations = new ArrayList<>();
+        locations.add(settlementFour);
+        locations.add(settlementTen);
+        locations.add(settlementFive);
+        locations.add(settlementThree);
+        locations.add(settlementTwo);
+        locations.add(settlementOne);
+        locations.add(waypointFive);
+        locations.add(waypointThree);
+        locations.add(waypointTen);
+        locations.add(waypointOne);
+        CompanyModel.sortByName(locations);
+        for (Location location : locations) {
+            System.out.println(location.getName());
+        }
+        System.out.println();
+        List<Settlement> settlements = new ArrayList<>();
+        settlements.add(settlementFour);
+        settlements.add(settlementTen);
+        settlements.add(settlementFive);
+        settlements.add(settlementThree);
+        settlements.add(settlementTwo);
+        settlements.add(settlementOne);
+        CompanyModel.sortByName(settlements);
+        for (Settlement settlement : settlements) {
+            System.out.println(settlement.getName());
+        }
+    }
+
     // Здесь закончились тесты без использования огромной модели данных
 
 }
