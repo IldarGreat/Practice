@@ -2,6 +2,7 @@ package ru.ssau.tk.ildar.Practice.transportation;
 
 import ru.ssau.tk.ildar.Practice.Gender;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Objects;
 
@@ -60,4 +61,14 @@ public final class Driver {
     public String toString() {
         return "Name:" + name + " Gender:" + gender.toString() + " License Expiration:" + licenseExpirationDate.toString();
     }
+
+    public static Comparator<Driver> driverComparator = (objectOne, objectTwo) -> {
+        if (objectOne.getGender() == objectTwo.getGender()) {
+            return Double.compare(objectOne.getLicenseExpirationDate().getTime(), objectTwo.getLicenseExpirationDate().getTime());
+        }
+        if (objectOne.gender == Gender.MALE && objectTwo.gender == Gender.FEMALE) {
+            return 1;
+        }
+        return -1;
+    };
 }

@@ -3,7 +3,10 @@ package ru.ssau.tk.ildar.Practice.transportation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 import static ru.ssau.tk.ildar.Practice.Gender.*;
 
@@ -91,5 +94,23 @@ public class DriverTest {
         System.out.println(driverFour);
         System.out.println(driverFive);
         System.out.println(driverSix);
+    }
+
+    @Test
+    public static void testComparator() {
+        CompanyModelTest test = new CompanyModelTest();
+        List<Driver> drivers = new ArrayList<>();
+        Comparator<Driver> comparator = Driver.driverComparator;
+        drivers.add(test.driverThree);
+        drivers.add(test.driverOne);
+        drivers.add(test.driverFour);
+        drivers.add(test.driverFive);
+        drivers.add(test.driverTwo);
+        drivers.sort(comparator);
+        for (Driver driver : drivers) {
+            System.out.println(driver.getGender());
+            System.out.println(driver.getLicenseExpirationDate());
+            System.out.println();
+        }
     }
 }
