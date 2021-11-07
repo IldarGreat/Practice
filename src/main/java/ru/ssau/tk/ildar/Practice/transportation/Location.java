@@ -1,6 +1,10 @@
 package ru.ssau.tk.ildar.Practice.transportation;
 
+import java.util.Comparator;
 import java.util.Objects;
+
+import static ru.ssau.tk.ildar.Practice.transportation.SettlementType.*;
+import static ru.ssau.tk.ildar.Practice.transportation.WaypointType.*;
 
 public class Location {
     private int id;
@@ -51,4 +55,36 @@ public class Location {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    public static Comparator<Location> comparator = (objectOne, objectTwo) -> {
+        if (objectOne instanceof Settlement && objectTwo instanceof Waypoint) {
+            return -1;
+        }
+        if (objectOne instanceof Waypoint && objectTwo instanceof Settlement) {
+            return 1;
+        }
+        if (objectOne instanceof Settlement && objectTwo instanceof Settlement) {
+            if (((Settlement) objectOne).getSettlementType() == CITY && ((Settlement) objectTwo).getSettlementType() == VILLAGE) {
+                return -1;
+            } else if (((Settlement) objectOne).getSettlementType() == VILLAGE && ((Settlement) objectTwo).getSettlementType() == CITY) {
+                return 1;
+            } else if (((Settlement) objectOne).getSettlementType() == ((Settlement) objectTwo).getSettlementType()) {
+                return objectOne.getName().compareTo(objectTwo.getName());
+            }
+            return 0;
+        }
+        if (objectOne instanceof Waypoint && objectTwo instanceof Waypoint) {
+            if (((Waypoint) objectOne).getType() == DEPOT && ((Waypoint) objectTwo).getType() != DEPOT) {
+                return -1;
+            } else if (((Waypoint) objectOne).getType() == WAREHOUSE && ((Waypoint) objectTwo).getType() == EMPTY) {
+                return -1;
+            } else if (((Waypoint) objectOne).getType() == EMPTY && ((Waypoint) objectTwo).getType() != EMPTY) {
+                return 1;
+            } else if (((Waypoint) objectOne).getType() == ((Waypoint) objectTwo).getType()) {
+                return objectOne.getName().compareTo(objectTwo.getName());
+            }
+            return 0;
+        }
+        throw new NullPointerException();
+    };
 }

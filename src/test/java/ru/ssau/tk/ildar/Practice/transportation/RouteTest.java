@@ -45,6 +45,7 @@ public class RouteTest {
 
     @Test
     public static void iteratorTest() {
+        Route route = new Route();
         route.add(locationOne);
         route.add(locationTwo);
         route.add(locationThree);
@@ -59,6 +60,7 @@ public class RouteTest {
 
     @Test
     public static void removeTest() {
+        Route route = new Route();
         Location locationOne = new Location();
         Location locationTwo = new Location();
         Location locationThree = new Location();
@@ -89,6 +91,7 @@ public class RouteTest {
 
     @Test
     public static void testEquals() {
+        Route route = new Route();
         Location locationOne = new Location();
         Location locationTwo = new Location();
         Location locationThree = new Location();

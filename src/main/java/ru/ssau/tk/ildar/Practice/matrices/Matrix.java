@@ -35,14 +35,14 @@ public class Matrix {
 
     @Override
     public String toString(){
-        String stringMatrix= "";
+        StringBuilder stringMatrix= new StringBuilder();
         for(int columns=0;columns<this.columns;columns++){
             for(int rows=0;rows<this.rows;rows++){
-                stringMatrix+=getAt(columns, rows)+",";
+                stringMatrix.append(getAt(columns, rows)).append(",");
             }
-            stringMatrix+=";\n";
+            stringMatrix.append(";\n");
         }
-        return stringMatrix;
+        return stringMatrix.toString();
     }
 
 }

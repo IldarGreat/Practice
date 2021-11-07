@@ -22,6 +22,6 @@ public class Waypoint extends Location {
 
     @Override
     public String toString() {
-        return "Settlement info:" + settlement + " Waypoint info:" + type.toString() + " " + getName() + " " + getLatitude() + " " + getLongitude();
+        return "Its WAYPOINT[" + getName() + "]" + " Type:" + type.toString() + " Geography:" + getLatitude() + " " + getLongitude() + " IN SETTLEMENT:" + settlement;
     }
 }
