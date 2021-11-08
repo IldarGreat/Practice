@@ -81,4 +81,14 @@ public class CompanyModel {
     public static void sortByName(List<? extends Location> locations) {
         locations.sort(Comparator.comparing(Location::getName));
     }
+
+    public Map<Driver, Route> sortedMap(List<Driver> drivers) {
+        Map<Driver, Route> sortedMap = new TreeMap<>(Comparator.comparing(Driver::getName));
+        for (Driver driver : drivers) {
+            if (driverRouteMap.containsKey(driver)) {
+                sortedMap.put(driver, driverRouteMap.get(driver));
+            }
+        }
+        return sortedMap;
+    }
 }

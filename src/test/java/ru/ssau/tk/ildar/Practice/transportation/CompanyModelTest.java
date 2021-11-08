@@ -452,6 +452,26 @@ public class CompanyModelTest {
         }
     }
 
+    @Test
+    public void testSortedMap() {
+        List<Driver> drivers = new ArrayList<>();
+        CompanyModel someCompany = new CompanyModel();
+        someCompany.assignRoute(driverOne, routeFive);
+        someCompany.assignRoute(driverTwo, routeOne);
+        someCompany.assignRoute(driverThree, routeTwo);
+        someCompany.assignRoute(driverFive, routeThree);
+        someCompany.assignRoute(driverFour, routeFour);
+        drivers.add(driverOne);
+        drivers.add(driverThree);
+        drivers.add(driverFive);
+        drivers.add(driverTwo);
+        drivers.add(driverFour);
+        Map<Driver, Route> sortedDrivers = someCompany.sortedMap(drivers);
+        for (Driver driver : sortedDrivers.keySet()) {
+            System.out.println(driver.getName());
+        }
+    }
+
     // Здесь закончились тесты без использования огромной модели данных
 
 }
