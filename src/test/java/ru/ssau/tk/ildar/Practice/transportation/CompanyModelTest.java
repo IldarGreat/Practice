@@ -472,6 +472,24 @@ public class CompanyModelTest {
         }
     }
 
+    @Test
+    public void testSortedSettlement() {
+        List<Location> locations = new ArrayList<>();
+        CompanyModel someCompany = new CompanyModel();
+        locations.add(settlementFour);
+        locations.add(settlementNine);
+        locations.add(settlementEight);
+        locations.add(settlementSix);
+        locations.add(waypointThree);
+        locations.add(waypointTen);
+        locations.add(waypointNine);
+        locations.add(waypointTwo);
+        Map<Settlement, SettlementType> sortedSettlement = someCompany.sortedSettlement(locations);
+        for (Settlement settlement : sortedSettlement.keySet()) {
+            System.out.println(settlement.getSettlement());
+        }
+    }
+
     // Здесь закончились тесты без использования огромной модели данных
 
 }

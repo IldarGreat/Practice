@@ -91,4 +91,14 @@ public class CompanyModel {
         }
         return sortedMap;
     }
+
+    public Map<Settlement, SettlementType> sortedSettlement(List<Location> locations) {
+        Map<Settlement, SettlementType> sortedSettlement = new TreeMap<>((objectOne, objectTwo) -> objectTwo.getSettlement() - objectOne.getSettlement());
+        for (Location location : locations) {
+            if (location instanceof Settlement) {
+                sortedSettlement.put((Settlement) location, ((Settlement) location).getSettlementType());
+            }
+        }
+        return sortedSettlement;
+    }
 }
