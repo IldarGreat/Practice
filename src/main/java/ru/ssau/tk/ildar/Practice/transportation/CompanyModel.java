@@ -4,6 +4,8 @@ import ru.ssau.tk.ildar.Practice.Gender;
 
 import java.util.*;
 
+import static ru.ssau.tk.ildar.Practice.transportation.WaypointType.*;
+
 public class CompanyModel {
     protected Collection<Location> allLocations = new LinkedHashSet<>();
     protected Collection<Route> allRoutes = new LinkedHashSet<>();
@@ -100,5 +102,27 @@ public class CompanyModel {
             }
         }
         return sortedSettlement;
+    }
+
+    public Map<WaypointType, List<Waypoint>> sortedWaypoints(List<Location> locations) {
+        List<Waypoint> waypointDepot = new ArrayList<>();
+        List<Waypoint> waypointWarehouse = new ArrayList<>();
+        List<Waypoint> waypointEmpty = new ArrayList<>();
+        Map<WaypointType, List<Waypoint>> sortedWaypoints = new LinkedHashMap<>();
+        for (Location location : locations) {
+            if (location instanceof Waypoint) {
+                if (((Waypoint) location).getType() == DEPOT) {
+                    waypointDepot.add((Waypoint) location);
+                } else if (((Waypoint) location).getType() == WAREHOUSE) {
+                    waypointWarehouse.add((Waypoint) location);
+                } else if (((Waypoint) location).getType() == EMPTY) {
+                    waypointEmpty.add((Waypoint) location);
+                }
+            }
+        }
+        sortedWaypoints.put(DEPOT, waypointDepot);
+        sortedWaypoints.put(WAREHOUSE, waypointWarehouse);
+        sortedWaypoints.put(EMPTY, waypointEmpty);
+        return sortedWaypoints;
     }
 }

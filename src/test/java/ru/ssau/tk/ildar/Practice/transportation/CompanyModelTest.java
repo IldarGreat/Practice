@@ -490,6 +490,26 @@ public class CompanyModelTest {
         }
     }
 
+    @Test
+    public void testSortedWaypoints() {
+        List<Location> locations = new ArrayList<>();
+        CompanyModel someCompany = new CompanyModel();
+        locations.add(waypointOne);
+        locations.add(waypointTwo);
+        locations.add(waypointThree);
+        locations.add(waypointFour);
+        locations.add(waypointFive);
+        locations.add(waypointSix);
+        locations.add(waypointSeven);
+        locations.add(waypointEight);
+        locations.add(waypointNine);
+        locations.add(waypointTen);
+        Map<WaypointType, List<Waypoint>> sortedWaypoints = someCompany.sortedWaypoints(locations);
+        for (List<Waypoint> waypoints : sortedWaypoints.values()) {
+            System.out.println(waypoints);
+        }
+    }
+
     // Здесь закончились тесты без использования огромной модели данных
 
 }
