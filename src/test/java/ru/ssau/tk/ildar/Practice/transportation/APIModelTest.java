@@ -27,4 +27,11 @@ public class APIModelTest {
         Assert.assertEquals(APIModel.aboveTheEquator(locations).get(1).getLatitude(), 40.0);
     }
 
+    @Test
+    public void testWaypointsNames() {
+        List<String> waypointsNames = APIModel.waypointsNames(new CompanyModelTest().allLocation());
+        for (String name : waypointsNames) {
+            System.out.println(name);
+        }
+    }
 }

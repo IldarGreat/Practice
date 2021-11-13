@@ -230,6 +230,31 @@ public class CompanyModelTest {
         driverFive.setLicenseExpirationDate(dateFive);
     }
 
+    public List<Location> allLocation(){
+        List<Location> locations = new ArrayList<>();
+        locations.add(settlementOne);
+        locations.add(settlementTwo);
+        locations.add(settlementThree);
+        locations.add(settlementFour);
+        locations.add(settlementFive);
+        locations.add(settlementSix);
+        locations.add(settlementSeven);
+        locations.add(settlementEight);
+        locations.add(settlementNine);
+        locations.add(settlementTen);
+        locations.add(waypointOne);
+        locations.add(waypointTwo);
+        locations.add(waypointThree);
+        locations.add(waypointFour);
+        locations.add(waypointFive);
+        locations.add(waypointSix);
+        locations.add(waypointSeven);
+        locations.add(waypointEight);
+        locations.add(waypointNine);
+        locations.add(waypointTen);
+        return locations;
+    }
+
     // Отсюда тесты делались до создания огромной модели данных компании по грузоперевозке(Внизу комментарий,показывающий где они закончились)
 
     @Test
