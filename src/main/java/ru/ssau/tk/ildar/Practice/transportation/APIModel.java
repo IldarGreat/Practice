@@ -2,6 +2,7 @@ package ru.ssau.tk.ildar.Practice.transportation;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class APIModel {
 
@@ -18,4 +19,6 @@ public class APIModel {
                 .map(Location::getName)
                 .collect(Collectors.toList());
     }
+
+
 }

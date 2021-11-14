@@ -207,4 +207,24 @@ public class RouteTest {
             System.out.println(route.length());
         }
     }
+
+    @Test
+    public static void testFirstLocationWithLetter() {
+        CompanyModelTest ildarCorporation = new CompanyModelTest();
+        Route route = new Route();
+        route.add(ildarCorporation.settlementOne);
+        route.add(ildarCorporation.settlementTwo);
+        route.add(ildarCorporation.settlementThree);
+        route.add(ildarCorporation.settlementFour);
+        route.add(ildarCorporation.settlementFive);
+        route.add(ildarCorporation.waypointOne);
+        route.add(ildarCorporation.waypointTwo);
+        route.add(ildarCorporation.waypointThree);
+        route.add(ildarCorporation.waypointFour);
+        route.add(ildarCorporation.waypointFive);
+        Location location = route.firstLocationWithLetter("L");
+        System.out.println(location.getName());
+        location = route.firstLocationWithLetter("A");
+        System.out.println(location.getName());
+    }
 }

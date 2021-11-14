@@ -1,6 +1,7 @@
 package ru.ssau.tk.ildar.Practice.transportation;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public final class Route implements Iterable<Location>, Comparable<Route> {
     private final List<Location> locations = new ArrayList<>();
@@ -119,4 +120,15 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
     }
 
     public static Comparator<Route> byLengthComparator = Route::compareTo;
+
+    private Stream<Location> streamOfLocations() {
+        return locations.stream();
+    }
+
+    public Location firstLocationWithLetter(String letters) {
+        return streamOfLocations()
+                .filter(location -> location.getName().startsWith(letters))
+                .findFirst()
+                .orElse(new Location());
+    }
 }
