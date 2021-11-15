@@ -131,4 +131,20 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
                 .findFirst()
                 .orElse(new Location());
     }
+
+    public boolean anyName(String name) {
+        return streamOfLocations()
+                .anyMatch(location -> location.getName().equals(name));
+    }
+
+    public boolean allSettlementsOrWaypointsInSettlements() {
+        return streamOfLocations()
+                .allMatch(location -> location instanceof Settlement || (location instanceof Waypoint && ((Waypoint) location).getType() != null));
+    }
+
+    public boolean noneEmpty() {
+        return streamOfLocations()
+                .noneMatch(location -> location instanceof Waypoint && ((Waypoint) location).getType() == WaypointType.EMPTY);
+    }
+
 }

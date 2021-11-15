@@ -27,7 +27,7 @@ public class RouteTest {
         Assert.assertEquals(route.getLocation(1), locationTwo);
         Assert.assertEquals(route.getLocation(2), locationThree);
         route.remove(2);
-        Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(2));
+        Assert.assertThrows(IndexOutOfBoundsException.class, () -> System.out.println(route.getLocation(2)));
         List<Location> routeTwo = new ArrayList<>();
         routeTwo.add(locationOne);
         routeTwo.add(locationTwo);
@@ -81,12 +81,12 @@ public class RouteTest {
         Assert.assertEquals(route.getLocation(0).getId(), 2);
         Assert.assertEquals(route.getLocation(1).getId(), 3);
         Assert.assertEquals(route.getLocation(2).getId(), 1);
-        Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(3));
+        Assert.assertThrows(IndexOutOfBoundsException.class, () -> System.out.println(route.getLocation(3)));
         route.remove(locationFour);
         Assert.assertEquals(route.getLocation(0).getId(), 2);
         Assert.assertEquals(route.getLocation(1).getId(), 3);
-        Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(2));
-        Assert.assertThrows(IndexOutOfBoundsException.class, () -> route.getLocation(3));
+        Assert.assertThrows(IndexOutOfBoundsException.class, () -> System.out.println(route.getLocation(2)));
+        Assert.assertThrows(IndexOutOfBoundsException.class, () -> System.out.println(route.getLocation(3)));
     }
 
     @Test
@@ -226,5 +226,42 @@ public class RouteTest {
         System.out.println(location.getName());
         location = route.firstLocationWithLetter("A");
         System.out.println(location.getName());
+    }
+
+    @Test
+    public static void testAnyName() {
+        List<Location> locations;
+        locations = new CompanyModelTest().allLocation();
+        Route route = new Route();
+        for (Location location : locations) {
+            route.add(location);
+        }
+        Assert.assertTrue(route.anyName("Cocks"));
+        Assert.assertFalse(route.anyName("Russia"));
+    }
+
+    @Test
+    public static void testAllSettlementsOrWaypointsInSettlements() {
+        List<Location> locations;
+        locations = new CompanyModelTest().allLocation();
+        Route route = new Route();
+        for (Location location : locations) {
+            route.add(location);
+        }
+        Assert.assertTrue(route.allSettlementsOrWaypointsInSettlements());
+        Waypoint waypointWithoutSettlement = new Waypoint();
+        route.add(waypointWithoutSettlement);
+        Assert.assertFalse(route.allSettlementsOrWaypointsInSettlements());
+    }
+
+    @Test
+    public static void testNoneEmpty() {
+        List<Location> locations;
+        locations = new CompanyModelTest().allLocation();
+        Route route = new Route();
+        for (Location location : locations) {
+            route.add(location);
+        }
+        Assert.assertFalse(route.noneEmpty());
     }
 }
