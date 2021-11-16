@@ -264,4 +264,16 @@ public class RouteTest {
         }
         Assert.assertFalse(route.noneEmpty());
     }
+
+    @Test
+    public static void testSameLocation() {
+        List<Location> locations;
+        locations = new CompanyModelTest().allLocation();
+        Route route = new Route();
+        for (Location location : locations) {
+            route.add(location);
+        }
+        System.out.println(route.sameLocation(55.78, 49.12, 0.01));
+        Assert.assertEquals(new CompanyModelTest().settlementOne, route.sameLocation(55.78, 49.12, 0.01));
+    }
 }

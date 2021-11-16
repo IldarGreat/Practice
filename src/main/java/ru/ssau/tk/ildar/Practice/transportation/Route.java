@@ -147,4 +147,16 @@ public final class Route implements Iterable<Location>, Comparable<Route> {
                 .noneMatch(location -> location instanceof Waypoint && ((Waypoint) location).getType() == WaypointType.EMPTY);
     }
 
+    public Location sameLocation(double latitude, double longitude, double DELTA) {
+        return streamOfLocations().
+                filter(location -> Math.abs(location.getLatitude() - latitude) < DELTA && Math.abs(location.getLongitude() - longitude) < DELTA)
+                .findFirst()
+                .orElseGet(() -> {
+                    Location location = new Location();
+                    location.setLatitude(latitude);
+                    location.setLongitude(longitude);
+                    return location;
+                });
+    }
+
 }
