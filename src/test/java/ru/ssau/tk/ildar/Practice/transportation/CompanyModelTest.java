@@ -571,6 +571,23 @@ public class CompanyModelTest {
         someCompany.allDrivers.add(driverFive);
         Assert.assertEquals(someCompany.latestLicense(), driverThree);
     }
+
+    @Test
+    public void testLengthOfAllRoutes() {
+        CompanyModel someCompany = new CompanyModel();
+        double DELTA = 0.0001;
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), 0.0);
+        someCompany.allRoutes.add(routeOne);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length(),DELTA);
+        someCompany.allRoutes.add(routeTwo);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length(),DELTA);
+        someCompany.allRoutes.add(routeThree);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length(),DELTA);
+        someCompany.allRoutes.add(routeFour);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length() + routeFour.length(),DELTA);
+        someCompany.allRoutes.add(routeFive);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length() + routeFour.length() + routeFive.length(),DELTA);
+    }
     // Здесь закончились тесты без использования огромной модели данных
 
 }

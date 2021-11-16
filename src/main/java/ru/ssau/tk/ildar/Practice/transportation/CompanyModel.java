@@ -138,4 +138,10 @@ public class CompanyModel {
                 .max((driverOne, driverTwo) -> (int) (driverOne.getLicenseExpirationDate().getTime() - driverTwo.getLicenseExpirationDate().getTime()))
                 .orElse(null);
     }
+
+    public double lengthOfAllRoutes() {
+        return allRoutes.stream()
+                .mapToDouble(Route::length)
+                .sum();
+    }
 }
