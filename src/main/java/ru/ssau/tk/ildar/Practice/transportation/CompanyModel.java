@@ -3,6 +3,7 @@ package ru.ssau.tk.ildar.Practice.transportation;
 import ru.ssau.tk.ildar.Practice.Gender;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static ru.ssau.tk.ildar.Practice.transportation.WaypointType.*;
 
@@ -143,5 +144,11 @@ public class CompanyModel {
         return allRoutes.stream()
                 .mapToDouble(Route::length)
                 .sum();
+    }
+
+    public static Map<Waypoint, Settlement> waypointSettlementMap(Collection<Waypoint> waypoints) {
+        return waypoints.stream()
+                .filter(waypoint -> waypoint.getSettlement() != null)
+                .collect(Collectors.toMap(waypoint -> waypoint, Waypoint::getSettlement));
     }
 }

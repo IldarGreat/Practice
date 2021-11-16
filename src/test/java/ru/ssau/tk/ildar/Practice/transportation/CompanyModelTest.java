@@ -578,15 +578,28 @@ public class CompanyModelTest {
         double DELTA = 0.0001;
         Assert.assertEquals(someCompany.lengthOfAllRoutes(), 0.0);
         someCompany.allRoutes.add(routeOne);
-        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length(),DELTA);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length(), DELTA);
         someCompany.allRoutes.add(routeTwo);
-        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length(),DELTA);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length(), DELTA);
         someCompany.allRoutes.add(routeThree);
-        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length(),DELTA);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length(), DELTA);
         someCompany.allRoutes.add(routeFour);
-        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length() + routeFour.length(),DELTA);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length() + routeFour.length(), DELTA);
         someCompany.allRoutes.add(routeFive);
-        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length() + routeFour.length() + routeFive.length(),DELTA);
+        Assert.assertEquals(someCompany.lengthOfAllRoutes(), routeOne.length() + routeTwo.length() + routeThree.length() + routeFour.length() + routeFive.length(), DELTA);
+    }
+
+    @Test
+    public void testWaypointSettlementMap() {
+        List<Waypoint> waypoints = new ArrayList<>();
+        waypoints.add(waypointOne);
+        waypoints.add(waypointNine);
+        waypoints.add(waypointFive);
+        Map<Waypoint, Settlement> map = new LinkedHashMap<>();
+        map.put(waypointOne, settlementOne);
+        map.put(waypointNine, settlementNine);
+        map.put(waypointFive, settlementFive);
+        Assert.assertEquals(CompanyModel.waypointSettlementMap(waypoints), map);
     }
     // Здесь закончились тесты без использования огромной модели данных
 
