@@ -132,4 +132,10 @@ public class CompanyModel {
                 .min()
                 .orElse(0);
     }
+
+    public Driver latestLicense() {
+        return allDrivers.stream()
+                .max((driverOne, driverTwo) -> (int) (driverOne.getLicenseExpirationDate().getTime() - driverTwo.getLicenseExpirationDate().getTime()))
+                .orElse(null);
+    }
 }

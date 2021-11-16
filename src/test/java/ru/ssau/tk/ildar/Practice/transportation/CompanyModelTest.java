@@ -41,11 +41,11 @@ public class CompanyModelTest {
     Driver driverThree = new Driver();
     Driver driverFour = new Driver();
     Driver driverFive = new Driver();
-    Date dateOne = new Date(51278651L);
-    Date dateTwo = new Date(51273578L);
-    Date dateThree = new Date(51243256L);
-    Date dateFour = new Date(51412234L);
-    Date dateFive = new Date(51242141L);
+    Date dateOne = new Date(3213213278651L);
+    Date dateTwo = new Date(42133213273578L);
+    Date dateThree = new Date(51321231243256L);
+    Date dateFour = new Date(51432312234L);
+    Date dateFive = new Date(51241232141L);
 
     public CompanyModelTest() {
         settlementOne.setSettlementType(CITY);
@@ -228,6 +228,12 @@ public class CompanyModelTest {
         driverThree.setLicenseExpirationDate(dateThree);
         driverFour.setLicenseExpirationDate(dateFour);
         driverFive.setLicenseExpirationDate(dateFive);
+
+        driverOne.setId(1);
+        driverTwo.setId(2);
+        driverThree.setId(3);
+        driverFour.setId(4);
+        driverFive.setId(5);
     }
 
     public List<Location> allLocation() {
@@ -552,6 +558,18 @@ public class CompanyModelTest {
         someCompany.addRoute(locationsForFirstRoute);
         someCompany.addRoute(locationsForSecondRoute);
         Assert.assertEquals(someCompany.minLength(), routeTwo.length());
+    }
+
+    @Test
+    public void testLatestLicense() {
+        CompanyModel someCompany = new CompanyModel();
+        Assert.assertNull(someCompany.latestLicense());
+        someCompany.allDrivers.add(driverOne);
+        someCompany.allDrivers.add(driverTwo);
+        someCompany.allDrivers.add(driverThree);
+        someCompany.allDrivers.add(driverFour);
+        someCompany.allDrivers.add(driverFive);
+        Assert.assertEquals(someCompany.latestLicense(), driverThree);
     }
     // Здесь закончились тесты без использования огромной модели данных
 
