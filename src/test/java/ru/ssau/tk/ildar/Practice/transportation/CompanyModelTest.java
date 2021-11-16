@@ -601,6 +601,34 @@ public class CompanyModelTest {
         map.put(waypointFive, settlementFive);
         Assert.assertEquals(CompanyModel.waypointSettlementMap(waypoints), map);
     }
+
+    @Test
+    public void testSettlementSetMap() {
+        List<Waypoint> allWaypoints = new ArrayList<>();
+        Set<Waypoint> waypointsInSettlementFive = new LinkedHashSet<>();
+        Set<Waypoint> waypointsInSettlementNine = new LinkedHashSet<>();
+        Set<Waypoint> waypointsInSettlementOne = new LinkedHashSet<>();
+        allWaypoints.add(waypointFive);
+        allWaypoints.add(waypointNine);
+        allWaypoints.add(waypointOne);
+        Waypoint secondWaypointInSettlementFive = new Waypoint();
+        secondWaypointInSettlementFive.setSettlement(settlementFive);
+        secondWaypointInSettlementFive.setType(WAREHOUSE);
+        secondWaypointInSettlementFive.setId(123434121);
+        secondWaypointInSettlementFive.setName("Not");
+        allWaypoints.add(secondWaypointInSettlementFive);
+        waypointsInSettlementFive.add(waypointFive);
+        waypointsInSettlementFive.add(secondWaypointInSettlementFive);
+        waypointsInSettlementNine.add(waypointNine);
+        waypointsInSettlementOne.add(waypointOne);
+        Map<Settlement, Set<Waypoint>> settlementSetMap = CompanyModel.settlementSetMap(allWaypoints);
+        Map<Settlement, Set<Waypoint>> settlementSetMapTest = new HashMap<>();
+        settlementSetMapTest.put(settlementFive, waypointsInSettlementFive);
+        settlementSetMapTest.put(settlementNine, waypointsInSettlementNine);
+        settlementSetMapTest.put(settlementOne, waypointsInSettlementOne);
+        Assert.assertEquals(settlementSetMap, settlementSetMapTest);
+    }
+
     // Здесь закончились тесты без использования огромной модели данных
 
 }

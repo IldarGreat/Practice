@@ -151,4 +151,10 @@ public class CompanyModel {
                 .filter(waypoint -> waypoint.getSettlement() != null)
                 .collect(Collectors.toMap(waypoint -> waypoint, Waypoint::getSettlement));
     }
+
+    public static Map<Settlement, Set<Waypoint>> settlementSetMap(Collection<Waypoint> waypoints) {
+        return waypoints.stream()
+                .filter(waypoint -> waypoint.getSettlement() != null)
+                .collect(Collectors.groupingBy(Waypoint::getSettlement, Collectors.toSet()));
+    }
 }
