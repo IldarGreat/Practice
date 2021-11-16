@@ -230,7 +230,7 @@ public class CompanyModelTest {
         driverFive.setLicenseExpirationDate(dateFive);
     }
 
-    public List<Location> allLocation(){
+    public List<Location> allLocation() {
         List<Location> locations = new ArrayList<>();
         locations.add(settlementOne);
         locations.add(settlementTwo);
@@ -535,6 +535,24 @@ public class CompanyModelTest {
         }
     }
 
+    @Test
+    public void testMinLength() {
+        CompanyModel someCompany = new CompanyModel();
+        Assert.assertEquals(someCompany.minLength(), 0.0);
+        List<Location> locationsForFirstRoute = new ArrayList<>();
+        List<Location> locationsForSecondRoute = new ArrayList<>();
+        locationsForFirstRoute.add(settlementSeven);
+        locationsForFirstRoute.add(settlementEight);
+        locationsForFirstRoute.add(settlementOne);
+        Route routeTwo = new Route();
+        routeTwo.add(waypointSeven);
+        routeTwo.add(settlementSeven);
+        locationsForSecondRoute.add(waypointSeven);
+        locationsForSecondRoute.add(settlementSeven);
+        someCompany.addRoute(locationsForFirstRoute);
+        someCompany.addRoute(locationsForSecondRoute);
+        Assert.assertEquals(someCompany.minLength(), routeTwo.length());
+    }
     // Здесь закончились тесты без использования огромной модели данных
 
 }

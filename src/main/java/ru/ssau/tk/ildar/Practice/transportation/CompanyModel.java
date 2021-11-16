@@ -125,4 +125,11 @@ public class CompanyModel {
         sortedWaypoints.put(EMPTY, waypointEmpty);
         return sortedWaypoints;
     }
+
+    public double minLength() {
+        return allRoutes.stream()
+                .mapToDouble(Route::length)
+                .min()
+                .orElse(0);
+    }
 }
