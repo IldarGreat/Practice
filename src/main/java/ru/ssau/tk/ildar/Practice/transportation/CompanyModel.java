@@ -4,6 +4,7 @@ import ru.ssau.tk.ildar.Practice.Gender;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static ru.ssau.tk.ildar.Practice.transportation.WaypointType.*;
 
@@ -156,5 +157,13 @@ public class CompanyModel {
         return waypoints.stream()
                 .filter(waypoint -> waypoint.getSettlement() != null)
                 .collect(Collectors.groupingBy(Waypoint::getSettlement, Collectors.toSet()));
+    }
+
+    @Override
+    public String toString() {
+        return Stream.of(allLocations.stream(), allDrivers.stream())
+                .flatMap(stream -> stream)
+                .map(Object::toString)
+                .collect(Collectors.joining("\n", "Маршруты и водители:", "."));
     }
 }

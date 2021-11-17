@@ -629,6 +629,17 @@ public class CompanyModelTest {
         Assert.assertEquals(settlementSetMap, settlementSetMapTest);
     }
 
+    @Test
+    public void testToString() {
+        CompanyModel company = new CompanyModel();
+        company.allDrivers.add(driverOne);
+        company.allDrivers.add(driverTwo);
+        company.allDrivers.add(driverThree);
+        company.allLocations.add(waypointOne);
+        company.allLocations.add(settlementOne);
+        company.allLocations.add(settlementSix);
+        System.out.println(company);
+    }
     // Здесь закончились тесты без использования огромной модели данных
 
 }
