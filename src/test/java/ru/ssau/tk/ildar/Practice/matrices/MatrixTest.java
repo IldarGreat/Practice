@@ -25,7 +25,7 @@ public class MatrixTest {
     }
 
     @Test
-    public static void testToString(){
+    public static void testToString() {
         Matrix matrix = new Matrix(2, 3);
         matrix.setAt(0, 0, 50);
         matrix.setAt(0, 1, 32);
@@ -34,6 +34,19 @@ public class MatrixTest {
         matrix.setAt(1, 1, 12);
         matrix.setAt(1, 2, 67);
         System.out.println(matrix);
+    }
+
+    @Test
+    public static void testColumnStream() {
+        Matrix matrix = new Matrix(2, 3);
+        matrix.setAt(0, 0, 50);
+        matrix.setAt(0, 1, 32);
+        matrix.setAt(0, 2, 47);
+        matrix.setAt(1, 0, 23);
+        matrix.setAt(1, 1, 12);
+        matrix.setAt(1, 2, 67);
+        matrix.columnStream()
+                .forEach(System.out::println);
     }
 
 }

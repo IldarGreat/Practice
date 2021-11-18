@@ -1,5 +1,9 @@
 package ru.ssau.tk.ildar.Practice.matrices;
 
+import java.util.*;
+import java.util.stream.*;
+
+
 public class Matrix {
     private final double[][] matrix;
     private final int rows; // Строки
@@ -34,15 +38,36 @@ public class Matrix {
     }
 
     @Override
-    public String toString(){
-        StringBuilder stringMatrix= new StringBuilder();
-        for(int columns=0;columns<this.columns;columns++){
-            for(int rows=0;rows<this.rows;rows++){
+    public String toString() {
+        StringBuilder stringMatrix = new StringBuilder();
+        for (int columns = 0; columns < this.columns; columns++) {
+            for (int rows = 0; rows < this.rows; rows++) {
                 stringMatrix.append(getAt(columns, rows)).append(",");
             }
             stringMatrix.append(";\n");
         }
         return stringMatrix.toString();
+    }
+
+    public Stream<Double> columnStream() {
+        List<Double> columnStream = new ArrayList<>();
+        for (int column = 0; column < this.columns; column++) {
+            for (int row = 0; row < this.rows; row++) {
+                columnStream.add(getAt(column, row));
+            }
+        }
+        return columnStream.stream();
+    }
+
+    public Stream<Double> rawStream() {
+        List<Double> rawStream = new ArrayList<>();
+        for (int row = 0; row < getRows(); row++) {
+            for (int column = 0; row < getColumns(); column++) {
+                rawStream.add(getAt(row, column));
+                System.out.println(rawStream);
+            }
+        }
+        return rawStream.stream();
     }
 
 }
