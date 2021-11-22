@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice.network;
+package ru.ssau.tk.ildar.Practice.network.threads;
 
 import java.io.*;
 import java.net.Socket;

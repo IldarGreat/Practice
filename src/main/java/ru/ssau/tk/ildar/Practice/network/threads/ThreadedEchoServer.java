@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice.network;
+package ru.ssau.tk.ildar.Practice.network.threads;
 
 import java.io.IOException;
 import java.net.*;
@@ -7,6 +7,7 @@ import java.net.*;
  * В этой программе реализуется многопоточный сервер, прослушивающий
  * порт 8190 и передающий обратно все данные, полученные от клиентов
  * ©author Ildar Idiyatov
+ *
  * @version 1.21 2021-11-21
  */
 
