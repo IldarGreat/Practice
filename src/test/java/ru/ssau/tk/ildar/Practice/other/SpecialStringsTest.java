@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.other;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

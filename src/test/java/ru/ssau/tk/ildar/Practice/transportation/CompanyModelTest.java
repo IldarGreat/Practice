@@ -5,7 +5,8 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
-import static ru.ssau.tk.ildar.Practice.Gender.*;
+import static ru.ssau.tk.ildar.Practice.other.Gender.FEMALE;
+import static ru.ssau.tk.ildar.Practice.other.Gender.MALE;
 import static ru.ssau.tk.ildar.Practice.transportation.SettlementType.*;
 import static ru.ssau.tk.ildar.Practice.transportation.WaypointType.*;
 

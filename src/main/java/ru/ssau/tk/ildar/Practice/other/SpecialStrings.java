@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.other;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;

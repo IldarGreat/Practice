@@ -1,11 +1,12 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.other;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.*;
 
-import static ru.ssau.tk.ildar.Practice.SerializableObjects.serializableObject;
+import static ru.ssau.tk.ildar.Practice.other.SerializableObjects.serializableObject;
+
 
 public class SerializableObjectsTest {
 

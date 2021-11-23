@@ -1,8 +1,10 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.other;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Person implements Serializable {
+    @Serial
     private static final long serialVersionUID = -7822293195986214031L;
     private String firstName;
     private String lastName;

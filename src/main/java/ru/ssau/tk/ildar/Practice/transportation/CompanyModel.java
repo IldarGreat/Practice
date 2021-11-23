@@ -1,6 +1,6 @@
 package ru.ssau.tk.ildar.Practice.transportation;
 
-import ru.ssau.tk.ildar.Practice.Gender;
+import ru.ssau.tk.ildar.Practice.other.*;
 
 import java.util.*;
 import java.util.stream.Collectors;

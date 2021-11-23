@@ -1,8 +1,6 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.other;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 public class SpecialArrays {
 

@@ -1,9 +1,10 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.other;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import static ru.ssau.tk.ildar.Practice.Gender.*;
+import static ru.ssau.tk.ildar.Practice.other.Gender.*;
+
 
 public class PersonTest {
     @Test

@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.clone;
 
 public class CloneWithoutCloneable {
     public final int number;

@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.other;
 
 public class TypePrinter {
     public static void printType(byte type) {

@@ -1,10 +1,8 @@
 package ru.ssau.tk.ildar.Practice.transportation;
 
-import ru.ssau.tk.ildar.Practice.Gender;
+import ru.ssau.tk.ildar.Practice.other.*;
 
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
 public final class Driver {
     private int id;

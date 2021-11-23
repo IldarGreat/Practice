@@ -1,12 +1,11 @@
-package ru.ssau.tk.ildar.Practice;
+package ru.ssau.tk.ildar.Practice.other;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
-import static ru.ssau.tk.ildar.Practice.SpecialArrays.*;
+import static ru.ssau.tk.ildar.Practice.other.SpecialArrays.*;
 
 
 public class SpecialArraysTest {
@@ -329,7 +328,7 @@ public class SpecialArraysTest {
 
     @Test
     public static void testMyToHexString() {
-        myToHexString(new int[]{-4,2,7,9,2,5,-7});
+        myToHexString(new int[]{-4, 2, 7, 9, 2, 5, -7});
     }
 
 }

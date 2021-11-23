@@ -3,12 +3,9 @@ package ru.ssau.tk.ildar.Practice.transportation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import static ru.ssau.tk.ildar.Practice.Gender.*;
+import static ru.ssau.tk.ildar.Practice.other.Gender.*;
 
 public class DriverTest {
 
