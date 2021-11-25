@@ -27,12 +27,38 @@ public class ViewGuiServer {
         jFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                server.startServer();
+                server.stopServer();
                 System.exit(0);
             }
         });
         jFrame.setVisible(true);
+
+        buttonStartServer.addActionListener(e -> server.startServer(getPort()));
+
+        buttonStopServer.addActionListener(e -> server.stopServer());
     }
 
+    public void refreshDialogWindow(String message) {
+        textArea.append(message);
+    }
+
+    protected int getPort() {
+        while (true) {
+            String port = JOptionPane.showInputDialog(
+                    jFrame,
+                    "Введите порт сервера:",
+                    "Ввод порта сервера:",
+                    JOptionPane.QUESTION_MESSAGE
+            );
+            try {
+                return Integer.parseInt(port.trim());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(jFrame,
+                        "Введен некоректный порт сервера,попробуйте еще раз",
+                        "Некоректный порт",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
 
 }
