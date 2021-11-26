@@ -19,6 +19,7 @@ public class ViewGuiServer {
         jFrame.add(new JScrollPane(textArea), BorderLayout.CENTER);
         jPanel.add(buttonStartServer);
         jPanel.add(buttonStopServer);
+        jPanel.add(textArea);
         jFrame.add(jPanel, BorderLayout.CENTER);
         jFrame.pack();
         jFrame.setLocationRelativeTo(null);

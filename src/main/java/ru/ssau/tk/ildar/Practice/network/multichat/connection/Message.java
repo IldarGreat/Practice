@@ -8,24 +8,24 @@ public class Message implements Serializable {
     @Serial
     private static final long serialVersionUID = -1675944781705268531L;
     private final MessageType messageType;
-    private final String textArea;
+    private final String text;
     private final Set<String> allUsers;
 
-    public Message(MessageType messageType, String textArea) {
+    public Message(MessageType messageType, String text) {
         this.messageType = messageType;
-        this.textArea = textArea;
+        this.text = text;
         this.allUsers = null;
     }
 
     public Message(MessageType messageType, Set<String> allUsers) {
         this.messageType = messageType;
         this.allUsers = allUsers;
-        this.textArea = null;
+        this.text = null;
     }
 
     public Message(MessageType messageType) {
         this.messageType = messageType;
-        this.textArea = null;
+        this.text = null;
         this.allUsers = null;
     }
 
@@ -33,8 +33,8 @@ public class Message implements Serializable {
         return this.messageType;
     }
 
-    public String getTextArea() {
-        return this.textArea;
+    public String getText() {
+        return this.text;
     }
 
     public Set<String> getAllUsers() {
