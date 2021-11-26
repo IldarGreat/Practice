@@ -7,17 +7,13 @@ import java.util.Set;
 
 public class ViewGuiClient {
     private final Client client;
-    private JFrame jFrame = new JFrame("Чат");
-    private JTextArea messages = new JTextArea(30, 20);
-    private JTextArea users = new JTextArea(30, 15);
-    private JPanel jPanel = new JPanel();
-    private JTextField text = new JTextField(40);
-    private JButton connectButton = new JButton("Подключиться");
-    private JButton disconnectButton = new JButton("Отключиться");
-
-    public static void main(String[] args) {
-        ViewGuiClient test = new ViewGuiClient(new Client());
-    }
+    private final JFrame jFrame = new JFrame("Чат");
+    private final JTextArea messages = new JTextArea(30, 20);
+    private final JTextArea users = new JTextArea(30, 15);
+    private final JPanel jPanel = new JPanel();
+    private final JTextField text = new JTextField(40);
+    private final JButton connectButton = new JButton("Подключиться");
+    private final JButton disconnectButton = new JButton("Отключиться");
 
     public ViewGuiClient(Client client) {
         this.client = client;
@@ -35,7 +31,7 @@ public class ViewGuiClient {
         jFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                if (client.isConnected()) {
+                if (client.isConnect()) {
                     client.disconnect();
                 }
                 System.exit(0);
@@ -61,7 +57,7 @@ public class ViewGuiClient {
      */
     protected void refreshListUsers(Set<String> currentUsers) {
         users.setText("");
-        if (client.isConnected()) {
+        if (client.isConnect()) {
             StringBuilder usersInformation = new StringBuilder("Список пользователей:\n");
             for (String user : currentUsers) {
                 usersInformation
@@ -133,7 +129,7 @@ public class ViewGuiClient {
     /**
      * Вызывает окно ошибки с заданным текстом
      *
-     * @param text Объеснение ошибки
+     * @param text Объяснение ошибки
      */
     protected void errorMessage(String text) {
         JOptionPane.showMessageDialog(
