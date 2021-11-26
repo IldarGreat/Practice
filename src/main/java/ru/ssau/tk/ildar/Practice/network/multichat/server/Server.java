@@ -1,15 +1,10 @@
 package ru.ssau.tk.ildar.Practice.network.multichat.server;
 
-import ru.ssau.tk.ildar.Practice.network.multichat.connection.Connection;
-import ru.ssau.tk.ildar.Practice.network.multichat.connection.Message;
-import ru.ssau.tk.ildar.Practice.network.multichat.connection.MessageType;
+import ru.ssau.tk.ildar.Practice.network.multichat.connection.*;
 
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.net.*;
+import java.util.*;
 
 public class Server {
     private ServerSocket serverSocket;
@@ -56,7 +51,7 @@ public class Server {
                         connection.sendMessage(new Message(MessageType.NAME_USED));
                     }
                 } catch (IOException | ClassNotFoundException e) {
-                    viewGuiServer.refreshDialogWindow("Возникла ошибка при добавлении нового пользователя");
+                    viewGuiServer.refreshDialogWindow("Возникла ошибка при добавлении нового пользователя\n");
                 }
             }
         }
@@ -73,23 +68,23 @@ public class Server {
                         sendMessageAllUser(new Message(MessageType.DISABLE_USER, user));
                         modelGuiServer.removeUser(user);
                         connection.close();
-                        viewGuiServer.refreshDialogWindow("Пользователь " + user + "(" + socket.getRemoteSocketAddress() + ") отключился");
+                        viewGuiServer.refreshDialogWindow("Пользователь " + user + "(" + socket.getRemoteSocketAddress() + ") отключился\n");
                         break;
                     }
                 } catch (IOException | ClassNotFoundException exception) {
-                    viewGuiServer.refreshDialogWindow("Ошибка при отправки сообщения пользователем " + user + "\nВероятно пользователь отключён");
+                    viewGuiServer.refreshDialogWindow("Ошибка при отправки сообщения пользователем " + user + ".Вероятно пользователь отключён\n");
                 }
             }
         }
 
         @Override
         public void run() {
-            viewGuiServer.refreshDialogWindow("Подключился пользователь " + socket.getRemoteSocketAddress());
+            viewGuiServer.refreshDialogWindow("Подключился пользователь " + socket.getRemoteSocketAddress()+"\n");
             try {
                 Connection connection = new Connection(socket);
                 messagesBetweenUsers(connection, addUser(connection));
             } catch (IOException exception) {
-                viewGuiServer.refreshDialogWindow("Ошибка подключения пользователя " + socket.getRemoteSocketAddress());
+                viewGuiServer.refreshDialogWindow("Ошибка подключения пользователя " + socket.getRemoteSocketAddress()+"\n");
             }
         }
 
@@ -100,7 +95,7 @@ public class Server {
             try {
                 new ServerThread(serverSocket.accept()).start();
             } catch (IOException exception) {
-                viewGuiServer.refreshDialogWindow("Связь с сервером потеряна");
+                viewGuiServer.refreshDialogWindow("Связь с сервером потеряна\n");
                 break;
             }
         }
@@ -110,9 +105,9 @@ public class Server {
         try {
             serverSocket = new ServerSocket(port);
             isServerStart = true;
-            viewGuiServer.refreshDialogWindow("Сервер запущен");
+            viewGuiServer.refreshDialogWindow("Сервер запущен\n");
         } catch (IOException exception) {
-            viewGuiServer.refreshDialogWindow("Сервер не получилось запустить");
+            viewGuiServer.refreshDialogWindow("Сервер не получилось запустить\n");
         }
     }
 
@@ -124,12 +119,12 @@ public class Server {
                 }
                 serverSocket.close();
                 modelGuiServer.getAllUsers().clear();
-                viewGuiServer.refreshDialogWindow("Сервер остановлен");
+                viewGuiServer.refreshDialogWindow("Сервер остановлен\n");
             } else {
-                viewGuiServer.refreshDialogWindow("Не удалось остановить сервер");
+                viewGuiServer.refreshDialogWindow("Не удалось остановить сервер\n");
             }
         } catch (Exception e) {
-            viewGuiServer.refreshDialogWindow("Не удалось запустить сервер!ЧАВО ТЫ НАДЕЛАЛ");
+            viewGuiServer.refreshDialogWindow("Не удалось запустить сервер!ЧАВО ТЫ НАДЕЛАЛ\n");
         }
     }
 
@@ -138,7 +133,7 @@ public class Server {
             try {
                 user.getValue().sendMessage(message);
             } catch (IOException e) {
-                viewGuiServer.refreshDialogWindow("Не удалось отправить сообщение всем клиентам");
+                viewGuiServer.refreshDialogWindow("Не удалось отправить сообщение всем клиентам\n");
             }
         }
     }

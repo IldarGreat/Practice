@@ -16,11 +16,10 @@ public class ViewGuiServer {
         this.server = server;
         textArea.setEditable(false);
         textArea.setLineWrap(true);
-        jFrame.add(new JScrollPane(textArea), BorderLayout.CENTER);
+        jFrame.add(new JScrollPane(textArea), BorderLayout.NORTH);
         jPanel.add(buttonStartServer);
         jPanel.add(buttonStopServer);
-        jPanel.add(textArea);
-        jFrame.add(jPanel, BorderLayout.CENTER);
+        jFrame.add(jPanel);
         jFrame.pack();
         jFrame.setLocationRelativeTo(null);
         jFrame.setDefaultCloseOperation(jFrame.DO_NOTHING_ON_CLOSE);
