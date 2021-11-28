@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice.network;
+package ru.ssau.tk.ildar.Practice.network.other;
 
 import java.io.IOException;
 import java.net.*;
