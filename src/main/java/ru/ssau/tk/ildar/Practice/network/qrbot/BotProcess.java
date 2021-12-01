@@ -10,6 +10,8 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Основная логика бота программы
@@ -17,6 +19,7 @@ import java.io.File;
 @Slf4j
 public class BotProcess extends TelegramLongPollingCommandBot {
     private final BotSettings botSettings = BotSettings.getInstance();
+    private List<String> registeredCommands = new ArrayList<>();
 
     /**
      * Отпраляет сообщение в заданый чат
@@ -79,6 +82,11 @@ public class BotProcess extends TelegramLongPollingCommandBot {
 
     @Override
     protected void processInvalidCommandUpdate(Update update) {
+        String command = update.getMessage().getText().substring(1);
+        sendImage(
+                update.getMessage().getChatId()
+                , String.format("Некоректная команда %s, доступные команды: %s", command, registeredCommands.toString())
+        );
     }
 
     @Override
