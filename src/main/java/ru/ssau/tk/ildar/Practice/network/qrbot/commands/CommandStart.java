@@ -11,9 +11,9 @@ public class CommandStart extends Command {
 
     @Override
     public void processMessage(AbsSender absSender, Message message, String[] strings) {
-        message.setText("Welcome!\n" +
-                "@QRDetectorBot greets you, I have two functions:\n" +
-                "reading and generating QR codes"
+        message.setText("Привествую!\n" +
+                "я @QRDetectorBot, и у меня есть 2 функции:\n" +
+                "чтение и запись QR кодов"
         );
         super.processMessage(absSender, message, strings);
     }

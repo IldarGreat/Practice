@@ -11,9 +11,9 @@ public class CommandHelp extends Command {
 
     @Override
     public void processMessage(AbsSender absSender, Message message, String[] strings) {
-        message.setText("Bot functions:\n" +
-                "-Reading QR codes:send the image of the QR code to read\n" +
-                "-Generation QR codes:send a link or text to generate"
+        message.setText("Функции бота:\n" +
+                "-Чтение QR кодов:отправьте изображение QR кода для чтения\n" +
+                "-Генерация QR кода:отправьте ссылку или текст"
         );
         super.processMessage(absSender, message, strings);
     }

@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice.network.qrbot;
+package ru.ssau.tk.ildar.Practice.network.qrbot.bot;
 
 import lombok.Data;
 import org.telegram.telegrambots.meta.TelegramBotsApi;

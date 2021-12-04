@@ -1,4 +1,4 @@
-package ru.ssau.tk.ildar.Practice.network.qrbot;
+package ru.ssau.tk.ildar.Practice.network.qrbot.bot;
 
 import com.google.zxing.WriterException;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +12,7 @@ import org.telegram.telegrambots.meta.api.objects.PhotoSize;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
+import ru.ssau.tk.ildar.Practice.network.qrbot.MessageType;
 import ru.ssau.tk.ildar.Practice.network.qrbot.commands.*;
 import ru.ssau.tk.ildar.Practice.network.qrbot.exception.UserException;
 import ru.ssau.tk.ildar.Practice.network.qrbot.qr.*;
@@ -105,7 +106,7 @@ public class BotProcessor extends TelegramLongPollingCommandBot {
         String command = update.getMessage().getText().substring(1);
         sendMessage(
                 update.getMessage().getChatId()
-                , String.format("Invalid command %s, available commands: %s", command, registeredCommands.toString())
+                , String.format("Некоректная команда %s, доступные команды: %s", command, registeredCommands.toString())
         );
     }
 
@@ -129,7 +130,7 @@ public class BotProcessor extends TelegramLongPollingCommandBot {
                 sendMessage(update.getMessage().getChatId(), e.getMessage());
             } catch (TelegramApiException | RuntimeException | IOException | WriterException e) {
                 log.error(String.format("Received message processing error: %s", e.getMessage()));
-                sendMessage(update.getMessage().getChatId(), "Error processing your message");
+                sendMessage(update.getMessage().getChatId(), "Ошибка обработки сообщения");
             }
         }
     }
@@ -167,7 +168,7 @@ public class BotProcessor extends TelegramLongPollingCommandBot {
                 text);
         if (text.length() > TEXT_LIMIT) {
             log.error(String.format("Message exceeds maximum length of %d", TEXT_LIMIT));
-            throw new UserException(String.format("Message exceeds maximum length %d symbols", TEXT_LIMIT));
+            throw new UserException(String.format("Максимальный размер текста %d символов", TEXT_LIMIT));
         }
         String imageUrl = QRTools.encodeText(text);
         logMessage(update.getMessage().getChatId(), update.getMessage().getFrom().getId(), false, "$image");
@@ -197,7 +198,7 @@ public class BotProcessor extends TelegramLongPollingCommandBot {
             return messageType;
         } catch (RuntimeException e) {
             log.error(String.format("Invalid message type: %s", e.getMessage()));
-            throw new UserException("Invalid message type");
+            throw new UserException("Неизвестный тип сообщений\nУточняем, если это изображение то оно должно быть в формате png");
         }
     }
 
@@ -265,7 +266,6 @@ public class BotProcessor extends TelegramLongPollingCommandBot {
     }
 
     private void registerCommands() {
-        registerCommands();
         register(new CommandStart());
         register(new CommandHelp());
         setRegisteredCommands();
