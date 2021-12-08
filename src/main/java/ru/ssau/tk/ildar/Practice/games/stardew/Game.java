@@ -52,26 +52,25 @@ public class Game extends Canvas implements Runnable, Serializable {
      */
     public void tick() {
         ticksCount++;
+        for (int i = 0; i < pixels.length; i++) {
+            pixels[i] = i + ticksCount;
+        }
     }
 
     public void render() {
         BufferStrategy bs = getBufferStrategy();
-        if(bs ==null){
+        if (bs == null) {
             createBufferStrategy(3);
             return;
         }
         Graphics graphics = bs.getDrawGraphics();
         graphics.setColor(Color.BLACK);
-        graphics.fillRect(0,0,getWidth(),getHeight());
+        graphics.fillRect(0, 0, getWidth(), getHeight());
+        graphics.drawImage(image, 0, 0, getWidth(), getHeight(), null);
         graphics.dispose();
         bs.show();
     }
 
-    /**
-     * В разных системах этот while будет работать по разному,
-     * это означает что игра на разных системах будет обновлятся с разной скоростью.
-     * Поэтому нужно ограничить эту скорость в 60 обновлений в секунду
-     */
     @Override
     public void run() {
         long lastTime = System.nanoTime();
@@ -80,6 +79,11 @@ public class Game extends Canvas implements Runnable, Serializable {
         int frames = 0;
         long lastTimer = System.currentTimeMillis();
         double delta = 0;
+        /*
+          В разных системах этот while будет работать по разному,
+          это означает что игра на разных системах будет обновлятся с разной скоростью.
+          Поэтому нужно ограничить эту скорость в 60 обновлений в секунду
+         */
         while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / nsPerTick;
