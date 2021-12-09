@@ -2,10 +2,7 @@ package ru.ssau.tk.ildar.Practice.games.stardew;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBuffer;
-import java.awt.image.DataBufferInt;
+import java.awt.image.*;
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -88,17 +85,10 @@ public class Game extends Canvas implements Runnable, Serializable {
             long now = System.nanoTime();
             delta += (now - lastTime) / nsPerTick;
             lastTime = now;
-            boolean shouldRender = true;
             while (delta >= 1) {
                 ticks++;
                 tick();
                 delta--;
-                shouldRender = true;
-            }
-            try {
-                Thread.sleep(2);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
 
             frames++;
