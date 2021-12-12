@@ -1,5 +1,7 @@
 package ru.ssau.tk.ildar.Practice.games.stardew;
 
+import ru.ssau.tk.ildar.Practice.games.stardew.gfx.SpriteSheet;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
@@ -18,6 +20,8 @@ public class Game extends Canvas implements Runnable, Serializable {
     public int ticksCount = 0;
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+
+    private SpriteSheet spriteSheet = new SpriteSheet("/sprite_sheet");
 
     public Game() {
         setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
