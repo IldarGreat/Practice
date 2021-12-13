@@ -81,7 +81,7 @@ public class Game extends Canvas implements Runnable, Serializable {
         long lastTimer = System.currentTimeMillis();
         double delta = 0;
         /*
-          В разных системах этот while будет работать по разному,
+          В разных системах этот while работал бы с разной скоростью,
           это означает что игра на разных системах будет обновлятся с разной скоростью.
           Поэтому нужно ограничить эту скорость в 60 обновлений в секунду
          */
