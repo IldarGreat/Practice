@@ -21,7 +21,7 @@ public class Game extends Canvas implements Runnable, Serializable {
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
-    private SpriteSheet spriteSheet = new SpriteSheet("/sprite_sheet");
+    private SpriteSheet spriteSheet = new SpriteSheet("/sprite_sheet.png");
 
     public Game() {
         setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -94,6 +94,7 @@ public class Game extends Canvas implements Runnable, Serializable {
                 tick();
                 delta--;
             }
+
 
             frames++;
             render();
