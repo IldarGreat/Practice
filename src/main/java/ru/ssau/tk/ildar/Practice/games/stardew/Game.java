@@ -1,5 +1,6 @@
 package ru.ssau.tk.ildar.Practice.games.stardew;
 
+import ru.ssau.tk.ildar.Practice.games.stardew.gfx.Screen;
 import ru.ssau.tk.ildar.Practice.games.stardew.gfx.SpriteSheet;
 
 import javax.swing.*;
@@ -18,10 +19,13 @@ public class Game extends Canvas implements Runnable, Serializable {
     private final JFrame frame;
     private boolean running = false;
     public int ticksCount = 0;
+
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
     private SpriteSheet spriteSheet = new SpriteSheet("/sprite_sheet.png");
+
+    private Screen screen;
 
     public Game() {
         setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -37,6 +41,10 @@ public class Game extends Canvas implements Runnable, Serializable {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+    }
+
+    public void init(){
+        screen = new Screen(WIDTH,HEIGHT,new SpriteSheet("/sprite_sheet.png"));
     }
 
     public synchronized void start() {
@@ -64,6 +72,7 @@ public class Game extends Canvas implements Runnable, Serializable {
             createBufferStrategy(3);
             return;
         }
+        screen.render(pixels,0,WIDTH);
         Graphics graphics = bs.getDrawGraphics();
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0, 0, getWidth(), getHeight());
@@ -80,6 +89,7 @@ public class Game extends Canvas implements Runnable, Serializable {
         int frames = 0;
         long lastTimer = System.currentTimeMillis();
         double delta = 0;
+        init();
         /*
           В разных системах этот while работал бы с разной скоростью,
           это означает что игра на разных системах будет обновлятся с разной скоростью.
@@ -94,7 +104,6 @@ public class Game extends Canvas implements Runnable, Serializable {
                 tick();
                 delta--;
             }
-
 
             frames++;
             render();
